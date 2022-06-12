@@ -1,0 +1,31 @@
+.header__container{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+.header__content{
+    padding-left: 3rem;
+}
+.header__content h5{
+       
+}
+.header__miniTitle{
+    background-color: #EBEBFD;
+    color: #777AF2;
+    padding: 5px 20px;
+    line-height: 1.3;
+    display: inline-flex;
+    border-radius: 30px!important;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+}
+
+.header__image{
+    width: 130%;
+    
+}
