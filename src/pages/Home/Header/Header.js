@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import style from "./Header.module.css";
 import headerImage from "../../../assets/marketing1.jpg";
-import {FaGreaterThan} from 'react-icons/fa'
+import { FaGreaterThan } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -10,7 +10,8 @@ const Header = () => {
       <Col xs={12} sm={12} md={6}>
         <div className={style.header__content}>
           <h5 className={style.header__miniTitle}>
-            Welcome to ignite visibility <span>We are a digital marketing agency</span>
+            <span className={style.title1}>Welcome to ignite visibility </span>
+            <span className={style.title2}>We are a digital marketing agency</span>
           </h5>
 
           <h1>Making an effective marketing campaign</h1>
