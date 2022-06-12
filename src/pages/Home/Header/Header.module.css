@@ -10,9 +10,6 @@
 .header__content{
     padding-left: 3rem;
 }
-.header__content h5{
-       
-}
 .header__miniTitle{
     background-color: #EBEBFD;
     color: #777AF2;
@@ -24,8 +21,45 @@
     z-index: 1;
     position: relative;
 }
+.header__miniTitle span{
+    padding-left: 5px;
+}
+.header__content h1{
+    color: #1e266d;
+    font-weight: 800;
+    font-family: Nunito;
+    font-size: 60px;
+    line-height: 60px;
+    padding:  25px 0;
+}
+.header__content h6{
+    line-height: 1.2;
+    font-weight: 600;
+    padding-bottom: 40px;
+    font-size: 20px;
+    color: #445781;
+}
 
+.header__button{
+    background-color: #777AF2;
+    color: #FFFFFF;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: inset 0 0 0 0 #fff;
+    transition: ease-out 0.7s;
+}
 .header__image{
     width: 130%;
-    
 }
+
+
+
+/* .header__button:hover{
+    box-shadow: inset 300px 0 0 0 #fff;
+    color: #1E266D;
+    background-color: #777AF2;
+} */
+
