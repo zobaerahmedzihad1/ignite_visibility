@@ -20,7 +20,7 @@ const Header = () => {
             business results. For us, the two are inseparable. It’s that simple
             and effective.
           </h6>
-          <button className={style.header__button}>Start a Project</button>
+          <button className='button'>Start a Project</button>
         </div>
       </Col>
       <Col xs={12} sm={12} md={6}>

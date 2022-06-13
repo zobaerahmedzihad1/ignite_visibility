@@ -58,7 +58,7 @@
     color: #445781;
 }
 
-.header__button{
+/* .header__button{
     background-color: #777AF2;
     color: #FFFFFF;
     padding: 10px 35px;
@@ -68,7 +68,7 @@
     font-weight: 600;
     box-shadow: inset 0 0 0 0 #fff;
     transition: ease-out 0.7s;
-}
+} */
 .header__image{
     width: 130%;
 }

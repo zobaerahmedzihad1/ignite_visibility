@@ -3,6 +3,7 @@ import NavBar from '../NavBar/NavBar';
 import Header from "../Header/Header";
 import style from './Home.module.css'
 import Brands from '../Brands/Brands';
+import HomeServices from '../HomeServices/HomeServices';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <NavBar/>
             <Header/>
             <Brands/>
+            <HomeServices/>
         </div>
     );
 };

@@ -1,0 +1,38 @@
+[
+    {
+    "_id" : 1,
+    "title": "Marketing",
+    "description": "We create effective action plans and design optimal business strategies",
+     "image": "https://i.ibb.co/M2747Gf/marketing-icon1.png"
+   },
+    {
+    "_id" : 2,
+    "title": "Strategy",
+    "description": "We create effective action plans and design optimal business strategies",
+     "image": "https://i.ibb.co/1fX4xZ2/marketing-icon2.png"
+   },
+    {
+    "_id" : 3,
+    "title": "UX Design",
+    "description": "We create effective action plans and design optimal business strategies",
+     "image": "https://i.ibb.co/cDCVdsB/marketing-icon3.png"
+   },
+    {
+    "_id" : 4,
+    "title": "SEO/SEM",
+    "description": "We create effective action plans and design optimal business strategies",
+     "image": "https://i.ibb.co/sVwBqfk/marketing-icon4.png"
+   },
+    {
+    "_id" : 5,
+    "title": "Development",
+    "description": "We create effective action plans and design optimal business strategies",
+     "image": "https://i.ibb.co/VtQ9q4K/marketing-icon5.png"
+   },
+    {
+    "_id" : 6,
+    "title": "Social Media",
+    "description": "We create effective action plans and design optimal business strategies",
+     "image": "https://i.ibb.co/Sc9djrL/marketing-icon6.png"
+   }
+]

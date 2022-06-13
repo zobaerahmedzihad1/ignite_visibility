@@ -23,7 +23,7 @@ const Brands = () => {
   return (
     <div className={style.brand__container}>
       <Container>
-        <Slider {...settings}>
+        <Slider {...settings} className={style.brand__background}>
           <div>
             <img src={logo1} alt="" />
           </div>

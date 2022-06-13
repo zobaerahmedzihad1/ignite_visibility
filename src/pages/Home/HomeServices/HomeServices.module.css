@@ -1,0 +1,16 @@
+.service__container{
+    background-color: #F5F6FE;
+    padding: 6rem 0;
+}
+.service__title h2{
+    color: #1e266d;
+    font-weight: 800;
+    font-family: Nunito;
+    font-size: 42px;
+    text-align: center;
+}
+.service__title h5{
+    text-align: center;
+    padding: 2rem 0;
+    color: #455881;
+}

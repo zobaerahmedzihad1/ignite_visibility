@@ -5,3 +5,15 @@
   box-sizing: border-box;
   font-family: 'Nunito', sans-serif;
 }
+
+.button{
+  background-color: #777AF2;
+  color: #FFFFFF;
+  padding: 10px 35px;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: inset 0 0 0 0 #fff;
+  transition: ease-out 0.7s;
+}
