@@ -14,6 +14,7 @@
     position: relative;
 }
 .header__miniTitle .title1{
+    font-size: 1rem;
     background-color: #8A71D6;
     color: #fff;
     padding: 5px 20px;
@@ -26,6 +27,7 @@
 
 }
 .header__miniTitle .title2{
+    font-size: 1rem;
     background: #EBEBFD;
     color: #777AF2;
     padding: 5px 20px;
@@ -35,7 +37,7 @@
     overflow: hidden;
     position: absolute;
     bottom: 0;
-    right: -9px;
+    right: 92px;
     z-index: 0;
 
 }

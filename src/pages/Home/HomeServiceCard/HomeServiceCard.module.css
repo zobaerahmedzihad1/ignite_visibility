@@ -1,0 +1,25 @@
+.serviceCard__container{
+   background-color: #FFFFFF;
+   padding: 1rem;
+   border: .1rem solid rgb(238, 235, 235);
+   border-radius: .4rem;
+   transition: all ease 0.3s;
+
+}
+.serviceCard__container:hover{
+box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+.serviceCard__img{
+    text-align: center;
+}
+.serviceCard__content{
+    text-align: center;
+}
+.serviceCard__content h4{
+    color: #1E266D;
+    font-weight: 700;
+    padding: 2rem 0;
+}
+.hello{
+    color: red;
+}

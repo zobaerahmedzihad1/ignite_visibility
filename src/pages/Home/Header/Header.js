@@ -17,7 +17,7 @@ const Header = () => {
           <h1>Making an effective marketing campaign</h1>
           <h6>
             Our service offering brings together creativity and exceptional
-            business results. For us, the two are inseparable. It’s that simple
+            business results. For us, the two are inseparable. It's that simple
             and effective.
           </h6>
           <button className='button'>Start a Project</button>
