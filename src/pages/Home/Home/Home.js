@@ -1,9 +1,10 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
 import Header from "../Header/Header";
-import style from './Home.module.css'
 import Brands from '../Brands/Brands';
 import HomeServices from '../HomeServices/HomeServices';
+import MarketingPlanning from '../MarketingPlanning/MarketingPlanning';
+import style from './Home.module.css'
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Header/>
             <Brands/>
             <HomeServices/>
+            <MarketingPlanning/>
         </div>
     );
 };

@@ -60,26 +60,7 @@
     color: #445781;
 }
 
-/* .header__button{
-    background-color: #777AF2;
-    color: #FFFFFF;
-    padding: 10px 35px;
-    border: none;
-    border-radius: 25px;
-    font-size: 18px;
-    font-weight: 600;
-    box-shadow: inset 0 0 0 0 #fff;
-    transition: ease-out 0.7s;
-} */
 .header__image{
     width: 130%;
 }
-
-
-
-/* .header__button:hover{
-    box-shadow: inset 300px 0 0 0 #fff;
-    color: #1E266D;
-    background-color: #777AF2;
-} */
 
