@@ -3,8 +3,11 @@
     border-bottom: 1px solid rgb(184, 181, 181);
     cursor: pointer;
 }
-.campain__container h5{
+.campain__container a{
     font-weight: 600;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: #1E266D;
 }
 .marketing:hover{
     color: #777AF2;

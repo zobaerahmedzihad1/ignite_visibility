@@ -1,0 +1,37 @@
+.distributing__container{
+    width: 90%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+.distributing__content{
+    padding-left: 3rem;
+}
+.distributing__miniTitle{
+    color: #777AF2;
+    font-weight: 600;
+}
+
+.distributing__content h1{
+    color: #1e266d;
+    font-weight: 800;
+    font-family: Nunito;
+    font-size: 44px;
+    line-height: 60px;
+    padding:  10px 0 20px 0;
+}
+.distributing__content h6{
+    line-height: 1.2;
+    font-weight: 600;
+    padding-bottom: 40px;
+    font-size: 20px;
+    color: #445781;
+}
+
+.distributing__image{
+    width: 100%;
+}
+
