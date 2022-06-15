@@ -5,6 +5,7 @@ import Brands from '../Brands/Brands';
 import HomeServices from '../HomeServices/HomeServices';
 import MarketingPlanning from '../MarketingPlanning/MarketingPlanning';
 import style from './Home.module.css'
+import Campain from '../Campain/Campain';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Header/>
             <Brands/>
             <HomeServices/>
+            <Campain/>
             <MarketingPlanning/>
         </div>
     );

@@ -1,0 +1,17 @@
+.campain__container{
+    padding: 7rem 0 1rem 0;
+    border-bottom: 1px solid rgb(184, 181, 181);
+    cursor: pointer;
+}
+.campain__container h5{
+    font-weight: 600;
+}
+.marketing:hover{
+    color: #777AF2;
+}
+.distributing:hover{
+    color: #777AF2;
+}
+.campaigns:hover{
+    color: #777AF2;
+}

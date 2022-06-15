@@ -5,7 +5,8 @@ import style from "./MarketingPlanning.module.css";
 
 const MarketingPlanning = () => {
   return (
-    <Row className={style.marketing__container}>
+    <div id="#marketing__planning">
+        <Row className={style.marketing__container}>
       <Col xs={12} sm={12} md={6}>
         <div className={style.marketing__content}>
           <p className={style.marketing__miniTitle}>
@@ -30,6 +31,7 @@ const MarketingPlanning = () => {
         </div>
       </Col>
     </Row>
+    </div>
   );
 };
 
