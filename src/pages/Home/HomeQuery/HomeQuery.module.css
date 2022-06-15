@@ -1,0 +1,38 @@
+.home__query__container{
+    background-color: #F5F6FE;
+    border-radius: 1.3rem;
+    padding: 6rem 3rem;
+}
+.home__query__content h2{
+    text-align: center;
+    font-size: 45px;
+    font-weight: 800;
+    color: #1e266d;
+    
+}
+.home__query__content p{
+    text-align: center;
+    line-height: 3;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #455881;
+}
+.home__query__inputs{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+.home__query__inputs input{
+    margin: 0 .7rem;
+    padding: .2rem .7rem;
+    width: 320px;
+    border: none;
+    border: 1px solid rgb(197, 193, 193);
+    border-radius: 10px;
+    outline: none;
+}
+.home__query__inputs input:focus{
+    border: 1px solid #777AF2;
+}
+

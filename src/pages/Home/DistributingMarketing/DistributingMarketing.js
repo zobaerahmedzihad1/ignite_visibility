@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import distributingImg from "../../../assets/marketing3.png";
 import {BsCheck2Circle} from 'react-icons/bs'
 import style from "./DistributingMarketing.module.css";
