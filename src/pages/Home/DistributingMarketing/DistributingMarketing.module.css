@@ -34,4 +34,15 @@
 .distributing__image{
     width: 100%;
 }
+.distributing__marketing__feature h5{
+    color:#445781;
+}
+.check__icon{
+    color:  #777AF2;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 .5rem 0 0;
+    padding: .1rem;
+    border-radius: .3rem;
+}
 

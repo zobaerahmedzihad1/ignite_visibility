@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import distributingImg from "../../../assets/marketing3.png";
+import {BsCheck2Circle} from 'react-icons/bs'
 import style from "./DistributingMarketing.module.css";
 
 const DistributingMarketing = () => {
@@ -27,6 +28,12 @@ const DistributingMarketing = () => {
               If you've never run a marketing campaign before, it can be tough
               to understand.
             </h6>
+            <div className={style.distributing__marketing__feature}>
+                <h5> <BsCheck2Circle className={style.check__icon}/> Increase brand awareness</h5>
+                <h5> <BsCheck2Circle className={style.check__icon}/> Promote a new product or service</h5>
+                <h5> <BsCheck2Circle className={style.check__icon}/> Start an online business</h5>
+                <h5> <BsCheck2Circle className={style.check__icon}/> Marketing plan generator</h5>
+            </div>
             <button className="button">Learn More</button>
           </div>
         </Col>
