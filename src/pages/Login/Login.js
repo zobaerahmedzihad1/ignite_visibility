@@ -5,11 +5,67 @@ import style from "./Login.module.css";
 import { Link } from "react-router-dom";
 import { ImGoogle2 } from "react-icons/im";
 import { FaFacebookSquare } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const handleLoginFormSubmit = (event) => {
     event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const user = { email, password };
+    if (!email && !password) {
+      emptyField();
+    } else if (!email) {
+      errorEmail();
+    } else if (!password) {
+      errorPassword();
+    } else {
+      success();
+      event.target.reset()
+    }
   };
+
+  const success = () =>
+    toast.success("Successfully login.", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  const errorEmail = () =>
+    toast.error("Enter Your Email", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  const errorPassword = () =>
+    toast.error("Enter a valid password.", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  const emptyField = () =>
+    toast.error("Please fill this field.", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   return (
     <div className={style.login__container}>
       <h2>Login To Your Account</h2>
@@ -91,6 +147,17 @@ const Login = () => {
           </Row>
         </div>
       </Container>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
