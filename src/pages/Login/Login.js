@@ -46,19 +46,39 @@ const Login = () => {
                       <Link to="/sign-up">sign-up</Link>{" "}
                     </h5>
                     <h5 className={style.sign__up}>
-                      <Link className={style.privacy__policy} to="/sign-up">Our privacy policy ||</Link> 
-                      <Link className={style.forgot__password} to="/sign-up">Forgot your password</Link>{" "}
+                      <Link
+                        className={style.privacy__policy}
+                        to="/privacy__policy"
+                      >
+                        Our privacy policy ||
+                      </Link>
+                      <Link
+                        className={style.forgot__password}
+                        to="/forgot__password"
+                      >
+                        Forgot your password
+                      </Link>{" "}
                     </h5>
                   </div>
                   <div className={style.social__login}>
-                    <span className={style.google__login}>
-                      {" "}
-                      <ImGoogle2 /> Google
-                    </span>
-                    <span className={style.facebook__login}>
-                      {" "}
-                      <FaFacebookSquare /> Facebook
-                    </span>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to="/google__login"
+                    >
+                      <span className={style.google__login}>
+                        {" "}
+                        <ImGoogle2 /> Google
+                      </span>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to="/facebook__login"
+                    >
+                      <span className={style.facebook__login}>
+                        {" "}
+                        <FaFacebookSquare /> Facebook
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </div>

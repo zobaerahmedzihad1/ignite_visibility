@@ -3,7 +3,7 @@
     background-color: rgb(228, 221, 221);
     color: #31397A;
     height: 100vh;
-    padding: 1.5rem 0;
+    padding: 3rem 0 1rem 0;
     border-radius: 10px;
 }
 .login__container h2{
@@ -19,11 +19,12 @@
 
 }
 .login__inputs{
-    padding: 1rem;
+    padding: .5rem;
 }
 .login__inputs h3{
 font-size: 2rem;
 font-weight: 700;
+padding-top: .7rem;
 }
 .login__inputs p{
     color: #777AF2;
@@ -75,6 +76,7 @@ font-weight: 700;
     color: #FFFFFF;
 }
 .facebook__login{
+    text-decoration: none;
     font-size: 1.5rem ;
     background-color: #777AF2;
     border-radius: .3rem;
