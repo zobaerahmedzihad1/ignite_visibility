@@ -1,0 +1,65 @@
+.projectIdea__container{
+    height: 100vh;
+    background: url('../../../assets/marketing-logos2.png');
+    /* z-index: -1; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text__wrapper h1{
+    color: #1e266d;
+    font-weight: 800;
+    font-size: 45px;
+}
+
+
+/* text */
+
+.text__wrapper{
+    box-sizing: content-box;
+    height: 50px;
+    display: flex;
+    
+}
+
+.text__wrapper span {
+    color: #1e266d;
+    font-weight: 800;
+    font-size: 45px;
+    display: block;
+    height: 100%;
+    padding: 0 10px;
+
+    animation: spin__words 6s infinite;
+}
+.words{
+    overflow: hidden;
+    font-weight: 600;
+}
+
+@keyframes spin__words{
+    10%{
+        transform: translateY(-112%);
+    }
+    25%{
+        transform: translateY(-100%);
+    }
+    35%{
+        transform: translateY(-212%);
+    }
+    50%{
+        transform: translateY(-200%);
+    }
+    60%{
+        transform: translateY(-312%);
+    }
+    75%{
+        transform: translateY(-300%);
+    }
+    85%{
+        transform: translateY(-412%);
+    }
+    100%{
+        transform: translateY(-400%);
+    }
+}
