@@ -10,12 +10,12 @@ const NotFound = () => {
     <div className={style.notFound__container}>
       <Container>
         <Row className={`${style.notFound} shadow-lg rounded`}>
-          <Col>
+          <Col xs={12} sm={12} md={6} lg={6}>
             <div className={style.notFound__img}>
               <img src={notFound} alt="img" />
             </div>
           </Col>
-          <Col>
+          <Col xs={12} sm={12} md={6} lg={6}>
             <div className={style.notFound__content}>
               <h2>Oops</h2>
               <h4>404 - Page Not Found</h4>

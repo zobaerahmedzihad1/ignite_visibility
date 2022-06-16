@@ -1,0 +1,91 @@
+.login__container{
+    text-align: center;
+    background-color: #F5F6FE;
+    height: 100vh;
+    padding: 2rem 0;
+}
+.login__container h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding-bottom: 2rem;
+}
+.login__content{
+    border: 1px solid gainsboro;
+    height: 75vh;
+    /* background-color:#fff; */
+    /* background-color: #FFF; */
+    /* display: flex;  */
+    /* justify-content: center; */
+    /* align-items: center;  */
+}
+.login__inputs{
+    padding: 2rem;
+    /* background-color:#fff; */
+}
+.login__inputs h3{
+font-size: 2rem;
+font-weight: 600;
+}
+.login__inputs p{
+    color: #777AF2;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* form */
+
+.input{
+    display: block;
+    width: 380px;
+    padding: .5rem .7rem;
+    margin: 2rem auto;
+    outline: none;
+    border: none;
+    border: 1px solid rgb(197, 193, 193);
+    border-radius: 5px;
+}
+.input:focus{
+    border: 1px solid #777AF2;
+}
+.button{
+    background-color: #777AF2;
+    color: #FFFFFF;
+    padding: 10px 35px;
+    width: 380px;
+    border: none;
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: inset 0 0 0 0 #fff;
+    transition: ease-out 0.7s;
+  }
+
+
+
+/* .login__inputs input{
+    margin: 0 .7rem;
+    padding: .3rem .7rem;
+    margin: 1rem 0;
+    width: 320px;
+    border: none;
+    border: 2px solid rgb(197, 193, 193);
+    border-radius: 5px;
+    outline: none;
+}
+.login__inputs input:focus{
+    border: 1px solid #777AF2;
+}  */
+
+
+
+
+.login__img img{
+    width: 100%;
+}
+.sign__up{
+    color: #31397A;
+    padding: .5rem 0;
+}
+/* .sign__up a{
+    text-decoration: none;
+} */
