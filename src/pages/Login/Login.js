@@ -1,9 +1,10 @@
 import { Col, Container, Row } from "react-bootstrap";
 import React from "react";
 import login from "../../assets/login__image.jpg";
-import login2 from "../../assets/login2.gif";
 import style from "./Login.module.css";
 import { Link } from "react-router-dom";
+import { ImGoogle2 } from "react-icons/im";
+import { FaFacebookSquare } from "react-icons/fa";
 
 const Login = () => {
   const handleLoginFormSubmit = (event) => {
@@ -37,12 +38,27 @@ const Login = () => {
                         autoComplete="off"
                         name="password"
                       />
+
                       <button className={style.button}> Login</button>
                     </form>
                     <h5 className={style.sign__up}>
                       New to ignite visibility ? please{" "}
-                      <Link to="/signup">sign-up</Link>{" "}
+                      <Link to="/sign-up">sign-up</Link>{" "}
                     </h5>
+                    <h5 className={style.sign__up}>
+                      <Link className={style.privacy__policy} to="/sign-up">Our privacy policy ||</Link> 
+                      <Link className={style.forgot__password} to="/sign-up">Forgot your password</Link>{" "}
+                    </h5>
+                  </div>
+                  <div className={style.social__login}>
+                    <span className={style.google__login}>
+                      {" "}
+                      <ImGoogle2 /> Google
+                    </span>
+                    <span className={style.facebook__login}>
+                      {" "}
+                      <FaFacebookSquare /> Facebook
+                    </span>
                   </div>
                 </div>
               </div>
