@@ -1,0 +1,29 @@
+.location__container{
+    padding: 4rem 0;
+}
+.address{
+    display: flex;
+    padding: .5rem 0;
+}
+.address span{
+    height: 50px;
+    width: 75px;
+    border: 2px solid #787BF2;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #787BF2;
+    margin-right: 20px;
+}
+.icon{
+    font-size: 2rem;
+    color: #787BF2 !important;
+}
+.address h5{
+    font-weight: 700;
+    color: #1E266D;
+}
+.address p{
+    color: #8C8C8C;
+}
