@@ -1,26 +1,37 @@
 import React from "react";
-import { Navbar, Container, Nav, NavLink } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import style from "./NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <div className={style.navBar__container}>
-      <Navbar bg="light" variant="light" fixed='top' >
+    <>
+      <Navbar bg="light" variant="light"  sticky="top">
         <Container>
-          <Navbar.Brand as={Link} to="/">
-            <img className={style.logo} src={logo} alt="logo" />
+          <Navbar.Brand as={NavLink} to="/home" className="fw-bold">
+            Creative Academy
           </Navbar.Brand>
-          <Nav className="me-auto">
-            <NavLink as={Link} to="/home">Home</NavLink>
-            <NavLink as={Link} to="/contact-us">contact</NavLink>
-            <Nav.Link  as={Link} to="/login">login</Nav.Link>
-            <Nav.Link as={Link} to="/privacy__policy">privacy</Nav.Link>
+          <Nav className="ms-auto">
+            <Nav.Link as={NavLink} to="/">
+              Home
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/login">
+              login
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/contact-us">
+              Contact
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/">
+              FAQ
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/contact">
+              Contact Us
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
-    </div>
+    </>
   );
 };
 
