@@ -3,7 +3,7 @@
     background-color: rgb(228, 221, 221);
     color: #31397A;
     height: 100vh;
-    padding: 3rem 0 1rem 0;
+    padding: 5rem 0 1rem 0;
     border-radius: 10px;
 }
 .login__container h2{
@@ -14,7 +14,7 @@
 }
 .login__content{
     border: 1px solid gainsboro;
-    height: 75vh;
+    /* height: 75vh; */
     background-color: #F5F6FE;;
 
 }
