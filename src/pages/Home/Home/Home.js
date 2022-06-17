@@ -11,7 +11,6 @@ import ProjectIdea from "../ProjectIdea/ProjectIdea";
 const Home = () => {
   return (
     <div>
-      <NavBar />
       <Header />
       <Brands />
       <HomeServices />
