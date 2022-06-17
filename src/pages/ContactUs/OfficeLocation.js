@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./OfficeLocation.module.css";
 import { Col, Container, Row } from "react-bootstrap";
-import { HiOutlineLocationMarker } from "react-icons/hi";
+import { HiOutlineLocationMarker, HiOutlineMail } from "react-icons/hi";
 import { BiMessageRoundedCheck } from "react-icons/bi";
 import { IoMdMail } from "react-icons/io";
 
@@ -17,11 +17,16 @@ const OfficeLocation = () => {
             <Col xs={12} sm={12} md={6} lg={6}>
               <div className={style.address__container}>
                 <div className={style.address}>
-                  <span>
+                  <span className={style.location__icon}>
                     <HiOutlineLocationMarker className={style.icon} />
                   </span>
                   <div>
-                    <h5>Road 27, House : 46, Dhanmondi, Dhaka.</h5>
+                    <a
+                      href="https://goo.gl/maps/LWdcZmQU4z22XctL8"
+                      target="_blank."
+                    >
+                      Road 27, House : 46, Mohammadpur, Dhaka.
+                    </a>
                     <p>
                       Find the addresses, directions, hours of operation, staff
                       and more for each of our locations and affiliates.
@@ -29,11 +34,13 @@ const OfficeLocation = () => {
                   </div>
                 </div>
                 <div className={style.address}>
-                  <span>
+                  <span className={style.tel__icon}>
                     <BiMessageRoundedCheck className={style.icon} />
                   </span>
                   <div>
-                    <h5>(+880) 1623171474 / 1630704167</h5>
+                    <a href="tel:" target="_blank.">
+                      (+880) 1623171474 / 1630704167
+                    </a>
                     <p>
                       Call us today or visit our appointment request page to
                       find a time that is convenient for you.
@@ -41,11 +48,16 @@ const OfficeLocation = () => {
                   </div>
                 </div>
                 <div className={style.address}>
-                  <span>
-                    <IoMdMail className={style.icon} />
+                  <span className={style.gmail__icon}>
+                    <HiOutlineMail className={style.icon} />
                   </span>
                   <div>
-                    <h5>zobaerahmedzihad02@gmail.com</h5>
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=zobaerahmedzihad02@gmail.com"
+                      target="_blank."
+                    >
+                      zobaerahmedzihad02@gmail.com
+                    </a>
                     <p>
                       Before you drop us a line or pick up the phone, you might
                       find your answer by searching on our list of questions.

@@ -5,9 +5,31 @@
     display: flex;
     padding: .5rem 0;
 }
-.address span{
+.location__icon{
     height: 50px;
-    width: 75px;
+    width: 80px;
+    border: 2px solid #787BF2;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #787BF2;
+    margin-right: 20px;
+}
+.tel__icon{
+    height: 50px;
+    width: 70px;
+    border: 2px solid #787BF2;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #787BF2;
+    margin-right: 20px;
+}
+.gmail__icon{
+    height: 50px;
+    width: 85px;
     border: 2px solid #787BF2;
     border-radius: 15px;
     display: flex;
@@ -20,9 +42,12 @@
     font-size: 2rem;
     color: #787BF2 !important;
 }
-.address h5{
+
+.address a{
+    font-size: 1.3rem;
     font-weight: 700;
     color: #1E266D;
+    text-decoration: none;
 }
 .address p{
     color: #8C8C8C;
