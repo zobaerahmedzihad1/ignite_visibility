@@ -7,6 +7,7 @@ import { ImGoogle2 } from "react-icons/im";
 import { FaFacebookSquare } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const handleLoginFormSubmit = (event) => {
@@ -117,24 +118,7 @@ const Login = () => {
                     </h5>
                   </div>
                   <div className={style.social__login}>
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to="/google__login"
-                    >
-                      <span className={style.google__login}>
-                        {" "}
-                        <ImGoogle2 /> Google
-                      </span>
-                    </Link>
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to="/facebook__login"
-                    >
-                      <span className={style.facebook__login}>
-                        {" "}
-                        <FaFacebookSquare /> Facebook
-                      </span>
-                    </Link>
+                    <SocialLogin/>
                   </div>
                 </div>
               </div>

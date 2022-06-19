@@ -1,0 +1,23 @@
+.google__login{
+    font-size: 1.5rem ;
+    border-radius: .3rem;
+    padding: .2rem .5rem;
+    background-color: #777AF2;
+    color: #FFFFFF;
+}
+.facebook__login{
+    text-decoration: none;
+    font-size: 1.5rem ;
+    background-color: #777AF2;
+    border-radius: .3rem;
+    padding: .2rem .5rem;
+    color: #FFFFFF;
+    margin: 0 .4rem;
+}
+
+.google__login img{
+    width: 7%;
+}
+.facebook__login img{
+    width: 10%;
+}
