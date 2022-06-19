@@ -3,7 +3,6 @@ import style from "./OfficeLocation.module.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { HiOutlineLocationMarker, HiOutlineMail } from "react-icons/hi";
 import { BiMessageRoundedCheck } from "react-icons/bi";
-import { IoMdMail } from "react-icons/io";
 import GoogleMaps from "./GoogleMaps";
 
 const OfficeLocation = () => {
@@ -13,7 +12,9 @@ const OfficeLocation = () => {
         <Container>
           <Row>
             <Col xs={12} sm={12} md={6} lg={6}>
+              <div className={style.google__map}>
               <GoogleMaps/>
+              </div>
             </Col>
             <Col xs={12} sm={12} md={6} lg={6}>
               <div className={style.address__container}>
