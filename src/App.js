@@ -4,7 +4,7 @@ import NotFound from "./pages/components/NotFound/NotFound";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Home from "./pages/Home/Home/Home";
 import NavBar from "./pages/Home/NavBar/NavBar";
-import Login from "./pages/Login/Login";
+import Login from "./pages/Login/Login/Login";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import SignUp from "./pages/SignUp/SignUp";
 

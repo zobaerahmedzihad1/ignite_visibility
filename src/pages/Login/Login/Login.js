@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import React from "react";
-import login from "../../assets/login__image.jpg";
+import login from "../../../assets/login__image.jpg";
 import style from "./Login.module.css";
 import { Link } from "react-router-dom";
 import { ImGoogle2 } from "react-icons/im";
