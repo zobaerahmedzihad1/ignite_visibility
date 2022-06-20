@@ -1,8 +1,12 @@
+.social__login button {
+    border: none;
+}
 .google__login{
     font-size: 1.5rem ;
     border-radius: .3rem;
     padding: .2rem .5rem;
     background-color: #777AF2;
+    outline: none;
     color: #FFFFFF;
 }
 .facebook__login{
