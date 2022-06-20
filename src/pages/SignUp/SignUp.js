@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import signUp from "../../assets/login2.gif";
+import signUp from "../../assets/signup.webp";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SocialLogin from "../Login/SocialLogin/SocialLogin";
@@ -32,25 +32,38 @@ const SignUp = () => {
                       <form onSubmit={handleCreateUser}>
                         <input
                           className={style.input}
+                          type="text"
+                          placeholder="Enter Your Name"
+                          autoComplete="off"
+                          name="name"
+                        />
+                        <input
+                          className={style.input}
                           type="email"
                           placeholder="Enter Your Email"
                           autoComplete="off"
                           name="email"
                         />
-
                         <input
                           className={style.input}
                           type="password"
-                          placeholder="Enter Your Password"
+                          placeholder="Create A Secure Password"
+                          autoComplete="off"
+                          name="password"
+                        />
+                        <input
+                          className={style.input}
+                          type="password"
+                          placeholder="Confirm Your Password"
                           autoComplete="off"
                           name="password"
                         />
 
-                        <button className={style.button}> Login</button>
+                        <button className={style.button}>Sign up</button>
                       </form>
                       <h5 className={style.sign__up}>
                         Already have an account. Please
-                        <Link to="/login">Login</Link>{" "}
+                        <Link className='m-2' to="/login">Login</Link>{" "}
                       </h5>
                       <h5 className={style.sign__up}>
                         <Link
