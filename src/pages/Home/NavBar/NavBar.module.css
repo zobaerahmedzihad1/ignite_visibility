@@ -1,3 +1,10 @@
-/* .logo{
+.logo{
     width: 80%;
-} */
+}
+.navBar{
+    box-shadow: 0 0 1.56rem rgba(0, 0, 0, 0.2);
+}
+.navLink a{
+font-size: 18px;
+font-weight: 500;
+}

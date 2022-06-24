@@ -1,24 +1,23 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
+// import logo from "../../../assets/logo.png";
 import style from "./NavBar.module.css";
 
 const NavBar = () => {
   return (
     <>
-      <Navbar bg="light" variant="light"  sticky="top">
+      <Navbar className={style.navBar} bg="light" variant="light" sticky="top">
         <Container>
           <Navbar.Brand as={NavLink} to="/home" className="fw-bold">
-            Creative Academy
+            <img className={style.logo} src={logo} alt="" />
           </Navbar.Brand>
-          <Nav className="ms-auto">
+          <Nav className={`${style.navLink} ms-auto`}>
             <Nav.Link as={NavLink} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/login">
-              login
-            </Nav.Link>
+
             <Nav.Link as={NavLink} to="/contact-us">
               Contact
             </Nav.Link>
@@ -27,6 +26,9 @@ const NavBar = () => {
             </Nav.Link>
             <Nav.Link as={NavLink} to="/contact">
               Contact Us
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/login">
+              login
             </Nav.Link>
           </Nav>
         </Container>

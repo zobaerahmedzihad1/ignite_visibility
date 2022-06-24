@@ -13,22 +13,22 @@ const SignUp = () => {
   };
   return (
     <div>
-      <div className={style.login__container}>
+      <div className={style.signUp__container}>
         <h2>Create Your Own Account</h2>
         <Container>
-          <div className={style.login__content}>
+          <div className={style.signUp__content}>
             <Row>
               <Col xs={12} sm={12} md={6} lg={6}>
-                <div className={style.login__img}>
+                <div className={style.signUp__img}>
                   <img src={signUp} alt="img" />
                 </div>
               </Col>
               <Col xs={12} sm={12} md={6} lg={6}>
-                <div className={style.login__inputs}>
+                <div className={style.signUp__inputs}>
                   <h3>Please SignUp</h3>
                   <p>Please enter your information to create your account</p>
                   <div>
-                    <div className={style.login__inputs}>
+                    <div className={style.signUp__inputs}>
                       <form onSubmit={handleCreateUser}>
                         <input
                           className={style.input}

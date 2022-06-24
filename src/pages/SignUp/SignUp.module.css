@@ -1,4 +1,4 @@
-.login__container{
+.signUp__container{
     text-align: center;
     background-color: rgb(228, 221, 221);
     color: #31397A;
@@ -6,27 +6,27 @@
     padding: 1rem 0 0rem 0;
     border-radius: 10px;
 }
-.login__container h2{
+.signUp__container h2{
     font-size: 2.5rem;
     font-weight: 800;
     padding-bottom: .3rem;
     color: #8d74e7;
 }
-.login__content{
+.signUp__content{
     border: 1px solid gainsboro;
     /* height: 75vh; */
     background-color: #F5F6FE;;
 
 }
-.login__inputs{
+.signUp__inputs{
     /* padding: .2rem; */
 }
-.login__inputs h3{
+.signUp__inputs h3{
 font-size: 2rem;
 font-weight: 700;
 padding-top: .3rem;
 }
-.login__inputs p{
+.signUp__inputs p{
     color: #777AF2;
     font-size: 1.2rem;
     font-weight: 500;
@@ -58,11 +58,11 @@ padding-top: .3rem;
     box-shadow: inset 0 0 0 0 #fff;
     transition: ease-out 0.7s;
   }
-.login__img{
+.signUp__img{
     background-color: #FFFFFF;
 }
 
-.login__img img{
+.signUp__img img{
     width: 100%;
     object-fit: cover;
 }
