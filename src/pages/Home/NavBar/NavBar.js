@@ -8,9 +8,16 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "../../../assets/logo.png";
 import style from "./NavBar.module.css";
-import {NavLink} from 'react-router-dom'
+import { NavLink } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const NavBar = () => {
+  const user = useAuthState(auth);
+  const handleSignOut = () => {
+    signOut(auth);
+  };
   return (
     <>
       {["md"].map((expand) => (
@@ -37,21 +44,38 @@ const NavBar = () => {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3 ">
-                  <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
-                  <Nav.Link as={NavLink} to="/login">login</Nav.Link>
+                  <Nav.Link as={NavLink} to="/home">
+                    Home
+                  </Nav.Link>
+
+                  <Nav.Link as={NavLink} to="/contact-us">
+                    Contact
+                  </Nav.Link>
                   <NavDropdown
                     title="Admin-Activities"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item as={NavLink} to="/contact">contact</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Another action
+                    <NavDropdown.Item as={NavLink} to="/dashboard">
+                      Dashboard
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={NavLink} to="/make-admin">
+                      Make Admin
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Something else here
+                    <NavDropdown.Item as={NavLink} to="/add-new-service">
+                      Add new service
                     </NavDropdown.Item>
                   </NavDropdown>
+
+                  {user[0]?.uid ? (
+                    <Nav.Link onClick={handleSignOut} as={NavLink} to="/login">
+                      Sign Out
+                    </Nav.Link>
+                  ) : (
+                    <Nav.Link as={NavLink} to="/login">
+                      Login
+                    </Nav.Link>
+                  )}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
