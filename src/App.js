@@ -3,8 +3,7 @@ import "./App.css";
 import NotFound from "./pages/components/NotFound/NotFound";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Home from "./pages/Home/Home/Home";
-// import NavBar from "./pages/Home/NavBar/NavBar";
-import NavBar2 from './pages/Home/NavBar/NavBar2'
+import NavBar from "./pages/Home/NavBar/NavBar";
 import Login from "./pages/Login/Login/Login";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import SignUp from "./pages/SignUp/SignUp";
@@ -12,8 +11,7 @@ import SignUp from "./pages/SignUp/SignUp";
 function App() {
   return (
     <div>
-      {/* <NavBar /> */}
-      <NavBar2/>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
