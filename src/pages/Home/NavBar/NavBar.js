@@ -15,6 +15,7 @@ import { signOut } from "firebase/auth";
 
 const NavBar = () => {
   const user = useAuthState(auth);
+  console.log(user[0]?.photoURL);
   const handleSignOut = () => {
     signOut(auth);
   };
@@ -25,10 +26,10 @@ const NavBar = () => {
           key={expand}
           bg="light"
           expand={expand}
-          className="mb-3 px-5 fixed-top"
+          className="px-5 sticky-top"
         >
           <Container fluid>
-            <Navbar.Brand as={NavLink} to="/home">
+            <Navbar.Brand as={NavLink} to="#home">
               <img style={{ width: "85%" }} src={logo} alt="logo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
