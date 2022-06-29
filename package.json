@@ -25,6 +25,7 @@
     "react-slick": "^0.29.0",
     "react-toastify": "^9.0.4",
     "slick-carousel": "^1.8.1",
+    "swiper": "^8.2.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -41,7 +42,7 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%", 
+      ">0.2%",
       "not dead",
       "not op_mini all"
     ],

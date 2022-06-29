@@ -9,7 +9,7 @@ const ProjectIdea = () => {
         <div className={style.words}>
           <span>Let's Talk !</span>
           <span>Start Today !</span>
-          <span>We Can Help.</span>
+          <span>We Can Help !</span>
           <span>Start Today !</span>
           <span>Let's Talk ! </span>
         </div>

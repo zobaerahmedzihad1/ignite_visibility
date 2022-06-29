@@ -29,7 +29,7 @@ const NavBar = () => {
           className="px-5 sticky-top"
         >
           <Container fluid>
-            <Navbar.Brand as={NavLink} to="#home">
+            <Navbar.Brand as={NavLink} to="/">
               <img style={{ width: "85%" }} src={logo} alt="logo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

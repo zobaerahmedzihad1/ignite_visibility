@@ -7,7 +7,8 @@ import Campain from "../Campain/Campain";
 import HomeQuery from "../HomeQuery/HomeQuery";
 import style from "./Home.module.css";
 import ProjectIdea from "../ProjectIdea/ProjectIdea";
-import Reviews from "../Reviews/Reviews";
+import Review from "../Reviews/Review/Review";
+
 
 const Home = () => {
   return (
@@ -18,7 +19,7 @@ const Home = () => {
       <Campain />
       <HomeQuery />
       <ProjectIdea/>
-      <Reviews/>
+      <Review/>
     </div>
   );
 };
