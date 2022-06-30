@@ -4,7 +4,7 @@ import { FaCheck, FaTimes } from "react-icons/fa";
 import style from "./PricingCard.module.css";
 
 const PricingCard = ({ pricing }) => {
-  console.log(pricing, "billed");
+//   console.log(pricing, "billed");
   const {
     service,
     newPrice,
@@ -13,15 +13,8 @@ const PricingCard = ({ pricing }) => {
     backgroundColor,
     color,
     title,
-    serviceName_1,
-    serviceName_2,
-    serviceName_3,
-    serviceName_4,
-    serviceTitle_1,
-    serviceTitle_2,
-    serviceTitle_3,
-    serviceTitle_4,
-    icon,
+    serviceName,
+    serviceTitle
   } = pricing;
   return (
     <Col xs={12} sm={12} md={6} lg={4}>
@@ -39,15 +32,15 @@ const PricingCard = ({ pricing }) => {
               <span>
                 <FaCheck />
               </span>
-              <h5>{serviceName_1} </h5>
-              <h6>{serviceTitle_1} </h6>
+              <h5>{serviceName[0]} </h5>
+              <h6>{serviceTitle[0]} </h6>
             </div>
             <div className={style.service}>
               <span>
                 <FaCheck />
               </span>
-              <h5>{serviceName_2} </h5>
-              <h6>{serviceTitle_2} </h6>
+              <h5>{serviceName[1]} </h5>
+              <h6>{serviceTitle[1]} </h6>
             </div>
             <div className={style.service}>
               <span style={{ color: "red" }}>
@@ -57,19 +50,19 @@ const PricingCard = ({ pricing }) => {
                   <FaCheck style={{color:"green"}}/>
                 )}
               </span>
-              <h5>{serviceName_3} </h5>
-              <h6>{serviceTitle_3} </h6>
+              <h5>{serviceName[2]} </h5>
+              <h6>{serviceTitle[2]} </h6>
             </div>
             <div className={style.service}>
               <span>
                 {service === "Premium" ? (
                   <FaCheck />
-                ) : (
+                ) : (   
                   <FaTimes style={{ color: "red" }} />
                 )}
               </span>
-              <h5>{serviceName_4} </h5>
-              <h6>{serviceTitle_4} </h6>
+              <h5>{serviceName[3]} </h5>
+              <h6>{serviceTitle[3]} </h6>
             </div>
             <p style={{ borderBottom: "1px solid rgb(182, 174, 174)" }}></p>
           </div>

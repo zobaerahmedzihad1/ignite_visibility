@@ -8,14 +8,8 @@
         "newPrice": "19",
         "month": "/mo",
         "title": "Everything you need for a growing business.",
-        "serviceName_1": "SEO",
-        "serviceName_2": "Affiliate",
-        "serviceName_3": "Apps",
-        "serviceName_4": "24/7",
-        "serviceTitle_1": "organic search",
-        "serviceTitle_2": "marketing",
-        "serviceTitle_3": "advertising",
-        "serviceTitle_4": "Free support"
+        "serviceName": ["SEO","Affiliate","Apps","24/7"],
+        "serviceTitle": ["organic search","marketing","advertising","Free support"]
     },
     {
         "_id":"2",
@@ -23,36 +17,38 @@
         "service": "Premium",
         "backgroundColor":"#777AF2",
         "color": "#FFFFFF",
-        "oldPrice": "99",
-        "newPrice": "69",
+        "oldPrice": "159",
+        "newPrice": "99",
         "month": "/mo",
         "icon": "<FaTimes/>",
         "title": "Everything you need for a growing business.",
-        "serviceName_1": "SEO",
-        "serviceName_2": "Affiliate",
-        "serviceName_3": "Apps",
-        "serviceName_4": "24/7",
-        "serviceTitle_1": "organic search",
-        "serviceTitle_2": "marketing",
-        "serviceTitle_3": "advertising",
-        "serviceTitle_4": "Free support"
+        "serviceName": ["SEO","Affiliate","Apps","24/7"],
+        "serviceTitle": ["organic search","marketing","advertising","Free support"]
+        
     },
     {
         "_id":"3",
         "duration": "monthly",
         "service": "Extended",
         "backgroundColor":"#E5E5E5",
-        "oldPrice": "39",
-        "newPrice": "19",
+        "oldPrice": "99",
+        "newPrice": "79",
         "month": "/mo",
         "title": "Everything you need for a growing business.",
-        "serviceName_1": "SEO",
-        "serviceName_2": "Affiliate",
-        "serviceName_3": "Apps",
-        "serviceName_4": "24/7",
-        "serviceTitle_1": "organic search",
-        "serviceTitle_2": "marketing",
-        "serviceTitle_3": "advertising",
-        "serviceTitle_4": "Free support"
+        "serviceName": ["SEO","Affiliate","Apps","24/7"],
+        "serviceTitle": ["organic search","marketing","advertising","Free support"]
+    },
+    {
+        "_id":"",
+        "duration": "yearly",
+        "service": "Extended",
+        "backgroundColor":"#E5E5E5",
+        "oldPrice": "99",
+        "newPrice": "79",
+        "month": "/mo",
+        "title": "Everything you need for a growing business.",
+        "serviceName": ["SEO","Affiliate","Apps","24/7"],
+        "serviceTitle": ["organic search","marketing","advertising","Free support"]
     }
+    
 ]
