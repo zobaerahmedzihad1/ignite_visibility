@@ -11,6 +11,7 @@ const MonthlyBilled = () => {
   return (
     <Container>
       <div className={style.monthlyBilling__container}>
+        {/* <h3 className="py-3 text-center">Monthly Pricing Plan</h3> */}
         <Row className="g-4">
           {monthlyPricing.map((pricing) => (
             <PricingCard key={pricing._id} pricing={pricing}></PricingCard>
