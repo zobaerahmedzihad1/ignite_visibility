@@ -1,5 +1,12 @@
 .review__container{
     background-color: #e1e3f5;
-    height: 400px;
-    overflow: hidden;
+    /* height: 400px; */
+    padding: 3rem 0;    
+}
+.review__container h2{
+    text-align: justify;
+    font-size: 34px;
+    font-weight: 800;
+    color: #1e266d;
+    padding-bottom: 2rem;
 }

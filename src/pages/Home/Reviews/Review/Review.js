@@ -27,7 +27,7 @@ const Review = () => {
     <div className={style.review__container}>
       <Container>
         <div>
-          <h2>Center Mode</h2>
+          <h2>See why thousands of customers <br /> love working with us</h2>
           <Row>
             <Slider {...settings}>
               {reviews.map((review) => (
