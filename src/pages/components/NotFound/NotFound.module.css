@@ -1,11 +1,9 @@
 .notFound__container{
-    height: 90vh;
+    height: 88vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: .7rem;
-    /* background-color: #e2e2e7; */
-    
 }
 .notFound{
     height: 600px;
@@ -17,6 +15,7 @@
 .notFound__img img{
     width: 100%;
     padding-top: 7rem ;
+    cursor: pointer;
 }
 .notFound__content{
     text-align: center;

@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Container, Row } from "react-bootstrap";
+import Slider from "react-slick";
+// import img from '../../../../assets/Google.png'
 import ReviewCard from "../ReviewCard/ReviewCard";
-import { Container } from "react-bootstrap";
 import style from "./Review.module.css";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper";
 
 const Review = () => {
   const [reviews, setReviews] = useState([]);
@@ -17,30 +14,28 @@ const Review = () => {
       .then((data) => setReviews(data));
   }, []);
 
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 2,
+    speed: 500,
+  };
+
   return (
     <div className={style.review__container}>
       <Container>
-        <h2>Vertical Mode with Swipe To Slide</h2>
-        <Swiper
-          direction={"vertical"}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-          className="mySwiper"
-        >
-          {/* {reviews.map((review) => (
-            <SwiperSlide>
-              <ReviewCard key={review._id} review={review}></ReviewCard>
-            </SwiperSlide>
-          ))} */}
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
-          <SwiperSlide>Slide 5</SwiperSlide>
-          <SwiperSlide>Slide 6</SwiperSlide>
-        </Swiper>
+        <div>
+          <h2>Center Mode</h2>
+          <Row>
+            <Slider {...settings}>
+              {reviews.map((review) => (
+                <ReviewCard key={review._id} review={review}></ReviewCard>
+              ))}
+            </Slider>
+          </Row>
+        </div>
       </Container>
     </div>
   );

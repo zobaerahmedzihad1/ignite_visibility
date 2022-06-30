@@ -1,4 +1,43 @@
-.review__card__container{
-    height: 200px;
-    width: 600px;
+.review__container{
+    height: 280px;
+    width: 470px;
+    background-color: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: .3rem;
+    border-right: 35px solid #777AF2;
+    position: relative;
+    z-index: 1;
+}
+.review__container::before{
+    content: "";
+    width: 90px;
+    height: 90px;
+    border-bottom-right-radius: 100%;
+    background: #777AF2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.profile img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: blueviolet;
+}
+.profile h4{
+    padding-left: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #5153c5;
+}
+.review__container p{
+    padding: 2rem 0 0;
+    text-align: justify;
+    font-style: 22px;
+    color: rgb(114, 113, 113);
 }
