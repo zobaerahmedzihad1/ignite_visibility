@@ -51,7 +51,11 @@ const PricingCard = ({ pricing }) => {
             </div>
             <div className={style.service}>
               <span style={{ color: "red" }}>
-                <FaTimes />
+                {service === "Standard" ? (
+                  <FaTimes style={{ color: "red" }} />
+                ) : (
+                  <FaCheck style={{color:"green"}}/>
+                )}
               </span>
               <h5>{serviceName_3} </h5>
               <h6>{serviceTitle_3} </h6>
