@@ -33,6 +33,7 @@
 
 .distributing__image{
     width: 100%;
+    cursor: pointer;
 }
 .distributing__marketing__feature{
     padding-bottom:2rem ;

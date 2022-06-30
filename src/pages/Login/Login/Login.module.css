@@ -61,6 +61,7 @@ padding-top: .7rem;
 
 .login__img img{
     width: 100%;
+    cursor: pointer;
 }
 .sign__up{
     color: #31397A;

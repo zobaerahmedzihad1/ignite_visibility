@@ -1,16 +1,10 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import style from "./ReviewCard.module.css";
+import React from 'react';
 
-const ReviewCard = ({ review }) => {
-    console.log(review, 'hello');
-    const {_id, name, comment} = review;
-  
+const ReviewCard = ({review}) => {
   return (
-    <Container className={style.review__card__container}>
-       <h3>Hello vertical slider {_id}</h3>
-       <h2>{name}</h2>
-    </Container>
+    <div>
+      <h3>hello {review.name} </h3>
+    </div>
   );
 };
 
