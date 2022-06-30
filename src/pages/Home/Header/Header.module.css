@@ -47,7 +47,6 @@
 }
 .header__content h1{
     color: #1e266d;
-    /* color: #0D8FBA; */
     font-weight: 800;
     font-family: Nunito;
     font-size: 60px;
@@ -64,5 +63,6 @@
 
 .header__image{
     width: 130%;
+    cursor: pointer;
 }
 

@@ -13,8 +13,8 @@ const PricingPlan = () => {
         </h6>
       </div>
       <div className={`${style.billing__plan} text-center `}>
-        <button className="m-5"><Link className={`${style.monthly__billing}`} to="/monthly"> Billed Monthly </Link></button>
-        <button><Link className={style.yearly__billing} to="/yearly"> Billed Yearly </Link></button>
+        <button className="m-5"><Link className={`${style.monthly__billing}`} to="/monthly-billed"> Billed Monthly </Link></button>
+        <button><Link className={style.yearly__billing} to="/yearly-billed"> Billed Yearly </Link></button>
       </div>
       <Outlet />
     </div>

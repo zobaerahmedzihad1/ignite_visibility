@@ -1,9 +1,8 @@
 .brand__container{
     width: 100%; 
     padding: 4rem 0;
-    /* background-color: #F5F6FE; */
+    cursor: pointer;
 }
 .brand__background{
-    /* background-color: #F5F6FE; */
     padding: 2rem;
 }
