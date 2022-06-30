@@ -10,8 +10,8 @@ const MonthlyBilled = () => {
   return (
     <Container>
       <div className={style.monthlyBilling__container}>
-        <h3 className="text-center">Monthly Billing System</h3>
-        <Row ex={12} sm={12} md={6} lg={4}>
+        {/* <h3 className="text-center">Monthly Billing System</h3> */}
+        <Row className="g-4">
           {allPricing.map((pricing) => (
             <PricingCard key={pricing._id} pricing={pricing}></PricingCard>
           ))}

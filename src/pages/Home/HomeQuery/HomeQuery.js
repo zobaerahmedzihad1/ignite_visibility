@@ -82,7 +82,7 @@ const HomeQuery = () => {
                   // required
                   autoComplete="off"
                   type="text"
-                  placeholder="Enter Website url"
+                  placeholder="Enter Your Website url"
                 />
                 <input
                   name="email"

@@ -1,0 +1,54 @@
+.pricing__container{
+    height: 500px;
+    background-color:#FFFFFF;
+    border: 1px solid gray;
+    border-radius: .4rem;
+}
+.card__content{
+
+}
+.card__content h4{
+    padding: 1.2rem;
+    text-align: center;
+    border-radius: .3rem;
+}
+.price{
+    text-align: center;
+}
+.old__price{
+    font-size: 30px;
+}
+.new__price{
+    font-size: 50px;
+    font-weight: 500;
+    color: #1F276E;
+}
+.mini__month{
+    font-size: 20px;
+    color: #696969;
+}
+.card__content p{
+    color: #696969;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgb(182, 174, 174);
+}
+.service__container{
+
+}
+.service{
+    display: flex;
+    justify-content: center;
+}
+.service span{
+    color: rgb(3, 184, 3);
+}
+.service h5{
+    padding: 0 .8rem ;
+    color: #1F276E;
+    font-weight: 700;
+}
+.service h6{
+    font-weight: 600;
+    font-size: 18px;
+    color: #696969;
+}

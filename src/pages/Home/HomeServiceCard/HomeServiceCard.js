@@ -4,7 +4,7 @@ import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const HomeServiceCard = ({ service }) => {
-  const { _id, image, title, description } = service;
+  const {image, title, description } = service;
   //   console.log(service);
   return (
     <Col xs={12} sm={12} md={6} lg={4}>
