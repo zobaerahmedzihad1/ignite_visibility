@@ -28,6 +28,7 @@
     height: 70px;
     border-radius: 50%;
     background-color: blueviolet;
+    cursor: pointer;
 }
 .profile h4{
     padding-left: 1rem;

@@ -8,7 +8,7 @@ import HomeQuery from "../HomeQuery/HomeQuery";
 import style from "./Home.module.css";
 import ProjectIdea from "../ProjectIdea/ProjectIdea";
 import Review from "../Reviews/Review/Review";
-
+import PricingPlan from "../PricingPlan/PricingPlan/PricingPlan";
 
 const Home = () => {
   return (
@@ -18,8 +18,9 @@ const Home = () => {
       <HomeServices />
       <Campain />
       <HomeQuery />
-      <ProjectIdea/>
-      <Review/>
+      <ProjectIdea />
+      <Review />
+      <PricingPlan />
     </div>
   );
 };
