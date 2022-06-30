@@ -1,0 +1,50 @@
+[
+    {
+        "_id":"1",
+        "duration": "monthly",
+        "service": "Standard",
+        "oldPrice": "$ 39",
+        "newPrice": "$ 19",
+        "title": "Everything you need for a growing business.",
+        "serviceName_1": "SEO",
+        "serviceName_2": "Affiliate",
+        "serviceName_3": "Apps",
+        "serviceName_4": "24/7",
+        "serviceTitle_1": "organic search",
+        "serviceTitle_2": "marketing",
+        "serviceTitle_3": "advertising",
+        "serviceTitle_4": "Free support"
+    },
+    {
+        "_id":"2",
+        "duration": "monthly",
+        "service": "Premium",
+        "oldPrice": "$ 99",
+        "newPrice": "$ 69",
+        "title": "Everything you need for a growing business.",
+        "serviceName_1": "SEO",
+        "serviceName_2": "Affiliate",
+        "serviceName_3": "Apps",
+        "serviceName_4": "24/7",
+        "serviceTitle_1": "organic search",
+        "serviceTitle_2": "marketing",
+        "serviceTitle_3": "advertising",
+        "serviceTitle_4": "Free support"
+    },
+    {
+        "_id":"3",
+        "duration": "monthly",
+        "service": "Extended",
+        "oldPrice": "$ 39",
+        "newPrice": "$ 19",
+        "title": "Everything you need for a growing business.",
+        "serviceName_1": "SEO",
+        "serviceName_2": "Affiliate",
+        "serviceName_3": "Apps",
+        "serviceName_4": "24/7",
+        "serviceTitle_1": "organic search",
+        "serviceTitle_2": "marketing",
+        "serviceTitle_3": "advertising",
+        "serviceTitle_4": "Free support"
+    }
+]

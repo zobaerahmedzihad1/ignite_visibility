@@ -7,7 +7,7 @@ import style from "./Review.module.css";
 
 const Review = () => {
   const [reviews, setReviews] = useState([]);
-  console.log(reviews);
+  // console.log(reviews);
   useEffect(() => {
     fetch("review.json")
       .then((response) => response.json())

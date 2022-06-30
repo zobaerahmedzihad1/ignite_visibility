@@ -15,7 +15,7 @@ import { signOut } from "firebase/auth";
 
 const NavBar = () => {
   const user = useAuthState(auth);
-  console.log(user[0]?.photoURL);
+  // console.log(user[0]?.photoURL);
   const handleSignOut = () => {
     signOut(auth);
   };
