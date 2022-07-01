@@ -2,7 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import React from "react";
 import login from "../../../assets/login__image.jpg";
 import style from "./Login.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -12,13 +12,22 @@ import {
   errorPassword,
 } from "../../components/Tostify/Tostify";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate()
+
+  console.log(user);
+
   const handleLoginFormSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
     const user = { email, password };
+    signInWithEmailAndPassword(email, password);
     if (!email && !password) {
       emptyField();
     } else if (!email) {
@@ -30,6 +39,9 @@ const Login = () => {
       event.target.reset();
     }
   };
+  if(user){
+    navigate('/home')
+  }
   return (
     <div className={style.login__container}>
       <h2>Login To Your Account</h2>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import style from "./ContactUs.module.css";
+import {emptyEmail, emptyName, messageSend, emptyField, emptyDescription} from '../components/Tostify/Tostify';
 import { ToastContainer, toast } from "react-toastify";
 import contactImg from "../../assets/contact.webp";
 import Address from "./OfficeLocation";
@@ -15,66 +16,16 @@ const ContactUs = () => {
     if (!name && !email && !description) {
       emptyField();
     } else if (!name) {
-      errorName();
+      emptyName();
     } else if (!email) {
-      errorEmail();
+      emptyEmail();
     } else if (!description) {
-      errorDescription();
+      emptyDescription();
     } else {
-      success();
+      messageSend();
       event.target.reset();
     }
   };
-  const success = () =>
-    toast.success("Your Message Successfully Send.", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const errorEmail = () =>
-    toast.error("Enter Your Email", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const errorName = () =>
-    toast.error("Enter Your Name .", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const errorDescription = () =>
-    toast.error("Write a Message.", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const emptyField = () =>
-    toast.error("Please fill this field.", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   return (
     <>
       {" "}

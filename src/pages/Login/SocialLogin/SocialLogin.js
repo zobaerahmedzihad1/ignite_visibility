@@ -10,7 +10,7 @@ const SocialLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   // facebook
   const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
-  console.log(facebookUser);
+  // console.log(facebookUser);
   return (
     <div>
       <div className={style.social__login}>

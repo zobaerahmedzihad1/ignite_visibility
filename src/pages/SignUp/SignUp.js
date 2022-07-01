@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import signUp from "../../assets/signup.webp";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,18 +12,27 @@ import {
   shortPassword,
   reTypePassword,
   doNotMatchPassword,
+  promise,
   createUserSuccessfully,
 } from "../components/Tostify/Tostify";
 import SocialLogin from "../Login/SocialLogin/SocialLogin";
 import style from "./SignUp.module.css";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const SignUp = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const nevigate = useNavigate();
+
   const handleCreateUser = (event) => {
     const name = event.target.name.value;
     const email = event.target.email.value;
     const primaryPassword = event.target.primaryPassword.value;
     const confirmPassword = event.target.confirmPassword.value;
     const newUser = { name, email, primaryPassword, confirmPassword };
+
+    createUserWithEmailAndPassword(email, confirmPassword);
 
     if (!name && !email && !primaryPassword && !confirmPassword) {
       emptyField();
@@ -40,11 +49,17 @@ const SignUp = () => {
     } else if (!(primaryPassword === confirmPassword)) {
       doNotMatchPassword();
     } else {
-      createUserSuccessfully();
+      createUserSuccessfully()
+      // promise()
       event.target.reset();
     }
     event.preventDefault();
   };
+
+  if (user) {
+    nevigate("/home");
+  }
+
   return (
     <div>
       <div className={style.signUp__container}>

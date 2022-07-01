@@ -76,8 +76,8 @@ export const emptyQueryWebsite = () =>
     progress: undefined,
   });
 
-  // sign up 
-  export const emptyName = () =>
+// sign up
+export const emptyName = () =>
   toast.error("Please Enter Your Name.", {
     position: "top-center",
     autoClose: 2000,
@@ -87,7 +87,7 @@ export const emptyQueryWebsite = () =>
     draggable: true,
     progress: undefined,
   });
-  export const createPassword = () =>
+export const createPassword = () =>
   toast.error("Please create a secure password.", {
     position: "top-center",
     autoClose: 2000,
@@ -97,7 +97,7 @@ export const emptyQueryWebsite = () =>
     draggable: true,
     progress: undefined,
   });
-  export const shortPassword = () =>
+export const shortPassword = () =>
   toast.error("Password can't less than 6 character.", {
     position: "top-center",
     autoClose: 2000,
@@ -107,7 +107,7 @@ export const emptyQueryWebsite = () =>
     draggable: true,
     progress: undefined,
   });
-  export const reTypePassword = () =>
+export const reTypePassword = () =>
   toast.error("Please re-type your password.", {
     position: "top-center",
     autoClose: 2000,
@@ -117,7 +117,7 @@ export const emptyQueryWebsite = () =>
     draggable: true,
     progress: undefined,
   });
-  export const doNotMatchPassword = () =>
+export const doNotMatchPassword = () =>
   toast.error("Your password doesn't match.", {
     position: "top-center",
     autoClose: 2000,
@@ -127,8 +127,41 @@ export const emptyQueryWebsite = () =>
     draggable: true,
     progress: undefined,
   });
-  export const createUserSuccessfully = () =>
-  toast.success("Successfully Sign-Up.", {
+export const createUserSuccessfully = () =>
+  toast.promise("Successfully Sign-Up.", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+
+// export let promise = () => {
+//   const resolveAfter3sec = new promise((resolve, reject) => {
+//     setTimeout(resolve, 3000);
+//   })
+//   toast.promise(resolveAfter3sec, {
+//     pending: "pending",
+//     success: "success",
+//     error: "error",
+//   });
+// };
+
+// contact page
+export const messageSend = () =>
+  toast.success("Successfully send your message.", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+export const emptyDescription = () =>
+  toast.error("Write anything you want...", {
     position: "top-center",
     autoClose: 2000,
     hideProgressBar: true,
