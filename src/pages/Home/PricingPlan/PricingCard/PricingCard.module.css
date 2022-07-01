@@ -4,9 +4,6 @@
     border: 1px solid gray;
     border-radius: .4rem;
 }
-.card__content{
-
-}
 .card__content h4{
     padding: 1.2rem;
     text-align: center;
@@ -32,9 +29,7 @@
     padding-bottom: 2rem;
     border-bottom: 1px solid rgb(182, 174, 174);
 }
-.service__container{
 
-}
 .service{
     display: flex;
     justify-content: center;

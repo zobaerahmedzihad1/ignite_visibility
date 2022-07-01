@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import MonthlyBilled from "../MonthlyBilled/MonthlyBilled";
-import YearlyBilled from "../YearlyBilled/YearlyBilled";
+
 import style from "./PricingPlan.module.css";
 
 const PricingPlan = () => {
@@ -15,14 +14,8 @@ const PricingPlan = () => {
         </h6>
       </div>
       <div className={`${style.billing__plan} text-center `}>
-      <button className="m-5">
-          <Link className={`${style.monthly__billing}`} to="/home">
-            {" "}
-            All
-          </Link>
-        </button>
         <button className="m-5">
-          <Link className={`${style.monthly__billing}`} to="/monthly-billed">
+          <Link className={`${style.monthly__billing}`} to="/home">
             {" "}
             Billed Monthly{" "}
           </Link>

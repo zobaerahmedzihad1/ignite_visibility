@@ -17,10 +17,12 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />}> 
-          <Route path="/monthly-billed" element={<MonthlyBilled/>} />
+          {/* <Route path="/monthly-billed" element={<MonthlyBilled/>} /> */}
+          <Route path="/home" element={<MonthlyBilled/>} />
+          <Route path="/" element={<MonthlyBilled/>} />
           <Route path="/yearly-billed" element={<YearlyBilled/>} />
-          <Route path="/" element={<AllPricing/>} />
-          <Route path="/home" element={<AllPricing/>} />
+          {/* <Route path="/" element={<AllPricing/>} />
+          <Route path="/home" element={<AllPricing/>} /> */}
         </Route>
         <Route path="/home" element={<Home />} ></Route>
         <Route path="/contact-us" element={<ContactUs />} />
