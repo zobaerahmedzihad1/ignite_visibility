@@ -1,10 +1,11 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 import { FaCheck, FaTimes } from "react-icons/fa";
+import {Link} from 'react-router-dom';
 import style from "./PricingCard.module.css";
 
 const PricingCard = ({ pricing }) => {
-//   console.log(pricing, "billed");
+  //   console.log(pricing, "billed");
   const {
     service,
     newPrice,
@@ -14,7 +15,7 @@ const PricingCard = ({ pricing }) => {
     color,
     title,
     serviceName,
-    serviceTitle
+    serviceTitle,
   } = pricing;
   return (
     <Col xs={12} sm={12} md={6} lg={4}>
@@ -47,7 +48,7 @@ const PricingCard = ({ pricing }) => {
                 {service === "Standard" ? (
                   <FaTimes style={{ color: "red" }} />
                 ) : (
-                  <FaCheck style={{color:"green"}}/>
+                  <FaCheck style={{ color: "green" }} />
                 )}
               </span>
               <h5>{serviceName[2]} </h5>
@@ -57,7 +58,7 @@ const PricingCard = ({ pricing }) => {
               <span>
                 {service === "Premium" ? (
                   <FaCheck />
-                ) : (   
+                ) : (
                   <FaTimes style={{ color: "red" }} />
                 )}
               </span>
@@ -66,9 +67,11 @@ const PricingCard = ({ pricing }) => {
             </div>
             <p style={{ borderBottom: "1px solid rgb(182, 174, 174)" }}></p>
           </div>
-          <div className="text-center">
-            <button className="button my-3">Purchase Now</button>
-          </div>
+          <Link to='/chekout'>
+            <div className="text-center">
+              <button className="button my-3">Purchase Now</button>
+            </div>
+          </Link>
         </div>
       </div>
     </Col>

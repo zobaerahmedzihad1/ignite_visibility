@@ -4,7 +4,6 @@ import NotFound from "./pages/components/NotFound/NotFound";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Home from "./pages/Home/Home/Home";
 import NavBar from "./pages/Home/NavBar/NavBar";
-import AllPricing from "./pages/Home/PricingPlan/AllPricing/AllPricing";
 import MonthlyBilled from "./pages/Home/PricingPlan/MonthlyBilled/MonthlyBilled";
 import YearlyBilled from "./pages/Home/PricingPlan/YearlyBilled/YearlyBilled";
 import Login from "./pages/Login/Login/Login";
@@ -17,12 +16,9 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />}> 
-          {/* <Route path="/monthly-billed" element={<MonthlyBilled/>} /> */}
           <Route path="/home" element={<MonthlyBilled/>} />
           <Route path="/" element={<MonthlyBilled/>} />
           <Route path="/yearly-billed" element={<YearlyBilled/>} />
-          {/* <Route path="/" element={<AllPricing/>} />
-          <Route path="/home" element={<AllPricing/>} /> */}
         </Route>
         <Route path="/home" element={<Home />} ></Route>
         <Route path="/contact-us" element={<ContactUs />} />
