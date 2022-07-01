@@ -9,6 +9,8 @@ import style from "./Home.module.css";
 import ProjectIdea from "../ProjectIdea/ProjectIdea";
 import Review from "../Reviews/Review/Review";
 import PricingPlan from "../PricingPlan/PricingPlan/PricingPlan";
+import MonthlyBilled from "../PricingPlan/MonthlyBilled/MonthlyBilled";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
   return (
