@@ -5,6 +5,12 @@ import style from "./Login.module.css";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  successfullyLogin,
+  emptyField,
+  errorEmail,
+  errorPassword,
+} from "../../components/Tostify/Tostify";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
@@ -20,51 +26,10 @@ const Login = () => {
     } else if (!password) {
       errorPassword();
     } else {
-      success();
-      event.target.reset()
+      successfullyLogin();
+      event.target.reset();
     }
   };
-
-  const success = () =>
-    toast.success("Successfully login.", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const errorEmail = () =>
-    toast.error("Enter Your Email", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const errorPassword = () =>
-    toast.error("Enter a valid password.", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const emptyField = () =>
-    toast.error("Please fill this field.", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   return (
     <div className={style.login__container}>
       <h2>Login To Your Account</h2>
@@ -116,7 +81,7 @@ const Login = () => {
                     </h5>
                   </div>
                   <div className={style.social__login}>
-                    <SocialLogin/>
+                    <SocialLogin />
                   </div>
                 </div>
               </div>

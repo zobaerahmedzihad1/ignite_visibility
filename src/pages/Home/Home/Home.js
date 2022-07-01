@@ -21,8 +21,8 @@ const Home = () => {
       <Campain />
       <HomeQuery />
       <ProjectIdea />
-      <Review />
       <PricingPlan />
+      <Review />
     </div>
   );
 };

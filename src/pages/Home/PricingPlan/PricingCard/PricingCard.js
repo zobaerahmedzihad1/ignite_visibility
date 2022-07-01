@@ -19,7 +19,7 @@ const PricingCard = ({ pricing }) => {
   } = pricing;
   return (
     <Col xs={12} sm={12} md={6} lg={4}>
-      <div className={style.pricing__container}>
+      <div className={`${style.pricing__container} shadow bg-body rounded`}>
         <div className={style.card__content}>
           <h4 style={{ backgroundColor, color }}>{service} </h4>
           <div className={style.price}>

@@ -3,6 +3,7 @@
     background-color:#FFFFFF;
     border: 1px solid gray;
     border-radius: .4rem;
+    cursor: pointer;
 }
 .card__content h4{
     padding: 1.2rem;

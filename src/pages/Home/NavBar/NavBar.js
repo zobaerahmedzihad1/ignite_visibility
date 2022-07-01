@@ -26,7 +26,7 @@ const NavBar = () => {
           key={expand}
           bg="light"
           expand={expand}
-          className="px-5 sticky-top"
+          className={`${style.navbar__container} px-5 sticky-top`}
         >
           <Container fluid>
             <Navbar.Brand as={NavLink} to="/">

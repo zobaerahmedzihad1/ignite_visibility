@@ -1,3 +1,6 @@
+.navbar__container{
+    box-shadow: 0 0 1.56rem rgba(0, 0, 0, 0.2);
+}
 .logo{
     width: 80%;
 }

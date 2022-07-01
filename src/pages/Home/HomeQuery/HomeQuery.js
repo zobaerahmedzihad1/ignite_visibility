@@ -2,6 +2,12 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  successfullyQuerySend,
+  QueryErrorInformation,
+  errorEmail,
+  emptyQueryWebsite,
+} from "../../components/Tostify/Tostify";
 import style from "./HomeQuery.module.css";
 
 const HomeQuery = () => {
@@ -12,57 +18,16 @@ const HomeQuery = () => {
     const information = { website, email };
 
     if (!email && !website) {
-      errorInformation();
+      QueryErrorInformation();
     } else if (!email) {
       errorEmail();
     } else if (!website) {
-      errorWebsite();
+      emptyQueryWebsite();
     } else {
-      success();
+      successfullyQuerySend();
       event.target.reset();
     }
   };
-  const success = () =>
-    toast.success("Successfully Send.", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const errorInformation = () =>
-    toast.error("Please Fill This Field.", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const errorEmail = () =>
-    toast.error("Please Enter Your Email", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const errorWebsite = () =>
-    toast.error("Please Enter Your Website url", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-
   return (
     <div>
       <Container>
