@@ -23,16 +23,23 @@ import auth from "../../firebase.init";
 const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-  const nevigate = useNavigate();
+  const navigate = useNavigate();
+
+  console.log(user);
 
   const handleCreateUser = (event) => {
+    event.preventDefault();
+
     const name = event.target.name.value;
     const email = event.target.email.value;
     const primaryPassword = event.target.primaryPassword.value;
     const confirmPassword = event.target.confirmPassword.value;
+    const password = primaryPassword === confirmPassword;
     const newUser = { name, email, primaryPassword, confirmPassword };
 
-    createUserWithEmailAndPassword(email, confirmPassword);
+    if (email && password) {
+      createUserWithEmailAndPassword(email, confirmPassword);
+    }
 
     if (!name && !email && !primaryPassword && !confirmPassword) {
       emptyField();
@@ -49,15 +56,14 @@ const SignUp = () => {
     } else if (!(primaryPassword === confirmPassword)) {
       doNotMatchPassword();
     } else {
-      createUserSuccessfully()
+      createUserSuccessfully();
       // promise()
       event.target.reset();
     }
-    event.preventDefault();
   };
 
   if (user) {
-    nevigate("/home");
+    navigate("/login");
   }
 
   return (

@@ -2,7 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import React from "react";
 import login from "../../../assets/login__image.jpg";
 import style from "./Login.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -18,7 +18,9 @@ import auth from "../../../firebase.init";
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
   console.log(user);
 
@@ -35,12 +37,15 @@ const Login = () => {
     } else if (!password) {
       errorPassword();
     } else {
-      successfullyLogin();
+      {
+        !error ? successfullyLogin() : emptyField()
+      }
       event.target.reset();
     }
   };
-  if(user){
-    navigate('/home')
+  console.log(error);
+  if (user) {
+    navigate(from, { replace: true });
   }
   return (
     <div className={style.login__container}>

@@ -22,15 +22,15 @@ function App() {
           <Route path="/yearly-billed" element={<YearlyBilled />} />
         </Route>
         <Route path="/home" element={<Home />}></Route>
-        {/* <Route path="/contact-us" element={<ContactUs />} /> */}
-        <Route
+        <Route path="/contact-us" element={<ContactUs />} />
+        {/* <Route
           path="/contact-us"
           element={
             <RequireAuth>
               <ContactUs />
             </RequireAuth>
           }
-        ></Route>
+        ></Route> */}
         <Route path="login" element={<Login />} />
         <Route path="sign-up" element={<SignUp />} />
         <Route path="privacy__policy" element={<PrivacyPolicy />} />
