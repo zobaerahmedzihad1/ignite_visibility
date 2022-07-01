@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import {
   successfullyLogin,
   emptyField,
-  errorEmail,
+  emptyEmail,
   errorPassword,
 } from "../../components/Tostify/Tostify";
 import SocialLogin from "../SocialLogin/SocialLogin";
@@ -22,7 +22,7 @@ const Login = () => {
     if (!email && !password) {
       emptyField();
     } else if (!email) {
-      errorEmail();
+      emptyEmail();
     } else if (!password) {
       errorPassword();
     } else {

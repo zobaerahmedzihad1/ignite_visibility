@@ -4,11 +4,45 @@ import { Link } from "react-router-dom";
 import signUp from "../../assets/signup.webp";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  emptyField,
+  emptyName,
+  emptyEmail,
+  createPassword,
+  shortPassword,
+  reTypePassword,
+  doNotMatchPassword,
+  createUserSuccessfully,
+} from "../components/Tostify/Tostify";
 import SocialLogin from "../Login/SocialLogin/SocialLogin";
 import style from "./SignUp.module.css";
 
 const SignUp = () => {
   const handleCreateUser = (event) => {
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const primaryPassword = event.target.primaryPassword.value;
+    const confirmPassword = event.target.confirmPassword.value;
+    const newUser = { name, email, primaryPassword, confirmPassword };
+
+    if (!name && !email && !primaryPassword && !confirmPassword) {
+      emptyField();
+    } else if (!name) {
+      emptyName();
+    } else if (!email) {
+      emptyEmail();
+    } else if (!primaryPassword) {
+      createPassword();
+    } else if (!(primaryPassword.length >= 6)) {
+      shortPassword();
+    } else if (!confirmPassword) {
+      reTypePassword();
+    } else if (!(primaryPassword === confirmPassword)) {
+      doNotMatchPassword();
+    } else {
+      createUserSuccessfully();
+      event.target.reset();
+    }
     event.preventDefault();
   };
   return (
@@ -49,21 +83,23 @@ const SignUp = () => {
                           type="password"
                           placeholder="Create A Secure Password"
                           autoComplete="off"
-                          name="password"
+                          name="primaryPassword"
                         />
                         <input
                           className={style.input}
                           type="password"
                           placeholder="Confirm Your Password"
                           autoComplete="off"
-                          name="password"
+                          name="confirmPassword"
                         />
 
                         <button className={style.button}>Sign up</button>
                       </form>
                       <h5 className={style.sign__up}>
                         Already have an account. Please
-                        <Link className='m-2' to="/login">Login</Link>{" "}
+                        <Link className="m-2" to="/login">
+                          Login
+                        </Link>{" "}
                       </h5>
                       <h5 className={style.sign__up}>
                         <Link

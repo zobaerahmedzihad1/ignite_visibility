@@ -22,7 +22,7 @@ export const successfullyLogin = () =>
     draggable: true,
     progress: undefined,
   });
-export const errorEmail = () =>
+export const emptyEmail = () =>
   toast.error("Please Enter Your Email", {
     position: "top-center",
     autoClose: 2000,
@@ -67,6 +67,68 @@ export const QueryErrorInformation = () =>
   });
 export const emptyQueryWebsite = () =>
   toast.error("Please Enter Your Website url", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+
+  // sign up 
+  export const emptyName = () =>
+  toast.error("Please Enter Your Name.", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+  export const createPassword = () =>
+  toast.error("Please create a secure password.", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+  export const shortPassword = () =>
+  toast.error("Password can't less than 6 character.", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+  export const reTypePassword = () =>
+  toast.error("Please re-type your password.", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+  export const doNotMatchPassword = () =>
+  toast.error("Your password doesn't match.", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+  export const createUserSuccessfully = () =>
+  toast.success("Successfully Sign-Up.", {
     position: "top-center",
     autoClose: 2000,
     hideProgressBar: true,

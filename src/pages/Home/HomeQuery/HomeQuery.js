@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import {
   successfullyQuerySend,
   QueryErrorInformation,
-  errorEmail,
+  emptyEmail,
   emptyQueryWebsite,
 } from "../../components/Tostify/Tostify";
 import style from "./HomeQuery.module.css";
@@ -20,7 +20,7 @@ const HomeQuery = () => {
     if (!email && !website) {
       QueryErrorInformation();
     } else if (!email) {
-      errorEmail();
+      emptyEmail();
     } else if (!website) {
       emptyQueryWebsite();
     } else {
