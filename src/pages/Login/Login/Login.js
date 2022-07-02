@@ -35,11 +35,14 @@ const Login = () => {
       emptyField();
     } else if (!email) {
       emptyEmail();
-    } else if (!password) {
+    } else if (error?.message ) {
       errorPassword();
     } else if (error?.message) {
-      wrongPassword();
-    } else {
+      wrongPassword(error?.message);
+    } else if(!error) {
+      wrongPassword(error?.message);
+    }
+    else{
       successfullyLogin();
       event.target.reset();
     }

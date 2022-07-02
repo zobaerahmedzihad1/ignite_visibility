@@ -42,8 +42,8 @@ export const errorPassword = () =>
     draggable: true,
     progress: undefined,
   });
-export const wrongPassword = () =>
-  toast.error("The password that you've entered is incorrect.", {
+export const wrongPassword = (message) =>
+  toast.error((message), {
     position: "top-center",
     autoClose: 5000,
     hideProgressBar: true,
