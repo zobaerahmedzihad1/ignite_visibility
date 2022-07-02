@@ -67,7 +67,7 @@ const PricingCard = ({ pricing }) => {
             </div>
             <p style={{ borderBottom: "1px solid rgb(182, 174, 174)" }}></p>
           </div>
-          <Link to='/chekout'>
+          <Link to='/checkout'>
             <div className="text-center">
               <button className="button my-3">Purchase Now</button>
             </div>

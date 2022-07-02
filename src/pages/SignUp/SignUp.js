@@ -13,7 +13,6 @@ import {
   shortPassword,
   reTypePassword,
   doNotMatchPassword,
-  promise,
   createUserSuccessfully,
 } from "../components/Tostify/Tostify";
 import SocialLogin from "../Login/SocialLogin/SocialLogin";
@@ -21,6 +20,7 @@ import style from "./SignUp.module.css";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { async } from "@firebase/util";
+import Loading from "../../Shared/Loading/Loading";
 
 const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
@@ -28,7 +28,11 @@ const SignUp = () => {
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
 
-  console.log(user, "sign up");
+  // console.log(user, "sign up");
+
+  if(loading || updating){
+    return <Loading/>
+  }
 
   const handleCreateUser = async (event) => {
     event.preventDefault();
