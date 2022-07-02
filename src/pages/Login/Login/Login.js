@@ -10,6 +10,7 @@ import {
   emptyField,
   emptyEmail,
   errorPassword,
+  wrongPassword,
 } from "../../components/Tostify/Tostify";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -22,7 +23,7 @@ const Login = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  console.log(user);
+  console.log(user, "login");
 
   const handleLoginFormSubmit = (event) => {
     event.preventDefault();
@@ -36,14 +37,14 @@ const Login = () => {
       emptyEmail();
     } else if (!password) {
       errorPassword();
+    } else if (error?.message) {
+      wrongPassword();
     } else {
-      {
-        !error ? successfullyLogin() : emptyField()
-      }
+      successfullyLogin();
       event.target.reset();
     }
   };
-  console.log(error);
+  console.log(error?.message);
   if (user) {
     navigate(from, { replace: true });
   }
@@ -113,7 +114,7 @@ const Login = () => {
       </Container>
       <ToastContainer
         position="top-center"
-        autoClose={2000}
+        autoClose={5000}
         hideProgressBar
         newestOnTop={false}
         closeOnClick
