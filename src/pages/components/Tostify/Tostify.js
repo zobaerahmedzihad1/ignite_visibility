@@ -128,7 +128,7 @@ export const doNotMatchPassword = () =>
     progress: undefined,
   });
 export const createUserSuccessfully = () =>
-  toast.promise("Successfully Sign-Up.", {
+  toast.success("Successfully Sign-Up.", {
     position: "top-center",
     autoClose: 2000,
     hideProgressBar: true,

@@ -63,7 +63,7 @@ const SignUp = () => {
   };
 
   if (user) {
-    navigate("/login");
+    navigate("/home");
   }
 
   return (
