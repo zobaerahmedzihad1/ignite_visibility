@@ -1,12 +1,13 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 import { FaCheck, FaTimes } from "react-icons/fa";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import style from "./PricingCard.module.css";
 
 const PricingCard = ({ pricing }) => {
   //   console.log(pricing, "billed");
   const {
+    _id,
     service,
     newPrice,
     oldPrice,
@@ -23,7 +24,12 @@ const PricingCard = ({ pricing }) => {
         <div className={style.card__content}>
           <h4 style={{ backgroundColor, color }}>{service} </h4>
           <div className={style.price}>
-            <span className={style.old__price}>${oldPrice} </span>
+            {/* <span className={style.old__price}>
+              <del style={{color:'red'}} >${oldPrice}</del>{" "}
+            </span> */}
+            <del className={style.old__price}>
+                <span>${oldPrice}</span>
+            </del>
             <span className={style.new__price}>${newPrice} </span>
             <span className={style.mini__month}>{month}</span>
             <p>{title}</p>
@@ -67,7 +73,7 @@ const PricingCard = ({ pricing }) => {
             </div>
             <p style={{ borderBottom: "1px solid rgb(182, 174, 174)" }}></p>
           </div>
-          <Link to='/checkout'>
+          <Link to={`/checkout/${_id}`}>
             <div className="text-center">
               <button className="button my-3">Purchase Now</button>
             </div>

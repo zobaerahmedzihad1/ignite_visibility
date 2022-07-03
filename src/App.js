@@ -28,7 +28,7 @@ function App() {
         <Route path="sign-up" element={<SignUp />} />
         <Route path="privacy__policy" element={<PrivacyPolicy />} />
         <Route
-          path="/checkout"
+          path="/checkout/:_id"
           element={
             <RequireAuth>
               <Checkout />
