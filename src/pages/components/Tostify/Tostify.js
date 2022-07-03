@@ -59,7 +59,7 @@ export const errorMessage = (message) =>
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
-    draggable: true,
+    draggable: true, 
     progress: undefined,
   });
 
