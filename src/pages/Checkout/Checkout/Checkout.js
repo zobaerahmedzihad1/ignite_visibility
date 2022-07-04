@@ -3,22 +3,30 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
-import usePricing from "../../../hooks/usePricing";
+// import usePricing from "../../../hooks/usePricing";
 import style from "./Checkout.module.css";
+import { FaCheck, FaTimes } from "react-icons/fa";
+import ServiceDetail from "./ServiceDetail/ServiceDetail";
+import { setRef } from "@mui/material";
 
 const Checkout = () => {
   const user = useAuthState(auth);
-  console.log(user, 'chekout');
+  console.log(user, "chekout");
   const { _id } = useParams();
   const [allPricing, setAllPricing] = useState([]);
   // console.log(allPricing);
-  const { service, duration, oldPrice, newPrice } = allPricing;
+  const { service, duration, oldPrice, newPrice, serviceName } = allPricing;
+  // console.log(serviceName);
   useEffect(() => {
     const url = `http://localhost:5000/pricing/${_id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setAllPricing(data));
   }, [_id]);
+
+  const standardService = serviceName?.slice(0, 2);
+  const extendedService = serviceName?.slice(0, 3);
+  // console.log(standardService, "slice");
 
   return (
     <div className={style.checkout__container}>
@@ -74,7 +82,7 @@ const Checkout = () => {
               <div className={style.name__email__container}>
                 <div className={style.input__box}>
                   <h6>Old Price</h6>
-                  <del style={{color:'red'}}>
+                  <del style={{ color: "red" }}>
                     <input
                       className={style.input}
                       style={{ width: "92px" }}
@@ -109,7 +117,15 @@ const Checkout = () => {
             </div>
           </Col>
           <Col ex={12} sm={12} md={6} lg={6}>
-            <h3>order summery</h3>
+            <div>
+              <h2>Order Summery</h2>
+              {serviceName?.map((single_service) => (
+                <ServiceDetail
+                  key={single_service}
+                  single_service={single_service}
+                ></ServiceDetail>
+              ))}
+            </div>
           </Col>
         </Row>
       </Container>

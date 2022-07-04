@@ -17,7 +17,6 @@ const PricingCard = ({ pricing }) => {
     title,
     serviceName,
     serviceTitle,
-    icon
   } = pricing;
   return (
     <Col xs={12} sm={12} md={6} lg={4}>
