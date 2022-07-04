@@ -3,20 +3,17 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
-// import usePricing from "../../../hooks/usePricing";
 import style from "./Checkout.module.css";
+// import ServiceDetail from "./ServiceDetail/ServiceDetail";
 import { FaCheck, FaTimes } from "react-icons/fa";
-import ServiceDetail from "./ServiceDetail/ServiceDetail";
-import { setRef } from "@mui/material";
+// import ServiceDetail from "./ServiceDetail/ServiceDetail";
 
 const Checkout = () => {
   const user = useAuthState(auth);
-  console.log(user, "chekout");
   const { _id } = useParams();
   const [allPricing, setAllPricing] = useState([]);
-  // console.log(allPricing);
-  const { service, duration, oldPrice, newPrice, serviceName } = allPricing;
-  // console.log(serviceName);
+  const { service, duration, oldPrice, newPrice, serviceName, serviceTitle } =
+    allPricing;
   useEffect(() => {
     const url = `http://localhost:5000/pricing/${_id}`;
     fetch(url)
@@ -24,9 +21,8 @@ const Checkout = () => {
       .then((data) => setAllPricing(data));
   }, [_id]);
 
-  const standardService = serviceName?.slice(0, 2);
-  const extendedService = serviceName?.slice(0, 3);
-  // console.log(standardService, "slice");
+  console.log(serviceName[0]);
+  // console.log(allPricing);
 
   return (
     <div className={style.checkout__container}>
@@ -119,12 +115,46 @@ const Checkout = () => {
           <Col ex={12} sm={12} md={6} lg={6}>
             <div>
               <h2>Order Summery</h2>
-              {serviceName?.map((single_service) => (
-                <ServiceDetail
-                  key={single_service}
-                  single_service={single_service}
-                ></ServiceDetail>
-              ))}
+              <div className={style.service__container}>
+            <div className={style.service}>
+              <span>
+                <FaCheck />
+              </span>
+              <h5>{serviceName[0]} </h5>
+              <h6>{serviceTitle[0]} </h6>
+            </div>
+            <div className={style.service}>
+              <span>
+                <FaCheck />
+              </span>
+              <h5>{serviceName[1]} </h5>
+              <h6>{serviceTitle[1]} </h6>
+            </div>
+            <div className={style.service}>
+              <span style={{ color: "red" }}>
+                {service === "Standard" ? (
+                  <FaTimes style={{ color: "red" }} />
+                  
+                ) : (
+                  <FaCheck style={{ color: "green" }} />
+                )}
+              </span>
+              <h5>{serviceName[2]} </h5>
+              <h6>{serviceTitle[2]} </h6>
+            </div>
+            <div className={style.service}>
+              <span>
+                {service === "Premium" ? (
+                  <FaCheck />
+                ) : (
+                  <FaTimes style={{ color: "red" }} />
+                )}
+              </span>
+              <h5>{serviceName[3]} </h5>
+              <h6>{serviceTitle[3]} </h6>
+            </div>
+            <p style={{ borderBottom: "1px solid rgb(182, 174, 174)" }}></p>
+          </div>
             </div>
           </Col>
         </Row>

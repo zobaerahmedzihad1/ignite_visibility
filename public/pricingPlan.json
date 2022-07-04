@@ -7,8 +7,10 @@
         "oldPrice": "39",
         "newPrice": "19",
         "month": "/mo",
-        "icon": "<FaTimes/>",
         "title": "Everything you need for a growing business.",
+        "standard": ["SEO","Affiliate"],
+        "premium": ["SEO","Affiliate","Apps","24/7"],
+        "extended":["SEO","Affiliate","Apps"],
         "serviceName": ["SEO","Affiliate","Apps","24/7"],
         "serviceTitle": ["organic search","marketing","advertising","Free support"]
     },
@@ -21,8 +23,10 @@
         "oldPrice": "159",
         "newPrice": "99",
         "month": "/mo",
-        "icon": "<FaTimes/>",
         "title": "Everything you need for a growing business.",
+        "standard": ["SEO","Affiliate"],
+        "premium": ["SEO","Affiliate","Apps","24/7"],
+        "extended":["SEO","Affiliate","Apps"],
         "serviceName": ["SEO","Affiliate","Apps","24/7"],
         "serviceTitle": ["organic search","marketing","advertising","Free support"]
         
@@ -35,8 +39,10 @@
         "oldPrice": "99",
         "newPrice": "79",
         "month": "/mo",
-        "icon": "<FaTimes/>",
         "title": "Everything you need for a growing business.",
+        "standard": ["SEO","Affiliate"],
+        "premium": ["SEO","Affiliate","Apps","24/7"],
+        "extended":["SEO","Affiliate","Apps"],
         "serviceName": ["SEO","Affiliate","Apps","24/7"],
         "serviceTitle": ["organic search","marketing","advertising","Free support"]
     },
@@ -48,8 +54,10 @@
         "oldPrice": "119",
         "newPrice": "99",
         "month": "/yr",
-        "icon": "<FaTimes/>",
         "title": "Everything you need for a growing business.",
+        "standard": ["SEO","Affiliate"],
+        "premium": ["SEO","Affiliate","Apps","24/7"],
+        "extended":["SEO","Affiliate","Apps"],
         "serviceName": ["SEO","Affiliate","Apps","24/7"],
         "serviceTitle": ["organic search","marketing","advertising","Free support"]
     },
@@ -62,8 +70,10 @@
         "oldPrice": "499",
         "newPrice": "299",
         "month": "/yr",
-        "icon": "<FaTimes/>",
         "title": "Everything you need for a growing business.",
+        "standard": ["SEO","Affiliate"],
+        "premium": ["SEO","Affiliate","Apps","24/7"],
+        "extended":["SEO","Affiliate","Apps"],
         "serviceName": ["SEO","Affiliate","Apps","24/7"],
         "serviceTitle": ["organic search","marketing","advertising","Free support"]
         
@@ -76,8 +86,8 @@
         "oldPrice": "249",
         "newPrice": "199",
         "month": "/yr",
-        "icon": "<FaTimes/>",
         "title": "Everything you need for a growing business.",
+        
         "serviceName": ["SEO","Affiliate","Apps","24/7"],
         "serviceTitle": ["organic search","marketing","advertising","Free support"]
     }
