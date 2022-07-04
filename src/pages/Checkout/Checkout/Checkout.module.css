@@ -1,14 +1,56 @@
 .checkout__title{
     width: 100%;
-    height: 300px;  
+    height: 200px;  
     background: url('../../../assets/dots-shape.png')no-repeat bottom;
     background-size: contain;
     background-color: #F5F6FE;
 }
+.personal__details{
+    padding: 3rem 0;
+}
+.input__box{
+    padding: 0 .7rem 1rem 0;
+}
+.input__box h6{
+    font-weight: 700;
+}
 .checkout__title h2{
     text-align: center;
-    padding-top: 7rem;
+    padding-top: 4.5rem;
     font-size: 2.5rem;
     font-weight: 700;
     color: #777AF2;
+}
+.input{
+    display: block;
+    width: 200px;
+    padding: .5rem .7rem;
+    outline: none;
+    border: none;
+    /* border: 1px solid rgb(197, 193, 193); */
+    border: 1px solid #777AF2;
+    border-radius: 5px;
+}
+.name__email__container{
+    display: flex;
+}
+.input__number{
+    display: block;
+    width: 200px;
+    padding: .5rem .7rem;
+    outline: none;
+    border: none;
+    border: 1px solid rgb(197, 193, 193);
+    /* border: 1px solid #777AF2; */
+    border-radius: 5px;
+}
+.input__number:focus{
+    border: 1px solid #777AF2;
+}
+
+/* hide input increment decrement arrow */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

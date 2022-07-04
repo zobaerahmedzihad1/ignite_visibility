@@ -17,6 +17,7 @@ const PricingCard = ({ pricing }) => {
     title,
     serviceName,
     serviceTitle,
+    icon
   } = pricing;
   return (
     <Col xs={12} sm={12} md={6} lg={4}>
@@ -24,9 +25,6 @@ const PricingCard = ({ pricing }) => {
         <div className={style.card__content}>
           <h4 style={{ backgroundColor, color }}>{service} </h4>
           <div className={style.price}>
-            {/* <span className={style.old__price}>
-              <del style={{color:'red'}} >${oldPrice}</del>{" "}
-            </span> */}
             <del className={style.old__price}>
                 <span>${oldPrice}</span>
             </del>
@@ -53,6 +51,7 @@ const PricingCard = ({ pricing }) => {
               <span style={{ color: "red" }}>
                 {service === "Standard" ? (
                   <FaTimes style={{ color: "red" }} />
+                  
                 ) : (
                   <FaCheck style={{ color: "green" }} />
                 )}

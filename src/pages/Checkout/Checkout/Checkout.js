@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
+import auth from "../../../firebase.init";
 import usePricing from "../../../hooks/usePricing";
 import style from "./Checkout.module.css";
 
 const Checkout = () => {
+  const user = useAuthState(auth);
+  console.log(user, 'chekout');
   const { _id } = useParams();
   const [allPricing, setAllPricing] = useState([]);
-  console.log(allPricing);
+  // console.log(allPricing);
+  const { service, duration, oldPrice, newPrice } = allPricing;
   useEffect(() => {
     const url = `http://localhost:5000/pricing/${_id}`;
     fetch(url)
@@ -23,7 +28,85 @@ const Checkout = () => {
       <Container>
         <Row>
           <Col ex={12} sm={12} md={6} lg={6}>
-            <h3>personal details</h3>
+            <div className={style.personal__details}>
+              <div className={style.name__email__container}>
+                <div className={style.input__box}>
+                  <h6>Your Name</h6>
+                  <input
+                    className={style.input}
+                    value={`${user[0]?.displayName}`}
+                    readOnly
+                    disabled
+                  />
+                </div>
+                <div className={style.input__box}>
+                  <h6>Your Eamil</h6>
+                  <input
+                    className={style.input}
+                    style={{ width: "300px" }}
+                    value={`${user[0]?.email}`}
+                    readOnly
+                    disabled
+                  />
+                </div>
+              </div>
+              <div className={style.name__email__container}>
+                <div className={style.input__box}>
+                  <h6>Service Quality</h6>
+                  <input
+                    className={style.input}
+                    value={`${service}`}
+                    readOnly
+                    disabled
+                  />
+                </div>
+                <div className={style.input__box}>
+                  <h6>Package Duration</h6>
+                  <input
+                    className={style.input}
+                    style={{ width: "300px" }}
+                    value={`${duration}`}
+                    readOnly
+                    disabled
+                  />
+                </div>
+              </div>
+              <div className={style.name__email__container}>
+                <div className={style.input__box}>
+                  <h6>Old Price</h6>
+                  <del style={{color:'red'}}>
+                    <input
+                      className={style.input}
+                      style={{ width: "92px" }}
+                      value={`${oldPrice}`}
+                      readOnly
+                      disabled
+                    />
+                  </del>
+                </div>
+                <div className={style.input__box}>
+                  <h6>New Price</h6>
+                  <input
+                    className={style.input}
+                    style={{ width: "92px" }}
+                    value={`${newPrice}`}
+                    readOnly
+                    disabled
+                  />
+                </div>
+                <div className={style.input__box}>
+                  <h6>Your Phone Number</h6>
+                  <input
+                    className={style.input__number}
+                    style={{ width: "300px" }}
+                    type="Number"
+                    placeholder="Example : 012345***"
+                    autoComplete="off"
+                    name="email"
+                  />
+                </div>
+              </div>
+            </div>
           </Col>
           <Col ex={12} sm={12} md={6} lg={6}>
             <h3>order summery</h3>
