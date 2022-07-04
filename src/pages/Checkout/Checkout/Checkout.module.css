@@ -56,22 +56,4 @@ input::-webkit-inner-spin-button {
 }
 
 
-/* service */
 
-.service{
-    display: flex;
-    justify-content: center;
-}
-.service span{
-    color: rgb(3, 184, 3);
-}
-.service h5{
-    padding: 0 .8rem ;
-    color: #1F276E;
-    font-weight: 700;
-}
-.service h6{
-    font-weight: 600;
-    font-size: 18px;
-    color: #696969;
-}
