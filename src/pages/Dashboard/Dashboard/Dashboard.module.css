@@ -7,10 +7,11 @@
     border: 1px solid gray;
 }
 .routes__container{
-    height: 80vh;
-    display: flex;
+    /* height: 80vh; */
+    /* display: flex; */
     align-items: center;
     justify-content: center;
+    padding: 2rem 1.3rem;
     background-color: #FFFFFF;
 }
 .dashboard__route{
@@ -28,8 +29,17 @@
 }
 .routes__container span {
     padding-right: .8rem;
+    font-size: 1.2rem;
 }
 .routes__container a.active{
     color: #5052e4;
     font-weight: 700;
+}
+
+
+/* admin */
+.admin__container{
+    background-color: #E1E3F5;
+    height: 200px;
+    /* padding: 2rem ; */
 }
