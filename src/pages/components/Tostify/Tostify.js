@@ -190,3 +190,15 @@ export const emptyDescription = () =>
     draggable: true,
     progress: undefined,
   });
+
+// confirm order
+export const confirmOrder = () =>
+  toast.success("Your order is pleased.", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });

@@ -10,7 +10,9 @@ import YearlyBilled from "./pages/Home/PricingPlan/YearlyBilled/YearlyBilled";
 import Login from "./pages/Login/Login/Login";
 import RequireAuth from "./pages/Login/RequireAuth/RequireAuth";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import { ToastContainer} from "react-toastify";
 import SignUp from "./pages/SignUp/SignUp";
+import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -35,8 +37,27 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

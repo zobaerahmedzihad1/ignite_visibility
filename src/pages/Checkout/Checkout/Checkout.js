@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
 // import usePricing from "../../../hooks/usePricing";
 import style from "./Checkout.module.css";
-import { FaCheck, FaTimes } from "react-icons/fa";
+import { confirmOrder } from "../../components/Tostify/Tostify";
 import ServiceDetail from "./ServiceDetail/ServiceDetail";
-import { setRef } from "@mui/material";
+import axios from "axios";
 
 const Checkout = () => {
   const user = useAuthState(auth);
   const { _id } = useParams();
+  const navigate = useNavigate();
+
   const [allPricing, setAllPricing] = useState([]);
   const { service, duration, oldPrice, newPrice, serviceName } = allPricing;
   useEffect(() => {
@@ -33,11 +35,20 @@ const Checkout = () => {
       email: user[0]?.email,
       serviceId: _id,
       service: service,
-      serviceDuration:duration,
+      serviceDuration: duration,
       currentPrice: newPrice,
       phone: event.target.phone.value,
     };
-    console.log(order);
+    // console.log(order);
+    axios.post("http://localhost:5000/order", order).then((response) => {
+      const { data } = response;
+      console.log(data?.insertedId);
+      if (data?.insertedId) {
+        confirmOrder();
+        event.target.reset();
+        navigate("/dashboard");
+      }
+    });
   };
 
   return (
@@ -48,7 +59,7 @@ const Checkout = () => {
       <Container>
         <Row>
           <Col ex={12} sm={12} md={6} lg={6}>
-            <form onSubmit={handlePlaceOrder} >
+            <form onSubmit={handlePlaceOrder}>
               <div className={style.personal__details}>
                 <div className={style.name__email__container}>
                   <div className={style.input__box}>

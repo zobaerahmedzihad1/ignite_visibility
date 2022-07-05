@@ -48,7 +48,6 @@ const NavBar = () => {
                   <Nav.Link as={NavLink} to="/home">
                     Home
                   </Nav.Link>
-
                   <Nav.Link as={NavLink} to="/contact-us">
                     Contact
                   </Nav.Link>
@@ -69,9 +68,18 @@ const NavBar = () => {
                   </NavDropdown>
 
                   {user[0]?.uid ? (
-                    <Nav.Link onClick={handleSignOut} as={NavLink} to="/login">
-                      Sign Out
-                    </Nav.Link>
+                    <>
+                      <Nav.Link as={NavLink} to="/dashboard">
+                        Dashboard
+                      </Nav.Link>
+                      <Nav.Link
+                        onClick={handleSignOut}
+                        as={NavLink}
+                        to="/login"
+                      >
+                        Sign Out
+                      </Nav.Link>
+                    </>
                   ) : (
                     <Nav.Link as={NavLink} to="/login">
                       Login
