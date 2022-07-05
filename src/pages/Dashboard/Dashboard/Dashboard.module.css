@@ -1,0 +1,15 @@
+.dashboard__container{
+    background-color: #F5F6FE;
+    padding: 2rem 0rem;
+    height: 90vh;
+}
+.dashboard__content{
+    border: 1px solid gray;
+}
+.routes__container{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+}

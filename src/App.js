@@ -13,6 +13,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import { ToastContainer} from "react-toastify";
 import SignUp from "./pages/SignUp/SignUp";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
+import Profile from "./pages/Dashboard/Profile/Profile";
+import AddReview from "./pages/Dashboard/AddReview/AddReview";
+import MyOrders from "./pages/Dashboard/MyOrders/MyOrders";
 
 function App() {
   return (
@@ -44,7 +47,12 @@ function App() {
               <Dashboard />
             </RequireAuth>
           }
-        ></Route>
+        >
+          <Route path="/dashboard" element={<Profile/>} />
+          <Route path="/dashboard/profile" element={<Profile/>} />
+          <Route path="/dashboard/add-review" element={<AddReview/>} />
+          <Route path="/dashboard/my-orders" element={<MyOrders/>} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer
