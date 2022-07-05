@@ -13,3 +13,23 @@
     justify-content: center;
     background-color: #FFFFFF;
 }
+.dashboard__route{
+    margin: .5rem 0;
+    padding: .2rem .7rem;   
+    background-color:  #f9fafb;
+    border: 1px solid orchid;
+    border-radius: .2rem;
+}
+.routes__container a{
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: .3rem 1.7rem;
+    color: #1E266D
+}
+.routes__container span {
+    padding-right: .8rem;
+}
+.routes__container a.active{
+    color: #5052e4;
+    font-weight: 700;
+}

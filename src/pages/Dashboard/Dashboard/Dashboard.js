@@ -1,6 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { NavLink, Outlet } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
+import { AiOutlineUnorderedList } from "react-icons/ai";
+import { MdOutlineRateReview } from "react-icons/md";
+import { FiLogOut } from "react-icons/fi";
+import { FaHome } from "react-icons/fa";
 import style from "./Dashboard.module.css";
 
 const Dashboard = () => {
@@ -12,34 +17,69 @@ const Dashboard = () => {
             <Col ex={4} sm={4} md={3} lg={3}>
               <div className={style.routes__container}>
                 <div>
-                  <div>
-                    <span>icon</span>
-                    <NavLink to="/dashboard/profile">
-                      <button>Profile</button>
+                  <div className={style.dashboard__route}>
+                    <NavLink
+                      className={(navInfo) =>
+                        navInfo.isActive ? style.active : ""
+                      }
+                      to="/dashboard/profile"
+                    >
+                      <span>
+                        <CgProfile />
+                      </span>
+                      Profile
                     </NavLink>
                   </div>
-                  <div>
-                    <span>icon</span>
-                    <NavLink to="/dashboard/my-orders">
-                      <button>My Orders</button>
+                  <div className={style.dashboard__route}>
+                    <NavLink
+                      className={(navInfo) =>
+                        navInfo.isActive ? style.active : ""
+                      }
+                      to="/dashboard/my-orders"
+                    >
+                      <span>
+                        <AiOutlineUnorderedList />
+                      </span>
+                      My Orders
                     </NavLink>
                   </div>
-                  <div>
-                    <span>icon</span>
-                    <NavLink to="/dashboard/add-review">
-                      <button>Review</button>
+                  <div className={style.dashboard__route}>
+                    <NavLink
+                      className={(navInfo) =>
+                        navInfo.isActive ? style.active : ""
+                      }
+                      to="/dashboard/add-review"
+                    >
+                      <span>
+                        <MdOutlineRateReview />
+                      </span>
+                      Review
                     </NavLink>
                   </div>
-                  <div>
-                    <span>icon</span>
-                    <NavLink to="/dashboard/logout">
-                      <button>Log Out</button>
+                  <div className={style.dashboard__route}>
+                    <NavLink
+                      className={(navInfo) =>
+                        navInfo.isActive ? style.active : ""
+                      }
+                      to="/dashboard/logout"
+                    >
+                      <span>
+                        <FiLogOut />
+                      </span>
+                      Log Out
                     </NavLink>
                   </div>
-                  <div>
-                    <span>icon</span>
-                    <NavLink to="/home">
-                      <button>Back Home</button>
+                  <div className={style.dashboard__route}>
+                    <NavLink
+                      className={(navInfo) =>
+                        navInfo.isActive ? style.active : ""
+                      }
+                      to="/home"
+                    >
+                      <span>
+                        <FaHome />
+                      </span>
+                      Back Home
                     </NavLink>
                   </div>
                 </div>
