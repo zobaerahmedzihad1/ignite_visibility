@@ -16,6 +16,7 @@ import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Profile from "./pages/Dashboard/Profile/Profile";
 import AddReview from "./pages/Dashboard/AddReview/AddReview";
 import MyOrders from "./pages/Dashboard/MyOrders/MyOrders";
+import MakeAdmin from "./pages/Dashboard/MakeAdmin/MakeAdmin";
 
 function App() {
   return (
@@ -52,6 +53,8 @@ function App() {
           <Route path="/dashboard/profile" element={<Profile/>} />
           <Route path="/dashboard/add-review" element={<AddReview/>} />
           <Route path="/dashboard/my-orders" element={<MyOrders/>} />
+          <Route path="/dashboard/my-orders" element={<MyOrders/>} />
+          <Route path="/dashboard/make-admin" element={<MakeAdmin/>} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

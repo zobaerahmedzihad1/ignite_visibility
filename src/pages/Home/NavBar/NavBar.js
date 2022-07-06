@@ -48,27 +48,28 @@ const NavBar = () => {
                   <Nav.Link as={NavLink} to="/home">
                     Home
                   </Nav.Link>
+                  <Nav.Link as={NavLink} to="/blogs">
+                    Blogs
+                  </Nav.Link>
                   <Nav.Link as={NavLink} to="/contact-us">
                     Contact
                   </Nav.Link>
-                  <NavDropdown
-                    title="Admin-Activities"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    <NavDropdown.Item as={NavLink} to="/dashboard">
-                      Dashboard
-                    </NavDropdown.Item>
-                    <NavDropdown.Item as={NavLink} to="/make-admin">
-                      Make Admin
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item as={NavLink} to="/add-new-service">
-                      Add new service
-                    </NavDropdown.Item>
-                  </NavDropdown>
-
                   {user[0]?.uid ? (
                     <>
+                      <NavDropdown
+                        title="Admin-Activities"
+                        id={`offcanvasNavbarDropdown-expand-${expand}`}
+                      >
+                        <NavDropdown.Item as={NavLink} to="/dashboard">
+                          Dashboard
+                        </NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to="/dashboard/make-admin">
+                          Make Admin
+                        </NavDropdown.Item>
+                        <NavDropdown.Item as={NavLink} to="/add-new-service">
+                          Add new service
+                        </NavDropdown.Item>
+                      </NavDropdown>
                       <Nav.Link as={NavLink} to="/dashboard">
                         Dashboard
                       </Nav.Link>

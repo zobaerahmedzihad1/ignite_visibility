@@ -5,6 +5,8 @@
 }
 .dashboard__content{
     border: 1px solid gray;
+    height: 80vh;
+    
 }
 .routes__container{
     /* height: 80vh; */
@@ -12,7 +14,7 @@
     align-items: center;
     justify-content: center;
     padding: 2rem 1.3rem;
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
 }
 .dashboard__route{
     margin: .5rem 0;
@@ -41,5 +43,20 @@
 .admin__container{
     background-color: #E1E3F5;
     height: 200px;
-    /* padding: 2rem ; */
+    padding: 2rem .7rem;
+}
+.admin__container a{
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: .3rem 1.7rem;
+    font-weight: 700;
+    color: #1E266D
+}
+.admin__container a.active{
+    color: #5052e4;
+    font-weight: 700;
+}
+.admin__container span {
+    padding-right: .8rem;
+    font-size: 1.2rem;
 }

@@ -13,9 +13,9 @@ const Dashboard = () => {
     <div className={style.dashboard__container}>
       <Container>
         <div className={style.dashboard__content}>
-          <Row>
+          <Row className="g-4">
             <Col ex={4} sm={4} md={3} lg={3}>
-              <div>
+              <div style={{ backgroundColor: "#FFFFFF" }}>
                 <div className={style.routes__container}>
                   <div className={style.dashboard__route}>
                     <NavLink
@@ -90,7 +90,7 @@ const Dashboard = () => {
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
                       }
-                      to="/make-admin"
+                      to="/dashboard/make-admin"
                     >
                       <span>
                         <MdAdminPanelSettings />

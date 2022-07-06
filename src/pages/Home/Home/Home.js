@@ -19,9 +19,9 @@ const Home = () => {
       <Brands />
       <HomeServices />
       <Campain />
-      <HomeQuery />
-      <ProjectIdea />
       <PricingPlan />
+      <ProjectIdea />
+      <HomeQuery />
       <Review />
     </div>
   );
