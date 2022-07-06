@@ -8,8 +8,44 @@
     color: #777AF2;
 }
 .profile__content{
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    height: 60vh;
+}
+.logout__container{
+    height: 250px;
+    width: 250px;
+    padding: 1rem ;
+    border: 2px solid lightblue;
+    border-radius: .2rem;
+}
+.profile__logout img{
+    border-radius: 50%;
+    border: 5px solid #777AF2;
+}
+.profile__logout{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 63.7vh;
+    border-radius: .3rem;
+}
+.logout__container button{
+    margin: 2rem auto;
+}
+.input{
+    display: block;
+    width: 200px;
+    padding: .5rem .7rem;
+    outline: none;
+    border: none;
+    /* border: 1px solid rgb(197, 193, 193); */
+    border: 1px solid #777AF2;
+    border-radius: 5px;
+}
+.input__box{
+    padding: 0 .7rem 1rem 0;
+}
+.name__email__container{
+    display: flex;
 }
