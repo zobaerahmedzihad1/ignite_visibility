@@ -10,26 +10,26 @@ import style from "./SocialLogin.module.css";
 import { errorMessage } from "../../components/Tostify/Tostify";
 import auth from "../../../firebase.init";
 import Loading from "../../../Shared/Loading/Loading";
+import useToken from "../../../hooks/useToken";
 
 const SocialLogin = () => {
   // google login
-  const [signInWithGoogle, user, googleLoading, googleError] =
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
   // facebook
   const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
     useSignInWithFacebook(auth);
-  // console.log(facebookUser);
-
+  
+  const [token] = useToken(googleUser || facebookUser)
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  if (user) {
+  if (googleUser) {
     navigate(from, { replace: true });
   }
   if (googleLoading || facebookLoading) {
     return <Loading />;
   }
-
   if (googleError || facebookError) {
     errorMessage(googleError?.message || facebookError?.message);
   }

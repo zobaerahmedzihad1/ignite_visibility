@@ -21,6 +21,7 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { async } from "@firebase/util";
 import Loading from "../../Shared/Loading/Loading";
+import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
@@ -28,6 +29,7 @@ const SignUp = () => {
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
 
+  const [token] = useToken(user)
   // console.log(user, "sign up");
 
   if(loading || updating){

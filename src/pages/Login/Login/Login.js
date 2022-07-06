@@ -16,6 +16,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Loading from "../../../Shared/Loading/Loading";
+import useToken from "../../../hooks/useToken";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -24,11 +25,11 @@ const Login = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
+  const [token] = useToken(user)
   // console.log(user, "login");
   if(loading){
     return <Loading/>
   }
-
   const handleLoginFormSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
