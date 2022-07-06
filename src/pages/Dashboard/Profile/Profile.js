@@ -4,6 +4,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Row, Col } from "react-bootstrap";
 import auth from "../../../firebase.init";
 import style from "./Profile.module.css";
+import profile from '../../../assets/profile.gif';
+
 
 const Profile = () => {
   const user = useAuthState(auth);
@@ -21,7 +23,12 @@ const Profile = () => {
           <Col ex={12} sm={12} md={4} lg={4}>
             <div className={`${style.logout__container}`}>
               <div className={style.profile__logout}>
-                <img src={user[0]?.photoURL} alt="img" />
+                {user[0]?.photoURL ? (
+                  <img src={user[0]?.photoURL} alt="img" />
+                ) : (
+                  <img className={style.profile__img} src={profile} alt="img" />
+                  
+                )}
               </div>
               <button
                 className="d-block button"
@@ -33,7 +40,7 @@ const Profile = () => {
           </Col>
           <Col ex={12} sm={12} md={8} lg={8}>
             <div>
-              <h3>personal information</h3>
+              <h3 className={style.title}>Account Information</h3>
               <div className={style.personal__details}>
                 <div className={style.name__email__container}>
                   <div className={style.input__box}>

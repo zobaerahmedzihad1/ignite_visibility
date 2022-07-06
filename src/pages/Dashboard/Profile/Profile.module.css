@@ -7,6 +7,12 @@
     font-weight: 700;
     color: #777AF2;
 }
+.title{
+    text-align: center;
+    padding-bottom: 1rem;
+    font-weight: 700;
+    color: #1E266D;
+}
 .profile__content{
     /* display: flex; */
     /* justify-content: center; */
@@ -23,6 +29,9 @@
 .profile__logout img{
     border-radius: 50%;
     border: 5px solid #777AF2;
+}
+.profile__img{
+    width: 50%;
 }
 .profile__logout{
     display: flex;
