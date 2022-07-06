@@ -6,6 +6,7 @@ import { AiOutlineUnorderedList } from "react-icons/ai";
 import { MdOutlineRateReview, MdAdminPanelSettings } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
+import logo from "../../../assets/logo1.png";
 import style from "./Dashboard.module.css";
 
 const Dashboard = () => {
@@ -17,6 +18,9 @@ const Dashboard = () => {
             <Col ex={4} sm={4} md={3} lg={3}>
               <div style={{ backgroundColor: "#FFFFFF" }}>
                 <div className={style.routes__container}>
+                  <div className={style.dashboard__logo}>
+                    <img src={logo} alt="" />
+                  </div>
                   <div className={style.dashboard__route}>
                     <NavLink
                       className={(navInfo) =>

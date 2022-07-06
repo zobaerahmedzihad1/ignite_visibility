@@ -8,7 +8,7 @@ import style from "./Profile.module.css";
 const Profile = () => {
   const user = useAuthState(auth);
   console.log(new Date(user[0]?.metadata?.creationTime).toDateString());
-  // console.log(user[0]?.photoURL);
+  console.log(user);
   const handleSignOut = () => {
     signOut(auth);
   };
@@ -58,33 +58,37 @@ const Profile = () => {
                 </div>
                 <div className={style.name__email__container}>
                   <div className={style.input__box}>
-                    <h6>Service Quality</h6>
+                    <h6>Accout Created At</h6>
                     <input
                       className={style.input}
-                      value=''
+                      value={`${new Date(
+                        user[0]?.metadata?.creationTime
+                      ).toDateString()}`}
                       readOnly
                       disabled
                     />
                   </div>
                   <div className={style.input__box}>
-                    <h6>Package Duration</h6>
+                    <h6>Last LogIn</h6>
                     <input
                       className={style.input}
                       style={{ width: "300px" }}
-                      value=''
+                      value={`${new Date(
+                        user[0]?.metadata?.lastSignInTime
+                      ).toDateString()}`}
                       readOnly
                       disabled
                     />
                   </div>
                 </div>
-                <div className={style.name__email__container}>
+                {/* <div className={style.name__email__container}>
                   <div className={style.input__box}>
                     <h6>Old Price</h6>
                     <del style={{ color: "red" }}>
                       <input
                         className={style.input}
                         style={{ width: "92px" }}
-                        value=''
+                        value=""
                         readOnly
                         disabled
                       />
@@ -95,7 +99,7 @@ const Profile = () => {
                     <input
                       className={style.input}
                       style={{ width: "92px" }}
-                      value=''
+                      value=""
                       readOnly
                       disabled
                     />
@@ -112,7 +116,7 @@ const Profile = () => {
                       name="phone"
                     />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </Col>

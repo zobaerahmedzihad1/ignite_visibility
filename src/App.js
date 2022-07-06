@@ -10,7 +10,7 @@ import YearlyBilled from "./pages/Home/PricingPlan/YearlyBilled/YearlyBilled";
 import Login from "./pages/Login/Login/Login";
 import RequireAuth from "./pages/Login/RequireAuth/RequireAuth";
 import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import SignUp from "./pages/SignUp/SignUp";
 import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Profile from "./pages/Dashboard/Profile/Profile";
@@ -49,12 +49,12 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route path="/dashboard" element={<Profile/>} />
-          <Route path="/dashboard/profile" element={<Profile/>} />
-          <Route path="/dashboard/add-review" element={<AddReview/>} />
-          <Route path="/dashboard/my-orders" element={<MyOrders/>} />
-          <Route path="/dashboard/my-orders" element={<MyOrders/>} />
-          <Route path="/dashboard/make-admin" element={<MakeAdmin/>} />
+          <Route path="/dashboard" element={<Profile />} />
+          <Route path="/dashboard/profile" element={<Profile />} />
+          <Route path="/dashboard/add-review" element={<AddReview />} />
+          <Route path="/dashboard/my-orders" element={<MyOrders />} />
+          <Route path="/dashboard/my-orders" element={<MyOrders />} />
+          <Route path="/dashboard/make-admin" element={<MakeAdmin />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
