@@ -9,8 +9,8 @@ import profile from '../../../assets/profile.gif';
 
 const Profile = () => {
   const user = useAuthState(auth);
-  console.log(new Date(user[0]?.metadata?.creationTime).toDateString());
-  console.log(user);
+  // console.log(new Date(user[0]?.metadata?.creationTime).toDateString());
+  // console.log(user);
   const handleSignOut = () => {
     signOut(auth);
   };

@@ -18,6 +18,7 @@ const NavBar = () => {
   // console.log(user[0]?.photoURL);
   const handleSignOut = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken')
   };
   return (
     <>

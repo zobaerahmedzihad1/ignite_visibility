@@ -7,10 +7,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   successfullyLogin,
-  emptyField,
-  emptyEmail,
-  errorPassword,
-  wrongPassword,
 } from "../../components/Tostify/Tostify";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -27,7 +23,6 @@ const Login = () => {
   let from = location.state?.from?.pathname || "/";
 
   const [token] = useToken(user);
-  // console.log(user, "login");
   useEffect(()=>{
     if(token){
       if(token){

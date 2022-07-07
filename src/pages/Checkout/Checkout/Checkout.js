@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
 // import usePricing from "../../../hooks/usePricing";
+import { errorMessage } from "../../components/Tostify/Tostify";
 import style from "./Checkout.module.css";
 import { confirmOrder } from "../../components/Tostify/Tostify";
 import ServiceDetail from "./ServiceDetail/ServiceDetail";
@@ -42,7 +43,11 @@ const Checkout = () => {
     // console.log(order);
     axios.post("http://localhost:5000/order", order).then((response) => {
       const { data } = response;
-      console.log(data?.insertedId);
+      const exists = data?.success === false;
+      
+      if(exists){
+        errorMessage('You have already purchased this service.')
+      }
       if (data?.insertedId) {
         confirmOrder();
         event.target.reset();
