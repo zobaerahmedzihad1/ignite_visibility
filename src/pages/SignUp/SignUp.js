@@ -72,7 +72,7 @@ const SignUp = () => {
 
   };
 
-  if (user) {
+  if (token) {
     navigate("/home");
   }
 

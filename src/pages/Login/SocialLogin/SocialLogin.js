@@ -24,7 +24,7 @@ const SocialLogin = () => {
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  if (googleUser) {
+  if (token) {
     navigate(from, { replace: true });
   }
   if (googleLoading || facebookLoading) {

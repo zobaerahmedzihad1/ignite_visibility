@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
-import React from "react";
+import React, { useEffect } from "react";
 import login from "../../../assets/login__image.jpg";
 import style from "./Login.module.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ import {
 } from "../../components/Tostify/Tostify";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { errorMessage } from "../../components/Tostify/Tostify";
 import auth from "../../../firebase.init";
 import Loading from "../../../Shared/Loading/Loading";
 import useToken from "../../../hooks/useToken";
@@ -25,37 +26,60 @@ const Login = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  const [token] = useToken(user)
+  const [token] = useToken(user);
   // console.log(user, "login");
-  if(loading){
-    return <Loading/>
+  useEffect(()=>{
+    if(token){
+      if(token){
+        navigate(from, { replace: true });
+       }
+    }
+  }, [token, from, navigate])
+
+  if (loading) {
+    return <Loading />;
   }
+  // useEffect(()=>{
+  //   if(token){
+
+  //    }
+  // },[token, from, navigate])
+
   const handleLoginFormSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
     const user = { email, password };
     signInWithEmailAndPassword(email, password);
-    if (!email && !password) {
-      emptyField();
-    } else if (!email) {
-      emptyEmail();
-    } else if (error?.message ) {
-      errorPassword();
-    } else if (error?.message) {
-      wrongPassword(error?.message);
-    } else if(!error) {
-      wrongPassword(error?.message);
-    }
-    else{
+
+    if (error) {
+      errorMessage(error?.message);
+    } else {
       successfullyLogin();
       event.target.reset();
     }
+     
+
+    // if (!email && !password) {
+    //   emptyField();
+    // } else if (!email) {
+    //   emptyEmail();
+    // } else if (error?.message ) {
+    //   errorPassword();
+    // } else if (error?.message) {
+    //   wrongPassword(error?.message);
+    // } else if(!error) {
+    //   wrongPassword(error?.message);
+    // }
+    // else{
+    //   successfullyLogin();
+    //   event.target.reset();
+    // }
   };
   // console.log(error?.message);
-  if (user) {
-    navigate(from, { replace: true });
-  }
+  // if (token) {
+  //   navigate(from, { replace: true });
+  // }
   return (
     <div className={style.login__container}>
       <h2>Login To Your Account</h2>
