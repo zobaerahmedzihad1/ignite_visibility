@@ -5,9 +5,7 @@ import style from "./Login.module.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  successfullyLogin,
-} from "../../components/Tostify/Tostify";
+import { success } from "../../components/Tostify/Tostify";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { errorMessage } from "../../components/Tostify/Tostify";
@@ -23,53 +21,34 @@ const Login = () => {
   let from = location.state?.from?.pathname || "/";
 
   const [token] = useToken(user);
-  useEffect(()=>{
-    if(token){
-      if(token){
+  useEffect(() => {
+    if (token) {
+      if (token) {
         navigate(from, { replace: true });
-       }
+      }
     }
-  }, [token, from, navigate])
+  }, [token, from, navigate]);
 
   if (loading) {
     return <Loading />;
   }
-  // useEffect(()=>{
-  //   if(token){
-
-  //    }
-  // },[token, from, navigate])
 
   const handleLoginFormSubmit = (event) => {
-    event.preventDefault();
+    
     const email = event.target.email.value;
     const password = event.target.password.value;
-    const user = { email, password };
+    // const user = { email, password };
     signInWithEmailAndPassword(email, password);
+
+    if (token) {
+      success("Success Login.");
+      event.target.reset();
+    }
 
     if (error) {
       errorMessage(error?.message);
-    } else {
-      successfullyLogin();
-      event.target.reset();
     }
-     
-
-    // if (!email && !password) {
-    //   emptyField();
-    // } else if (!email) {
-    //   emptyEmail();
-    // } else if (error?.message ) {
-    //   errorPassword();
-    // } else if (error?.message) {
-    //   wrongPassword(error?.message);
-    // } else if(!error) {
-    //   wrongPassword(error?.message);
-    // }
-    // else{
-    //   successfullyLogin();
-    //   event.target.reset();
-    // }
+    event.preventDefault();
   };
   // console.log(error?.message);
   // if (token) {

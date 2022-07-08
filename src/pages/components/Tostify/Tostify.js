@@ -2,6 +2,32 @@ import { toast } from "react-toastify";
 
 // Login component tostify start from here.
 
+export const errorMessage = (message) =>
+  toast.error((message), {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true, 
+    progress: undefined,
+  });
+  export const success = (message) =>
+  toast.success((message), {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+
+
+
+
+
+
 export const emptyField = () =>
   toast.error("Please fill this field.", {
     position: "top-center",
@@ -52,16 +78,7 @@ export const wrongPassword = (message) =>
     draggable: true,
     progress: undefined,
   });
-export const errorMessage = (message) =>
-  toast.error((message), {
-    position: "top-center",
-    autoClose: 5000,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true, 
-    progress: undefined,
-  });
+
 
 // Login component tostify End from here.
 
@@ -182,18 +199,6 @@ export const messageSend = () =>
   });
 export const emptyDescription = () =>
   toast.error("Write anything you want...", {
-    position: "top-center",
-    autoClose: 2000,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  });
-
-// confirm order
-export const confirmOrder = () =>
-  toast.success("Your order is pleased.", {
     position: "top-center",
     autoClose: 2000,
     hideProgressBar: true,

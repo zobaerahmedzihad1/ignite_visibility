@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
 // import usePricing from "../../../hooks/usePricing";
 import { errorMessage } from "../../components/Tostify/Tostify";
 import style from "./Checkout.module.css";
-import { confirmOrder } from "../../components/Tostify/Tostify";
+import { success } from "../../components/Tostify/Tostify";
 import ServiceDetail from "./ServiceDetail/ServiceDetail";
 import axios from "axios";
 
@@ -51,9 +51,9 @@ const Checkout = () => {
         errorMessage('You have already purchased this service.')
       }
       if (data?.insertedId) {
-        confirmOrder();
+        success("Your order is successfully pleased.");
         event.target.reset();
-        navigate("/dashboard");
+        navigate("/dashboard/my-orders");
       }
     });
   };
