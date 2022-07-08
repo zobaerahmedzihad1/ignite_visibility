@@ -30,7 +30,7 @@ const Checkout = () => {
 
   const handlePlaceOrder = (event) => {
     event.preventDefault();
-    const date = new Date()
+    const date = new Date().toDateString()
 
     const order = {
       name: user[0]?.displayName,

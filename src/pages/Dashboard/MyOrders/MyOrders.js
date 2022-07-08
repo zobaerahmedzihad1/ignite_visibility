@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import style from "./MyOrders.module.css";
 import auth from "../../../firebase.init";
@@ -7,24 +9,23 @@ import axios from "axios";
 
 const MyOrders = () => {
   const [user] = useAuthState(auth);
-  
+
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     const url = `http://localhost:5000/order?email=${user?.email}`;
-    console.log(url);
-    axios
-      .get(url)
-      .then((response) => {
-        const {data} = response;
-        setOrders(data)
-      });
+    axios.get(url).then((response) => {
+      const { data } = response;
+      setOrders(data);
+    });
   }, [user?.email]);
 
-    console.log(orders, "my orders");
+  const handleOrderDelete = (id) => {
+    alert(id)
+  };
 
   return (
     <div className={style.myOrder__container}>
-      <Table striped bordered hover>
+      <Table striped bordered>
         <thead>
           <tr>
             <th>#</th>
@@ -32,20 +33,36 @@ const MyOrders = () => {
             <th>Service Name</th>
             <th>Duration</th>
             <th>Price</th>
-            <th>Delete</th>
+            <th>Status</th>
             <th>Payment</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
+          {orders.map((order, index) => (
+            <tr key={index}>
+              <td className="fw-bold">{index + 1} </td>
+              <td>{order.currentDate} </td>
+              <td>{order.service} </td>
+              <td>{order.serviceDuration}</td>
+              <td>{order.currentPrice}</td>
+              <td>Pending</td>
+              <td>
+                <Link
+                  to={`/payment/${order._id}`}
+                  style={{ border: "none", backgroundColor: "none" }}
+                >
+                  Payment
+                </Link>
+              </td>
+              <td
+                style={{ color: "red", fontWidth: "700", cursor: "pointer" }}
+                onClick={() => handleOrderDelete(order._id)}
+              >
+                Delete <RiDeleteBinLine style={{ fontSize: "22px" }} />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>

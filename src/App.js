@@ -17,6 +17,7 @@ import Profile from "./pages/Dashboard/Profile/Profile";
 import AddReview from "./pages/Dashboard/AddReview/AddReview";
 import MyOrders from "./pages/Dashboard/MyOrders/MyOrders";
 import MakeAdmin from "./pages/Dashboard/MakeAdmin/MakeAdmin";
+import Payment from "./pages/Payment/Payment/Payment";
 
 function App() {
   return (
@@ -56,6 +57,14 @@ function App() {
           <Route path="/dashboard/my-orders" element={<MyOrders />} />
           <Route path="/dashboard/make-admin" element={<MakeAdmin />} />
         </Route>
+        <Route
+          path="/payment/:_id"
+          element={
+            <RequireAuth>
+              <Payment />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer

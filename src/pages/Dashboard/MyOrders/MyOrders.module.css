@@ -1,4 +1,9 @@
 .myOrder__container{
     background-color: #FFFFFF;
     padding: 2rem;
+    
+}
+.delete__btn{
+    color: red;
+    font-weight: 600;
 }
