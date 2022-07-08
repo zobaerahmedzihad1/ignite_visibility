@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
+import { success } from "../../components/Tostify/Tostify";
 import style from "./MyOrders.module.css";
 import auth from "../../../firebase.init";
 import axios from "axios";
@@ -20,7 +21,17 @@ const MyOrders = () => {
   }, [user?.email]);
 
   const handleOrderDelete = (id) => {
-    alert(id)
+    fetch(`http://localhost:5000/order/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          const remaining = orders.filter((order) => order._id !== id);
+          setOrders(remaining);
+          success("Successfully deleted.");
+        }
+      });
   };
 
   return (
