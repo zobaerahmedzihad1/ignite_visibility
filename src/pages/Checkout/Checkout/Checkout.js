@@ -30,17 +30,19 @@ const Checkout = () => {
 
   const handlePlaceOrder = (event) => {
     event.preventDefault();
+    const date = new Date()
 
     const order = {
       name: user[0]?.displayName,
       email: user[0]?.email,
+      currentDate: date,
       serviceId: _id,
       service: service,
       serviceDuration: duration,
       currentPrice: newPrice,
       phone: event.target.phone.value,
     };
-    // console.log(order);
+    console.log(order, 'checkout');
     axios.post("http://localhost:5000/order", order).then((response) => {
       const { data } = response;
       const exists = data?.success === false;

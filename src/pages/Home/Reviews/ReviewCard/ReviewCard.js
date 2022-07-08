@@ -1,26 +1,33 @@
 import React from "react";
-import img from "../../../../assets/profile.jpg";
-import {useAuthState} from 'react-firebase-hooks/auth'
+import img from "../../../../assets/profile.gif";
+import { Col, Row } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import style from "./ReviewCard.module.css";
 import auth from "../../../../firebase.init";
 
 const ReviewCard = ({ review }) => {
-  const { name, comment } = review;
+  // console.log(review.userReview?, 'reviewCard');
+  // console.log(review.userReview?.comment, 'reviewCard');
+  const { name, comment, profilePicture } = review;
+  console.log(review.userReview?.profilePicture);
   return (
-    <div className={style.review__container}>
-      <div>
-        <div className={style.profile}>
-          <img src={img} alt="img" />
-          <h4>{name}</h4>
+    <Col sm={12} md={6} lg={6}>
+      <div className={style.review__container}>
+        <div>
+          <div className={style.profile}>
+            {review.profilePicture ? (
+              <img src={profilePicture} alt="img" />
+            ) : (
+              <img src={img} alt="img" />
+            )}
+            <h4>{name}</h4>
+          </div>
+          <div className={style.comment}>
+            <p>{comment}</p>
+          </div>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          alias sed repellendus natus architecto accusamus iste molestiae atque,
-          consequuntur obcaecati veniam at dolorem id fugiat odio, corrupti
-          iusto perspiciatis. Veritatis.
-        </p>
       </div>
-    </div>
+    </Col>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Slider from "react-slick";
 // import img from '../../../../assets/Google.png'
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -27,7 +27,9 @@ const Review = () => {
     <div className={style.review__container}>
       <Container>
         <div>
-          <h2>See why thousands of customers <br /> love working with us</h2>
+          <h2>
+            See why thousands of customers <br /> love working with us
+          </h2>
           <Row>
             <Slider {...settings}>
               {reviews.map((review) => (

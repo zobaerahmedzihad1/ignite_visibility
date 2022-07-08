@@ -28,6 +28,7 @@
     height: 70px;
     border-radius: 50%;
     background-color: blueviolet;
+    margin-right: .7rem;
     cursor: pointer;
 }
 .profile h4{
@@ -35,10 +36,21 @@
     text-transform: uppercase;
     font-weight: 700;
     color: #5153c5;
+    background-color: #F5F6FE;
+    padding: .5rem;
+    border-radius: .2rem;
 }
 .review__container p{
-    padding: 2rem 0 0;
+    /* padding: 2rem 0 0; */
     text-align: justify;
     font-style: 22px;
     color: rgb(114, 113, 113);
+}
+.comment{
+    background-color: #E1E3F5;
+    border-radius: .2rem;
+    margin-top: 1rem;
+    height: 150px;
+    padding: 1rem;
+    overflow: auto;
 }
