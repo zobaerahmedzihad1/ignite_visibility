@@ -1,8 +1,15 @@
+.order__title{
+    text-align: center;
+    font-weight: 700;
+    color: #777AF2; 
+    padding: 1rem 0;
+}
 .myOrder__container{
     background-color: #FFFFFF;
     padding: 2rem;
-    
+    margin-top: 1rem;
 }
+
 .delete__btn{
     color: red;
     font-weight: 600;

@@ -18,6 +18,7 @@ import AddReview from "./pages/Dashboard/AddReview/AddReview";
 import MyOrders from "./pages/Dashboard/MyOrders/MyOrders";
 import MakeAdmin from "./pages/Dashboard/MakeAdmin/MakeAdmin";
 import Payment from "./pages/Payment/Payment/Payment";
+import Blogs from "./pages/Blogs/Blogs/Blogs";
 
 function App() {
   return (
@@ -31,9 +32,10 @@ function App() {
         </Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="login" element={<Login />} />
-        <Route path="sign-up" element={<SignUp />} />
-        <Route path="privacy__policy" element={<PrivacyPolicy />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/privacy__policy" element={<PrivacyPolicy />} />
         <Route
           path="/checkout/:_id"
           element={

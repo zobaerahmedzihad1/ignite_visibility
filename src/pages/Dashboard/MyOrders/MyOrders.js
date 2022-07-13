@@ -35,48 +35,52 @@ const MyOrders = () => {
   };
 
   return (
-    <div className={style.myOrder__container}>
-      <Table striped bordered>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Order Date</th>
-            <th>Service Name</th>
-            <th>Duration</th>
-            <th>Price</th>
-            <th>Status</th>
-            <th>Payment</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order, index) => (
-            <tr key={index}>
-              <td className="fw-bold">{index + 1} </td>
-              <td>{order.currentDate} </td>
-              <td>{order.service} </td>
-              <td>{order.serviceDuration}</td>
-              <td>{order.currentPrice}</td>
-              <td>Pending</td>
-              <td>
-                <Link
-                  to={`/payment/${order._id}`}
-                  style={{ border: "none", backgroundColor: "none" }}
-                >
-                  Payment
-                </Link>
-              </td>
-              <td
-                style={{ color: "red", fontWidth: "700", cursor: "pointer" }}
-                onClick={() => handleOrderDelete(order._id)}
-              >
-                Delete <RiDeleteBinLine style={{ fontSize: "22px" }} />
-              </td>
+    <>
+      <h2 className={style.order__title}>My Orders</h2>
+      <hr />
+      <div className={style.myOrder__container}>
+        <Table striped bordered>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Order Date</th>
+              <th>Service Name</th>
+              <th>Duration</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Payment</th>
+              <th>Delete</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
-    </div>
+          </thead>
+          <tbody>
+            {orders.map((order, index) => (
+              <tr key={index}>
+                <td className="fw-bold">{index + 1} </td>
+                <td>{order.currentDate} </td>
+                <td>{order.service} </td>
+                <td>{order.serviceDuration}</td>
+                <td>{order.currentPrice}</td>
+                <td>Pending</td>
+                <td>
+                  <Link
+                    to={`/payment/${order._id}`}
+                    style={{ border: "none", backgroundColor: "none" }}
+                  >
+                    Payment
+                  </Link>
+                </td>
+                <td
+                  style={{ color: "red", fontWidth: "700", cursor: "pointer" }}
+                  onClick={() => handleOrderDelete(order._id)}
+                >
+                  Delete <RiDeleteBinLine style={{ fontSize: "22px" }} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
+    </>
   );
 };
 
