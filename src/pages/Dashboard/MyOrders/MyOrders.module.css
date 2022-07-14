@@ -9,6 +9,11 @@
     padding: 2rem;
     margin-top: 1rem;
 }
+.delete__field{
+    font-weight: 700;
+    cursor: pointer;
+    background-color: red;
+}
 
 .delete__btn{
     color: red;

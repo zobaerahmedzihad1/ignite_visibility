@@ -153,12 +153,6 @@ const Checkout = () => {
           <Col ex={12} sm={12} md={6} lg={6}>
             <div>
               <h2>Order Summery</h2>
-              {/* {serviceName?.map((single_service) => (
-                <ServiceDetail
-                  key={single_service}
-                  single_service={single_service}
-                ></ServiceDetail>
-              ))} */}
               <ServiceDetail serviceName={serviceName} />
             </div>
           </Col>

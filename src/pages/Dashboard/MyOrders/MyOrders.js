@@ -24,7 +24,7 @@ const MyOrders = () => {
     fetch(`http://localhost:5000/order/${id}`, {
       method: "DELETE",
       headers: {
-        "authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
       .then((response) => response.json())
@@ -49,7 +49,7 @@ const MyOrders = () => {
               <th>Order Date</th>
               <th>Service Name</th>
               <th>Duration</th>
-              <th>Price</th>
+              <th>Price ($)</th>
               <th>Status</th>
               <th>Payment</th>
               <th>Delete</th>
@@ -62,18 +62,39 @@ const MyOrders = () => {
                 <td>{order.currentDate} </td>
                 <td>{order.service} </td>
                 <td>{order.serviceDuration}</td>
-                <td>{order.currentPrice}</td>
-                <td>Pending</td>
-                <td>
-                  <Link
-                    to={`/payment/${order._id}`}
-                    style={{ border: "none", backgroundColor: "none" }}
-                  >
-                    Payment
-                  </Link>
-                </td>
+                <td>$ {order.currentPrice}</td>
+                {order?.paid === true ? (
+                  <td style={{ color: "green", fontWeight: "600" }}>Done.</td>
+                ) : (
+                  <td style={{ color: "red", fontWeight: "600" }}>Pending</td>
+                )}
+
+                {order?.paid === true ? (
+                  <td style={{ backgroundColor: "green", color: "#fff" }}>
+                    Paid
+                  </td>
+                ) : (
+                  <td>
+                    <Link
+                      to={`/payment/${order._id}`}
+                      style={{
+                        border: "none",
+                        textDecoration: "none",
+                        fontWeight: "700",
+                      }}
+                    >
+                      Payment
+                    </Link>
+                  </td>
+                )}
                 <td
-                  style={{ color: "red", fontWidth: "700", cursor: "pointer" }}
+                  style={{
+                    color: "#fff",
+                    fontWidth: "700",
+                    cursor: "pointer",
+                    backgroundColor: "red",
+                  }}
+                  className={style.delete__field}
                   onClick={() => handleOrderDelete(order._id)}
                 >
                   Delete <RiDeleteBinLine style={{ fontSize: "22px" }} />
