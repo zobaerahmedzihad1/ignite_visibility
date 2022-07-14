@@ -6,10 +6,7 @@ import style from "./ReviewCard.module.css";
 import auth from "../../../../firebase.init";
 
 const ReviewCard = ({ review }) => {
-  // console.log(review.userReview?, 'reviewCard');
-  // console.log(review.userReview?.comment, 'reviewCard');
   const { name, comment, profilePicture } = review;
-  console.log(review.userReview?.profilePicture);
   return (
     <Col sm={12} md={6} lg={6}>
       <div className={style.review__container}>
