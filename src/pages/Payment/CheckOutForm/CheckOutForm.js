@@ -1,27 +1,15 @@
 import React from "react";
-import {
-  useStripe,
-  CardElement,
-  useElements,
-} from "@stripe/react-stripe-js";
-import style from "./CheckOutForm.module.css";
+import style from "./CheckoutForm.module.css";
+import { CardElement, useStripe } from "@stripe/react-stripe-js";
 
-const CheckOutForm = () => {
-  const stripe = useStripe();
-  const elements = useElements();
-
-  const handleCreditCardFormSubmit = async (event) => {
+const CheckoutForm = () => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const card = elements.getElement(CardElement);
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
-      card,
-    });
   };
-
+  const stripe = useStripe();
   return (
-    <div className={style.form__container}>
-      <form onSubmit={handleCreditCardFormSubmit}>
+    <div className={style.credit__card}>
+      <form onSubmit={handleSubmit}>
         <CardElement
           options={{
             style: {
@@ -46,4 +34,4 @@ const CheckOutForm = () => {
   );
 };
 
-export default CheckOutForm;
+export default CheckoutForm;
