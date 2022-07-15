@@ -20,6 +20,7 @@ import MakeAdmin from "./pages/Dashboard/MakeAdmin/MakeAdmin";
 
 import Blogs from "./pages/Blogs/Blogs/Blogs";
 import Payment from "./pages/Dashboard/Payment/Payment/Payment";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard.js/AdminDashboard";
 
 function App() {
   return (
@@ -60,6 +61,22 @@ function App() {
           <Route path="/dashboard/my-orders" element={<MyOrders />} />
           <Route path="/dashboard/payment/:_id" element={<Payment />} />
           <Route path="/dashboard/make-admin" element={<MakeAdmin />} />
+        </Route>
+      
+        <Route
+          path="/dashboard/admin"
+          element={
+            <RequireAuth>
+              <AdminDashboard />
+            </RequireAuth>
+          }
+        >
+          <Route path="/dashboard/admin" element={<Profile />} />
+          <Route path="/dashboard/admin/profile" element={<Profile />} />
+          <Route path="/dashboard/admin/add-review" element={<AddReview />} />
+          <Route path="/dashboard/admin/my-orders" element={<MyOrders />} />
+          <Route path="/dashboard/admin/my-orders" element={<MyOrders />} />
+          <Route path="/dashboard/admin/payment/:_id" element={<Payment />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

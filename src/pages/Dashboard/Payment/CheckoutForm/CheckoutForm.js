@@ -63,15 +63,16 @@ const CheckoutForm = ({ payment }) => {
       errorMessage(intentError?.message);
     } else {
       success("Congrats! Your payment is completed.");
-      console.log(paymentIntent.transactionId);
-      // store payment on database
       const date = new Date();
       const payment = {
         paymentId: _id,
         transactionId: paymentIntent.id,
         paymentTime: date,
+        name: name,
+        email: email,
       };
-      console.log(payment, "data payment");
+
+      // console.log(payment, "data payment");
 
       fetch(`http://localhost:5000/order/${_id}`, {
         method: "PATCH",

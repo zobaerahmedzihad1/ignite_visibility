@@ -1,0 +1,74 @@
+.dashboard__container{
+    background-color: #F5F6FE;
+    padding: 2rem 0rem;
+    height: 90vh;
+}
+.dashboard__content{
+    border: 1px solid gray;
+    height: 80vh;
+    
+}
+.routes__container{
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1.3rem;
+}
+.dashboard__logo{
+    width: 220px;
+    padding: .5rem;
+    /* background-color: rgb(248, 248, 255); */
+    background-color: #E1E3F5;
+    border-radius: .3rem;
+}
+.dashboard__logo img{
+    width: 80%;
+}
+.dashboard__route{
+    margin: .5rem 0;
+    padding: .2rem .7rem;   
+    background-color:  #f9fafb;
+    border: 1px solid orchid;
+    border-radius: .2rem;
+}
+.routes__container a{
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: .3rem .5rem;
+    color: #1E266D
+}
+.routes__container span {
+    padding-right: .8rem;
+    font-size: 1.2rem;
+}
+.routes__container a.active{
+    color: #5052e4;
+    font-weight: 700;
+}
+
+
+/* admin */
+.admin__container{
+    background-color: #E1E3F5;
+    padding: 2rem .7rem;
+}
+.admin__container h4{
+    text-align: center;
+    font-weight: 700;
+    color: #4547cc;
+}
+.admin__container a{
+    font-size: 1.1rem;
+    text-decoration: none;
+    /* padding: .3rem 1.7rem; */
+    font-weight: 700;
+    color: #1E266D
+}
+.admin__container a.active{
+    color: #5052e4;
+    font-weight: 700;
+}
+.admin__container span {
+    padding-right: .8rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}

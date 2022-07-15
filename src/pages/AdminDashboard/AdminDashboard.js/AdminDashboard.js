@@ -4,17 +4,16 @@ import { NavLink, Outlet } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import {
-  MdOutlineRateReview,
-  MdOutlineAdminPanelSettings,
+    MdManageSearch
 } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
-import { FaHome, FaHistory } from "react-icons/fa";
+import { FaHome, FaHistory, FaUserFriends } from "react-icons/fa";
 import logo from "../../../assets/logo1.png";
-import style from "./Dashboard.module.css";
+import style from "./AdminDashboard.module.css";
 import { signOut } from "firebase/auth";
 import auth from "../../../firebase.init";
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const handleSignOut = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
@@ -61,27 +60,15 @@ const Dashboard = () => {
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
                       }
-                      to="/dashboard/add-review"
+                      to="/dashboard/admin/manage-review"
                     >
                       <span>
-                        <MdOutlineRateReview />
+                        <MdManageSearch />
                       </span>
-                      Review
+                      Manage Review
                     </NavLink>
                   </div>
-                  <div className={style.dashboard__route}>
-                    <NavLink
-                      className={(navInfo) =>
-                        navInfo.isActive ? style.active : ""
-                      }
-                      to="/dashboard/payment-history"
-                    >
-                      <span>
-                        <FaHistory />
-                      </span>
-                      Payment History
-                    </NavLink>
-                  </div>
+                  
                   <div className={style.dashboard__route}>
                     <NavLink
                       className={(navInfo) =>
@@ -111,19 +98,19 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className={style.admin__container}>
-                  <h4>Admin Activities</h4>
+                  <h4>User Activities</h4>
                   <div className={style.dashboard__route}>
                     <NavLink
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
                       }
-                      to="/dashboard/admin"
+                      to="/dashboard"
                       style={{ justifyContent: "center" }}
                     >
                       <span>
-                        <MdOutlineAdminPanelSettings />
+                        <FaUserFriends/>
                       </span>
-                      Admin Dashboard
+                      User Dashboard
                     </NavLink>
                   </div>
                 </div>
@@ -139,4 +126,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;
