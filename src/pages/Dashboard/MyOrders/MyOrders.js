@@ -79,7 +79,6 @@ const MyOrders = () => {
                     }}
                   >
                     Paid{" "}
-                    <MdOutlineFileDownloadDone style={{ fontSize: "20px" }} />
                   </td>
                 ) : (
                   <td>

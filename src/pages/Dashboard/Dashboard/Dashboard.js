@@ -3,9 +3,13 @@ import { Container, Row, Col } from "react-bootstrap";
 import { NavLink, Outlet } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineUnorderedList } from "react-icons/ai";
-import { MdOutlineRateReview, MdAdminPanelSettings } from "react-icons/md";
+import {
+  MdOutlineRateReview,
+  MdAdminPanelSettings,
+  MdOutlineAdminPanelSettings,
+} from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaHistory } from "react-icons/fa";
 import logo from "../../../assets/logo1.png";
 import style from "./Dashboard.module.css";
 import { signOut } from "firebase/auth";
@@ -71,6 +75,19 @@ const Dashboard = () => {
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
                       }
+                      to="/dashboard/payment-history"
+                    >
+                      <span>
+                        <FaHistory />
+                      </span>
+                      Payment History
+                    </NavLink>
+                  </div>
+                  <div className={style.dashboard__route}>
+                    <NavLink
+                      className={(navInfo) =>
+                        navInfo.isActive ? style.active : ""
+                      }
                       to="/login"
                       onClick={handleSignOut}
                     >
@@ -102,11 +119,12 @@ const Dashboard = () => {
                         navInfo.isActive ? style.active : ""
                       }
                       to="/dashboard/make-admin"
+                      style={{ justifyContent: "center" }}
                     >
                       <span>
-                        <MdAdminPanelSettings />
+                        <MdOutlineAdminPanelSettings />
                       </span>
-                      Make Admin
+                      Admin Dashboard
                     </NavLink>
                   </div>
                 </div>
