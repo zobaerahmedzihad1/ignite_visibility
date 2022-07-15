@@ -13,12 +13,18 @@ import logo from "../../../assets/logo1.png";
 import style from "./Dashboard.module.css";
 import { signOut } from "firebase/auth";
 import auth from "../../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Dashboard = () => {
   const handleSignOut = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
   };
+
+  const user = useAuthState(auth);
+  const [admin] = useAdmin(user);
+  console.log(admin, "admin");
   return (
     <div className={style.dashboard__container}>
       <Container>
@@ -111,23 +117,25 @@ const Dashboard = () => {
                     </NavLink>
                   </div>
                 </div>
-                <div className={style.admin__container}>
-                  <h4>Admin Activities</h4>
-                  <div className={style.dashboard__route}>
-                    <NavLink
-                      className={(navInfo) =>
-                        navInfo.isActive ? style.active : ""
-                      }
-                      to="/dashboard/admin"
-                      style={{ justifyContent: "center" }}
-                    >
-                      <span>
-                        <MdOutlineAdminPanelSettings />
-                      </span>
-                      Admin Dashboard
-                    </NavLink>
+                {admin && (
+                  <div className={style.admin__container}>
+                    <h4>Admin Activities</h4>
+                    <div className={style.dashboard__route}>
+                      <NavLink
+                        className={(navInfo) =>
+                          navInfo.isActive ? style.active : ""
+                        }
+                        to="/dashboard/admin"
+                        style={{ justifyContent: "center" }}
+                      >
+                        <span>
+                          <MdOutlineAdminPanelSettings />
+                        </span>
+                        Admin Dashboard
+                      </NavLink>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </Col>
             <Col ex={8} sm={8} md={9} lg={9}>

@@ -1,23 +1,8 @@
 import React from "react";
-import { success } from "../../components/Tostify/Tostify";
+import { errorMessage, success } from "../../components/Tostify/Tostify";
 
-const UserRow = ({user, refetch}) => {
-//  console.log(user);
-  const removeAdmin = () => {
-    fetch(`http://localhost:5000/user/remove-admin/${user.email}`, {
-      method: "PUT",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.modifiedCount > 0) {
-          refetch();
-          success("Successfully removed from admin.");
-        }
-      });
-  };
+const UserRow = ({ user, refetch, index }) => {
+  //  console.log(user);
   const makeAdmin = () => {
     fetch(`http://localhost:5000/user/admin/${user.email}`, {
       method: "PUT",
@@ -25,7 +10,12 @@ const UserRow = ({user, refetch}) => {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 403) {
+          errorMessage("Failed to make an admin. ");
+        }
+        return res.json();
+      })
       .then((data) => {
         if (data?.modifiedCount > 0) {
           refetch();
@@ -33,9 +23,31 @@ const UserRow = ({user, refetch}) => {
         }
       });
   };
+
+  const removeAdmin = () => {
+    fetch(`http://localhost:5000/user/remove-admin/${user.email}`, {
+      method: "PUT",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 403) {
+          errorMessage("Failed to remove admin. ");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        if (data?.modifiedCount > 0) {
+          refetch();
+          success("Successfully removed from admin.");
+        }
+      });
+  };
+
   return (
     <tr>
-      <td>1</td>
+      <td style={{ textAlign: "center" }}>{index + 1}</td>
       <td>{user.email}</td>
       {user?.role === "admin" ? (
         <td

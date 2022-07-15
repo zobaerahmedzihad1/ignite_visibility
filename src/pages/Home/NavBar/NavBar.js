@@ -11,11 +11,13 @@ import style from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import useAdmin from "../../../hooks/useAdmin";
 import { signOut } from "firebase/auth";
 
 const NavBar = () => {
   const user = useAuthState(auth);
   // console.log(user[0]?.photoURL);
+  const [admin] = useAdmin(user);
   const handleSignOut = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
@@ -55,9 +57,11 @@ const NavBar = () => {
                   <Nav.Link as={NavLink} to="/contact-us">
                     Contact
                   </Nav.Link>
-                  <Nav.Link as={NavLink} to="/dashboard/admin">
-                    Admin-Activities
-                  </Nav.Link>
+                  {admin && (
+                    <Nav.Link as={NavLink} to="/dashboard/admin">
+                      Admin-Activities
+                    </Nav.Link>
+                  )}
                   {user[0]?.uid ? (
                     <>
                       <Nav.Link as={NavLink} to="/dashboard">
