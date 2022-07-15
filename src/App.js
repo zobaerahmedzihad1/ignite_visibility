@@ -16,14 +16,13 @@ import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 import Profile from "./pages/Dashboard/Profile/Profile";
 import AddReview from "./pages/Dashboard/AddReview/AddReview";
 import MyOrders from "./pages/Dashboard/MyOrders/MyOrders";
-import MakeAdmin from "./pages/Dashboard/MakeAdmin/MakeAdmin";
-
 import Blogs from "./pages/Blogs/Blogs/Blogs";
 import Payment from "./pages/Dashboard/Payment/Payment/Payment";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard/AdminDashboard";
 import ManageReview from "./pages/AdminDashboard/ManageReview/ManageReview";
 import AllOrders from "./pages/AdminDashboard/AllOrders/AllOrders";
 import AllUser from "./pages/AdminDashboard/AllUser/AllUser";
+import MakeAdmin from "./pages/AdminDashboard/MakeAdmin/MakeAdmin";
 
 function App() {
   return (
@@ -65,7 +64,7 @@ function App() {
           <Route path="/dashboard/payment/:_id" element={<Payment />} />
           <Route path="/dashboard/make-admin" element={<MakeAdmin />} />
         </Route>
-      
+
         <Route
           path="/dashboard/admin"
           element={
@@ -74,9 +73,12 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route path="/dashboard/admin" element={<AllUser  />} />
+          <Route path="/dashboard/admin" element={<AllUser />} />
           <Route path="/dashboard/admin/all__user" element={<AllUser />} />
-          <Route path="/dashboard/admin/manage__reviews" element={<ManageReview />} />
+          <Route
+            path="/dashboard/admin/manage__reviews"
+            element={<ManageReview />}
+          />
           <Route path="/dashboard/admin/all__orders" element={<AllOrders />} />
           <Route path="/dashboard/admin/my-orders" element={<MyOrders />} />
           <Route path="/dashboard/admin/payment/:_id" element={<Payment />} />

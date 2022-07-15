@@ -56,7 +56,7 @@ const NavBar = () => {
                     Contact
                   </Nav.Link>
                   <Nav.Link as={NavLink} to="/dashboard/admin">
-                    Admin Activities
+                    Admin-Activities
                   </Nav.Link>
                   {user[0]?.uid ? (
                     <>
