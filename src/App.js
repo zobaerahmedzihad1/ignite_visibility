@@ -17,8 +17,9 @@ import Profile from "./pages/Dashboard/Profile/Profile";
 import AddReview from "./pages/Dashboard/AddReview/AddReview";
 import MyOrders from "./pages/Dashboard/MyOrders/MyOrders";
 import MakeAdmin from "./pages/Dashboard/MakeAdmin/MakeAdmin";
-import Payment from "./pages/Payment/Payment/Payment";
+
 import Blogs from "./pages/Blogs/Blogs/Blogs";
+import Payment from "./pages/Dashboard/Payment/Payment/Payment";
 
 function App() {
   return (

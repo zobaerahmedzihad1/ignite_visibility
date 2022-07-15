@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import style from "./Payment.module.css";
-import Loading from "../../../Shared/Loading/Loading";
+import Loading from "../../../../Shared/Loading/Loading";
 import { useQuery } from "react-query";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from '@stripe/react-stripe-js';

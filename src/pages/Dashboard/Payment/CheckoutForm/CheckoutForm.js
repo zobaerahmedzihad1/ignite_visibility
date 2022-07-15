@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import style from "./CheckoutForm.module.css";
-import { errorMessage, success } from "../../components/Tostify/Tostify";
+import { errorMessage, success } from "../../../components/Tostify/Tostify";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import Loading from "../../../Shared/Loading/Loading";
+import Loading from "../../../../Shared/Loading/Loading";
 
 const CheckoutForm = ({ payment }) => {
   const stripe = useStripe();
