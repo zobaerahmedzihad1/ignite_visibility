@@ -26,6 +26,7 @@ const Dashboard = () => {
           <Row className="g-4">
             <Col ex={4} sm={4} md={3} lg={3}>
               <div style={{ backgroundColor: "#FFFFFF" }}>
+                <h3 className={style.dashboard__name}>User Dashboard</h3>
                 <div className={style.routes__container}>
                   <div className={style.dashboard__logo}>
                     <img src={logo} alt="" />

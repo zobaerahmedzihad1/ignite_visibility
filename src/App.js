@@ -20,7 +20,10 @@ import MakeAdmin from "./pages/Dashboard/MakeAdmin/MakeAdmin";
 
 import Blogs from "./pages/Blogs/Blogs/Blogs";
 import Payment from "./pages/Dashboard/Payment/Payment/Payment";
-import AdminDashboard from "./pages/AdminDashboard/AdminDashboard.js/AdminDashboard";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard/AdminDashboard";
+import ManageReview from "./pages/AdminDashboard/ManageReview/ManageReview";
+import AllOrders from "./pages/AdminDashboard/AllOrders/AllOrders";
+import AllUser from "./pages/AdminDashboard/AllUser/AllUser";
 
 function App() {
   return (
@@ -71,10 +74,10 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route path="/dashboard/admin" element={<Profile />} />
-          <Route path="/dashboard/admin/profile" element={<Profile />} />
-          <Route path="/dashboard/admin/add-review" element={<AddReview />} />
-          <Route path="/dashboard/admin/my-orders" element={<MyOrders />} />
+          <Route path="/dashboard/admin" element={<AllUser  />} />
+          <Route path="/dashboard/admin/all__user" element={<AllUser />} />
+          <Route path="/dashboard/admin/manage__reviews" element={<ManageReview />} />
+          <Route path="/dashboard/admin/all__orders" element={<AllOrders />} />
           <Route path="/dashboard/admin/my-orders" element={<MyOrders />} />
           <Route path="/dashboard/admin/payment/:_id" element={<Payment />} />
         </Route>

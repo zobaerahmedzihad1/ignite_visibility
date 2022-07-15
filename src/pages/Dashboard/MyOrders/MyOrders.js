@@ -43,8 +43,8 @@ const MyOrders = () => {
       <h2 className={style.order__title}>My Orders</h2>
       <hr />
       <div className={style.myOrder__container}>
-        <Table striped bordered>
-          <thead>
+        <Table striped bordered >
+          <thead >
             <tr>
               <th>#</th>
               <th>Order Date</th>

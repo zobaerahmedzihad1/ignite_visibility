@@ -3,6 +3,13 @@
     padding: 2rem 0rem;
     height: 90vh;
 }
+.dashboard__name{
+    text-align: center;
+    padding-top: .5rem;
+    color: #777AF2;
+    font-weight: 800;
+    border-bottom: 2px solid rgb(192, 187, 187);
+}
 .dashboard__content{
     border: 1px solid gray;
     height: 80vh;
@@ -11,7 +18,7 @@
 .routes__container{
     align-items: center;
     justify-content: center;
-    padding: 1.5rem 1.3rem;
+    padding: .7rem 1.3rem;
 }
 .dashboard__logo{
     width: 220px;

@@ -1,13 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { NavLink, Outlet } from "react-router-dom";
-import { CgProfile } from "react-icons/cg";
 import { AiOutlineUnorderedList } from "react-icons/ai";
-import {
-    MdManageSearch
-} from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
-import { FaHome, FaHistory, FaUserFriends } from "react-icons/fa";
+import { BiCommentDetail } from "react-icons/bi";
+import { FaHome, FaUserFriends, FaUsers } from "react-icons/fa";
 import logo from "../../../assets/logo1.png";
 import style from "./AdminDashboard.module.css";
 import { signOut } from "firebase/auth";
@@ -25,6 +22,7 @@ const AdminDashboard = () => {
           <Row className="g-4">
             <Col ex={4} sm={4} md={3} lg={3}>
               <div style={{ backgroundColor: "#FFFFFF" }}>
+                <h3 className={style.dashboard__name}>Admin Dashboard</h3>
                 <div className={style.routes__container}>
                   <div className={style.dashboard__logo}>
                     <img src={logo} alt="" />
@@ -34,12 +32,12 @@ const AdminDashboard = () => {
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
                       }
-                      to="/dashboard/profile"
+                      to="/dashboard/admin/all__user"
                     >
                       <span>
-                        <CgProfile />
+                        <FaUsers />
                       </span>
-                      Profile
+                      All Users
                     </NavLink>
                   </div>
                   <div className={style.dashboard__route}>
@@ -47,12 +45,12 @@ const AdminDashboard = () => {
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
                       }
-                      to="/dashboard/my-orders"
+                      to="/dashboard/admin/all__orders"
                     >
                       <span>
                         <AiOutlineUnorderedList />
                       </span>
-                      My Orders
+                      All Orders
                     </NavLink>
                   </div>
                   <div className={style.dashboard__route}>
@@ -60,15 +58,15 @@ const AdminDashboard = () => {
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
                       }
-                      to="/dashboard/admin/manage-review"
+                      to="/dashboard/admin/manage__reviews"
                     >
                       <span>
-                        <MdManageSearch />
+                        <BiCommentDetail />
                       </span>
-                      Manage Review
+                      Manage Reviews
                     </NavLink>
                   </div>
-                  
+
                   <div className={style.dashboard__route}>
                     <NavLink
                       className={(navInfo) =>
@@ -108,7 +106,7 @@ const AdminDashboard = () => {
                       style={{ justifyContent: "center" }}
                     >
                       <span>
-                        <FaUserFriends/>
+                        <FaUserFriends />
                       </span>
                       User Dashboard
                     </NavLink>
