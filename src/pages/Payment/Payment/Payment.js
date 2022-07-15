@@ -14,7 +14,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const { _id } = useParams();
 
-  const url = `http://localhost:5000/payment/${_id}`;
+  const url = `http://localhost:5000/dashboard/payment/${_id}`;
   const { data: payment, isLoading } = useQuery(["booking", _id], () =>
     fetch(url, {
       method: "GET",

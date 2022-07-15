@@ -57,16 +57,9 @@ function App() {
           <Route path="/dashboard/add-review" element={<AddReview />} />
           <Route path="/dashboard/my-orders" element={<MyOrders />} />
           <Route path="/dashboard/my-orders" element={<MyOrders />} />
+          <Route path="/dashboard/payment/:_id" element={<Payment />} />
           <Route path="/dashboard/make-admin" element={<MakeAdmin />} />
         </Route>
-        <Route
-          path="/payment/:_id"
-          element={
-            <RequireAuth>
-              <Payment />
-            </RequireAuth>
-          }
-        ></Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer

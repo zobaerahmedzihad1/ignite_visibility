@@ -4,15 +4,13 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Row, Col } from "react-bootstrap";
 import auth from "../../../firebase.init";
 import style from "./Profile.module.css";
-import profile from '../../../assets/profile.gif';
-
+import profile from "../../../assets/profile.gif";
 
 const Profile = () => {
   const user = useAuthState(auth);
-  // console.log(new Date(user[0]?.metadata?.creationTime).toDateString());
-  // console.log(user);
   const handleSignOut = () => {
     signOut(auth);
+    localStorage.removeItem("accessToken");
   };
   return (
     <div className={style.profile__container}>
@@ -27,7 +25,6 @@ const Profile = () => {
                   <img src={user[0]?.photoURL} alt="img" />
                 ) : (
                   <img className={style.profile__img} src={profile} alt="img" />
-                  
                 )}
               </div>
               <button

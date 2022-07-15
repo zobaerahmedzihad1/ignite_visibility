@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { MdOutlineFileDownloadDone } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import { success } from "../../components/Tostify/Tostify";
@@ -62,21 +63,21 @@ const MyOrders = () => {
                 <td>{order.currentDate} </td>
                 <td>{order.service} </td>
                 <td>{order.serviceDuration}</td>
-                <td>$ {order.currentPrice}</td>
+                <td style={{textAlign:'center'}}>$ {order.currentPrice}</td>
                 {order?.paid === true ? (
-                  <td style={{ color: "green", fontWeight: "600" }}>Done.</td>
+                  <td style={{ color: "green", fontWeight: "600" }}>Done </td>
                 ) : (
                   <td style={{ color: "red", fontWeight: "600" }}>Pending</td>
                 )}
 
                 {order?.paid === true ? (
-                  <td style={{ backgroundColor: "green", color: "#fff" }}>
-                    Paid
+                  <td style={{ color: "green",fontWeight: "800", textAlign:'center' }}>
+                    Paid <MdOutlineFileDownloadDone style={{fontSize:'20px'}}/>
                   </td>
                 ) : (
                   <td>
                     <Link
-                      to={`/payment/${order._id}`}
+                      to={`/dashboard/payment/${order._id}`}
                       style={{
                         border: "none",
                         textDecoration: "none",

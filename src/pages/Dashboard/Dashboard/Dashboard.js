@@ -8,8 +8,14 @@ import { FiLogOut } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
 import logo from "../../../assets/logo1.png";
 import style from "./Dashboard.module.css";
+import { signOut } from "firebase/auth";
+import auth from "../../../firebase.init";
 
 const Dashboard = () => {
+  const handleSignOut = () => {
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+  };
   return (
     <div className={style.dashboard__container}>
       <Container>
@@ -65,7 +71,8 @@ const Dashboard = () => {
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
                       }
-                      to="/dashboard/logout"
+                      to="/login"
+                      onClick={handleSignOut}
                     >
                       <span>
                         <FiLogOut />
