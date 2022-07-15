@@ -9,16 +9,14 @@ const CheckoutForm = ({ payment }) => {
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
-  const { _id, currentPrice, name, email } = payment;
-
-  //   console.log(payment, "checkout form pay");
-  //   console.log(currentPrice, "price");
+  const { _id, currentPrice, name, email, service } = payment;
 
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify({ currentPrice }),
     })
@@ -79,7 +77,7 @@ const CheckoutForm = ({ payment }) => {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
-          'authorization': `Bearer ${localStorage.getItem("accessToken")}`,
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(payment),
       })

@@ -63,7 +63,7 @@ const MyOrders = () => {
                 <td>{order.currentDate} </td>
                 <td>{order.service} </td>
                 <td>{order.serviceDuration}</td>
-                <td style={{textAlign:'center'}}>$ {order.currentPrice}</td>
+                <td style={{ textAlign: "center" }}>$ {order.currentPrice}</td>
                 {order?.paid === true ? (
                   <td style={{ color: "green", fontWeight: "600" }}>Done </td>
                 ) : (
@@ -71,8 +71,15 @@ const MyOrders = () => {
                 )}
 
                 {order?.paid === true ? (
-                  <td style={{ color: "green",fontWeight: "800", textAlign:'center' }}>
-                    Paid <MdOutlineFileDownloadDone style={{fontSize:'20px'}}/>
+                  <td
+                    style={{
+                      color: "green",
+                      fontWeight: "800",
+                      textAlign: "center",
+                    }}
+                  >
+                    Paid{" "}
+                    <MdOutlineFileDownloadDone style={{ fontSize: "20px" }} />
                   </td>
                 ) : (
                   <td>

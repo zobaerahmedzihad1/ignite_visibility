@@ -20,6 +20,7 @@ const Payment = () => {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        // JWT verify complete.
       },
     }).then((res) => res.json())
   );
