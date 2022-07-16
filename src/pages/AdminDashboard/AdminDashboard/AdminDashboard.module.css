@@ -1,7 +1,12 @@
 .dashboard__container{
-    background-color: #F5F6FE;
-    padding: 2rem 0rem;
-    height: 90vh;
+    height: 80vh;
+}
+.dashboard__container h2{
+    text-align: center;
+    font-weight: 700;
+    padding-top: 1rem;
+    color: #762ddb;
+    text-transform: uppercase;
 }
 .dashboard__name{
     text-align: center;

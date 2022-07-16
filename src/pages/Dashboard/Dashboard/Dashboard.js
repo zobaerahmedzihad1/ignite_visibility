@@ -27,6 +27,7 @@ const Dashboard = () => {
   console.log(admin, "admin");
   return (
     <div className={style.dashboard__container}>
+      <h2>User Dashboard</h2>
       <Container>
         <div className={style.dashboard__content}>
           <Row className="g-4">

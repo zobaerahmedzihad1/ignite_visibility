@@ -35,6 +35,8 @@ const AllUser = () => {
 
   return (
     <div className={style.users__container}>
+      <h3 className={style.allUser__title}>All Users And Admin's</h3>
+      <hr />
       <Table bordered>
         <thead>
           <tr style={{ textAlign: "center" }}>

@@ -17,6 +17,7 @@ const AdminDashboard = () => {
   };
   return (
     <div className={style.dashboard__container}>
+      <h2>Admin Dashboard</h2>
       <Container>
         <div className={style.dashboard__content}>
           <Row className="g-4">

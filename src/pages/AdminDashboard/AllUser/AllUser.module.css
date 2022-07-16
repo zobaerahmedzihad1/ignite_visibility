@@ -1,5 +1,10 @@
 .users__container{
     background-color: #FFFFFF;
     margin: 1rem;
-
+}
+.allUser__title{
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #777AF2; 
 }

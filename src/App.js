@@ -23,6 +23,7 @@ import ManageReview from "./pages/AdminDashboard/ManageReview/ManageReview";
 import AllOrders from "./pages/AdminDashboard/AllOrders/AllOrders";
 import AllUser from "./pages/AdminDashboard/AllUser/AllUser";
 import MakeAdmin from "./pages/AdminDashboard/MakeAdmin/MakeAdmin";
+import PaymentHistory from "./pages/Dashboard/PaymentHistory/PaymentHistory";
 
 function App() {
   return (
@@ -62,7 +63,10 @@ function App() {
           <Route path="/dashboard/my-orders" element={<MyOrders />} />
           <Route path="/dashboard/my-orders" element={<MyOrders />} />
           <Route path="/dashboard/payment/:_id" element={<Payment />} />
-          <Route path="/dashboard/make-admin" element={<MakeAdmin />} />
+          <Route
+            path="/dashboard/payment-history"
+            element={<PaymentHistory />}
+          />
         </Route>
 
         <Route
