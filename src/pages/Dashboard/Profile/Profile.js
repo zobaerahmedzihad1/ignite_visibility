@@ -14,7 +14,7 @@ const Profile = () => {
   };
   return (
     <div className={style.profile__container}>
-      <h2>My Profile</h2>
+      <h3>My Profile</h3>
       <hr />
       <div className={`${style.profile__content} d-flex align-items-center`}>
         <Row className="g-5">

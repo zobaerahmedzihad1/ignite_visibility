@@ -42,7 +42,7 @@ const Checkout = () => {
       currentPrice: newPrice,
       phone: event.target.phone.value,
     };
-    console.log(order, 'checkout');
+    // console.log(order, 'checkout');
     axios.post("http://localhost:5000/order", order).then((response) => {
       const { data } = response;
       const exists = data?.success === false;

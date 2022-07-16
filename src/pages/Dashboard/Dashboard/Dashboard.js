@@ -24,7 +24,7 @@ const Dashboard = () => {
 
   const user = useAuthState(auth);
   const [admin] = useAdmin(user);
-  console.log(admin, "admin");
+  // console.log(admin, "admin");
   return (
     <div className={style.dashboard__container}>
       <h2>User Dashboard</h2>

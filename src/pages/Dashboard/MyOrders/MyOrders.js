@@ -40,7 +40,7 @@ const MyOrders = () => {
 
   return (
     <>
-      <h2 className={style.order__title}>My Orders</h2>
+      <h3 className={style.order__title}>My Orders</h3>
       <hr />
       <div className={style.myOrder__container}>
         <Table striped bordered >

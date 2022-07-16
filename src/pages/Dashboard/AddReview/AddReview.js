@@ -30,7 +30,7 @@ const AddReview = () => {
 
   return (
     <div className={style.review__container}>
-      <h2>Please Share Your Opinion</h2>
+      <h3>Please Share Your Opinion</h3>
       <hr />
       <div>
         <form onSubmit={handleAddReview}>

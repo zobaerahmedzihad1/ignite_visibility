@@ -2,10 +2,11 @@
     background-color: #E1E3F5;
     padding: 2rem;
 }
-.profile__container h2{
+.profile__container h3{
     text-align: center;
     font-weight: 700;
     color: #777AF2;
+    padding-top: .5rem;
 }
 .title{
     text-align: center;
@@ -14,9 +15,6 @@
     color: #1E266D;
 }
 .profile__content{
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
     height: 55vh;
 }
 .logout__container{

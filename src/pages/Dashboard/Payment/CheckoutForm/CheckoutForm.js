@@ -63,7 +63,8 @@ const CheckoutForm = ({ payment }) => {
       errorMessage(intentError?.message);
     } else {
       success("Congrats! Your payment is completed.");
-      const date = new Date();
+      const date = new Date().toUTCString();
+
       const payment = {
         paymentId: _id,
         transactionId: paymentIntent.id,
