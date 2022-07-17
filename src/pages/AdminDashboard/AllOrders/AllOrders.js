@@ -1,11 +1,9 @@
 import React from 'react';
-import style from './AllOrders.module.css'
 
 const AllOrders = () => {
     return (
         <div>
-            <h3>All Orders</h3>
-
+            <h3>All Order</h3>
         </div>
     );
 };
