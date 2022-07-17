@@ -9,24 +9,30 @@ const ManageReview = () => {
   const [reviews, setReviews] = useState([]);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(5);
- 
+  const [index, setIndex] = useState(1);
 
   useEffect(() => {
     fetch("http://localhost:5000/review-count")
       .then((res) => res.json())
       .then((data) => {
         const count = data?.count;
-        const pages = Math.ceil(count / 3);
+        const pages = Math.ceil(count / 4);
         setPageCount(pages);
         setCount(count);
       });
   }, []);
 
   useEffect(() => {
+    console.log(page);
     fetch(`http://localhost:5000/manage-reviews?page=${page}&size=${size}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-   
+
+    if (page === 0) {
+      setIndex(1);
+    } else {
+      setIndex(index + parseInt(size));
+    }
   }, [page, size]);
 
   console.log(reviews);
@@ -44,11 +50,11 @@ const ManageReview = () => {
             </tr>
           </thead>
           <tbody>
-            {reviews.map((review,index) => (
+            {reviews.map((review, i) => (
               <tr>
-                <th>{index + 1}</th>
+                <th>{index + i}</th>
                 <td style={{ width: "200px" }}>{review.name} </td>
-                <td style={{ height: "80px", overflow: "hidden" }}>
+                <td style={{ height: "80px" }}>
                   {review.comment.slice(0, 200)}....
                 </td>
                 <td> Delete </td>
@@ -73,6 +79,7 @@ const ManageReview = () => {
           </option>
           <option value="10">10</option>
           <option value="15">15</option>
+          <option value="15">20</option>
         </select>
       </div>
     </div>
