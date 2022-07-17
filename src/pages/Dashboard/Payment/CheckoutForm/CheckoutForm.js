@@ -3,16 +3,15 @@ import style from "./CheckoutForm.module.css";
 import { errorMessage, success } from "../../../components/Tostify/Tostify";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Loading from "../../../../Shared/Loading/Loading";
-import { useNavigate } from "react-router-dom";
-import swal from "sweetalert";
 
 const CheckoutForm = ({ payment }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
+  const [processing, setProcessing] = useState(false);
   const { _id, currentPrice, name, email } = payment;
 
-  const navigate = useNavigate();
+  console.log(payment?.currentPrice,'price');
 
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
@@ -47,10 +46,10 @@ const CheckoutForm = ({ payment }) => {
       card,
     });
 
-    // if (error) {
-    //   // errorMessage(error?.message);
-    //   swal("Oops!", `${error?.message}`, "error");
-    // }
+    if (error) {
+      errorMessage(error?.message);
+      setProcessing(true);
+    }
     const { paymentIntent, error: intentError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -62,13 +61,10 @@ const CheckoutForm = ({ payment }) => {
         },
       });
     if (intentError) {
-      swal("Payment Failed ", `${error?.message}`, "error");
+      setProcessing(false);
+      errorMessage(intentError?.message);
     } else {
-      // success("Congrats! Your payment is completed.");
-      if (paymentIntent?.id) {
-        swal("Awesome!", "Your payment is completed !", "success");
-        navigate('/dashboard/payment-history')
-      }
+      success("Congrats! Your payment is completed.");
       const date = new Date().toUTCString();
 
       const payment = {
@@ -80,6 +76,7 @@ const CheckoutForm = ({ payment }) => {
       };
 
       // console.log(payment, "data payment");
+
       fetch(`http://localhost:5000/order/${_id}`, {
         method: "PATCH",
         headers: {
@@ -90,13 +87,14 @@ const CheckoutForm = ({ payment }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data);
+          console.log(data);
+          setProcessing(false);
         });
     }
 
-    // if (processing) {
-    //   toast.loading("Loading...");
-    // }
+    if (processing) {
+      <Loading />;
+    }
   };
 
   return (

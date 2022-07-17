@@ -16,14 +16,14 @@ const ManageReview = () => {
       .then((res) => res.json())
       .then((data) => {
         const count = data?.count;
-        const pages = Math.ceil(count / 5 );
+        const pages = Math.ceil(count / 5);
         setPageCount(pages);
         setCount(count);
       });
   }, []);
 
   useEffect(() => {
-    console.log(page);
+    // console.log(page);
     fetch(`http://localhost:5000/manage-reviews?page=${page}&size=${size}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
@@ -53,7 +53,7 @@ const ManageReview = () => {
                 <th>{index + i}</th>
                 <td style={{ width: "200px" }}>{review.name} </td>
                 <td style={{ height: "80px" }}>
-                  {review.comment.slice(0, 200)}....
+                  {review.comment.slice(0, 200)}
                 </td>
                 <td> Delete </td>
               </tr>

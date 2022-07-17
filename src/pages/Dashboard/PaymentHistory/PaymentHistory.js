@@ -40,21 +40,21 @@ const PaymentHistory = () => {
   return (
     <div className={style.payment__container}>
       <h3>My Payment History</h3>
-      <Table bordered className="mt-3" >
+      <Table bordered className="mt-3">
         <thead>
           <tr>
-            <th >#</th>
-            <th >Name</th>
-            <th >Email</th>
-            <th >Transaction Id</th>
-            <th >Payment Date</th>
+            <th>#</th>
+
+            <th>Email</th>
+            <th>Transaction Id</th>
+            <th>Payment Date</th>
           </tr>
         </thead>
         <tbody>
           {payments.map((payment, index) => (
             <tr>
               <th>{index + 1} </th>
-              <td>{payment.name} </td>
+
               <td>{payment.email} </td>
               <td>{payment.transactionId} </td>
               <td>{payment.paymentTime} </td>

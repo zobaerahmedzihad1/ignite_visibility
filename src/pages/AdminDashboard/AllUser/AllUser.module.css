@@ -1,6 +1,8 @@
 .users__container{
     background-color: #FFFFFF;
     margin: 1rem;
+    overflow: auto;
+    height: 71vh;
 }
 .allUser__title{
     text-align: center;
@@ -9,23 +11,3 @@
     color: #777AF2; 
 }
 
-/* pagination */
-.pagination button {
-    margin: .3rem;
-    padding: .2rem .7rem;
-    border: 1px solid gray;
-    border-radius: .2rem;
-}
-select{
-    margin: .3rem;
-    padding: .2rem .7rem;
-    border: 1px solid gray;
-    border-radius: .2rem;
-}
-select option{
-    border: none;
-}
-.selected{
-    background-color: #777AF2;
-    color: #FFFFFF;
-}
