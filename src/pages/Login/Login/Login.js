@@ -3,15 +3,15 @@ import React, { useEffect } from "react";
 import login from "../../../assets/login__image.jpg";
 import style from "./Login.module.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { success } from "../../components/Tostify/Tostify";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { errorMessage } from "../../components/Tostify/Tostify";
+import { errorMessage, success } from "../../components/Tostify/Tostify";
 import auth from "../../../firebase.init";
 import Loading from "../../../Shared/Loading/Loading";
 import useToken from "../../../hooks/useToken";
+import { promise } from "../../components/HotToast/HotToast";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -24,24 +24,24 @@ const Login = () => {
   useEffect(() => {
     if (token) {
       if (token) {
+        success("Successfully LogIn");
         navigate(from, { replace: true });
       }
     }
   }, [token, from, navigate]);
 
   if (loading) {
-    return <Loading />;
+    return <Loading />
   }
 
   const handleLoginFormSubmit = (event) => {
-    
     const email = event.target.email.value;
     const password = event.target.password.value;
     // const user = { email, password };
     signInWithEmailAndPassword(email, password);
 
     if (token) {
-      success("Success Login.");
+      // success("Success Login.");
       event.target.reset();
     }
 
@@ -118,17 +118,6 @@ const Login = () => {
           </Row>
         </div>
       </Container>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </div>
   );
 };

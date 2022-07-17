@@ -38,16 +38,6 @@ export const emptyField = () =>
     draggable: true,
     progress: undefined,
   });
-export const successfullyLogin = () =>
-  toast.success("Successfully login.", {
-    position: "top-center",
-    autoClose: 2000,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  });
 export const emptyEmail = () =>
   toast.error("Please Enter Your Email", {
     position: "top-center",
@@ -174,17 +164,6 @@ export const createUserSuccessfully = () =>
     draggable: true,
     progress: undefined,
   });
-
-// export let promise = () => {
-//   const resolveAfter3sec = new promise((resolve, reject) => {
-//     setTimeout(resolve, 3000);
-//   })
-//   toast.promise(resolveAfter3sec, {
-//     pending: "pending",
-//     success: "success",
-//     error: "error",
-//   });
-// };
 
 // contact page
 export const messageSend = () =>

@@ -1,14 +1,12 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "../../../assets/logo.png";
 import style from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
+import { userLogOut } from "../../components/HotToast/HotToast";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import useAdmin from "../../../hooks/useAdmin";
@@ -21,6 +19,7 @@ const NavBar = () => {
   const handleSignOut = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
+    userLogOut('Successfully logOut.')
   };
   return (
     <>

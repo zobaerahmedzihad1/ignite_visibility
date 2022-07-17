@@ -24,6 +24,7 @@ import AllOrders from "./pages/AdminDashboard/AllOrders/AllOrders";
 import AllUser from "./pages/AdminDashboard/AllUser/AllUser";
 import MakeAdmin from "./pages/AdminDashboard/MakeAdmin/MakeAdmin";
 import PaymentHistory from "./pages/Dashboard/PaymentHistory/PaymentHistory";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -89,6 +90,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Toaster position="top-center" reverseOrder={false} />
       <ToastContainer
         position="top-center"
         autoClose={5000}
