@@ -14,7 +14,6 @@ const PaymentHistory = () => {
     isLoading,
     isError,
     error,
-    refetch,
   } = useQuery("payments", () =>
     fetch(`http://localhost:5000/payment-history/${email}`, {
       method: "GET",

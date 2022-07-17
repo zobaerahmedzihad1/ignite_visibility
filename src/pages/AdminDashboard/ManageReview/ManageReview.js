@@ -16,7 +16,7 @@ const ManageReview = () => {
       .then((res) => res.json())
       .then((data) => {
         const count = data?.count;
-        const pages = Math.ceil(count / 4);
+        const pages = Math.ceil(count / 5 );
         setPageCount(pages);
         setCount(count);
       });
@@ -34,8 +34,6 @@ const ManageReview = () => {
       setIndex(index + parseInt(size));
     }
   }, [page, size]);
-
-  console.log(reviews);
 
   return (
     <div>

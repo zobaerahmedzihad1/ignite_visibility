@@ -1,11 +1,8 @@
 .manageReview__container{
     overflow: auto;
-    height: 67vh;
+    height: 66vh;
 }
 /* pagination */
-.pagination{
-    margin-top: .1rem;
-}
 .pagination button {
     margin: .3rem;
     padding: .2rem .7rem;
