@@ -3,15 +3,16 @@ import style from "./CheckoutForm.module.css";
 import { errorMessage, success } from "../../../components/Tostify/Tostify";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Loading from "../../../../Shared/Loading/Loading";
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 const CheckoutForm = ({ payment }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
-  const [processing, setProcessing] = useState(false);
   const { _id, currentPrice, name, email } = payment;
 
-  console.log(payment?.currentPrice,'price');
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
@@ -46,10 +47,10 @@ const CheckoutForm = ({ payment }) => {
       card,
     });
 
-    if (error) {
-      errorMessage(error?.message);
-      setProcessing(true);
-    }
+    // if (error) {
+    //   // errorMessage(error?.message);
+    //   swal("Oops!", `${error?.message}`, "error");
+    // }
     const { paymentIntent, error: intentError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -61,22 +62,25 @@ const CheckoutForm = ({ payment }) => {
         },
       });
     if (intentError) {
-      setProcessing(false);
-      errorMessage(intentError?.message);
+      swal("Payment Failed ", `${error?.message}`, "error");
     } else {
-      success("Congrats! Your payment is completed.");
+      // success("Congrats! Your payment is completed.");
+      if (paymentIntent?.id) {
+        swal("Awesome!", "Your payment is completed !", "success");
+        navigate('/dashboard/payment-history')
+      }
       const date = new Date().toUTCString();
 
       const payment = {
         paymentId: _id,
         transactionId: paymentIntent.id,
         paymentTime: date,
+        currentPrice:currentPrice,
         name: name,
         email: email,
       };
 
       // console.log(payment, "data payment");
-
       fetch(`http://localhost:5000/order/${_id}`, {
         method: "PATCH",
         headers: {
@@ -87,14 +91,13 @@ const CheckoutForm = ({ payment }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-          setProcessing(false);
+          // console.log(data);
         });
     }
 
-    if (processing) {
-      <Loading />;
-    }
+    // if (processing) {
+    //   toast.loading("Loading...");
+    // }
   };
 
   return (

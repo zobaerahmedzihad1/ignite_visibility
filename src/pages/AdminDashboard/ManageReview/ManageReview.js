@@ -1,5 +1,8 @@
+import { padding } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
+import { RiDeleteBinLine } from "react-icons/ri";
+import swal from "sweetalert";
 import Loading from "../../../Shared/Loading/Loading";
 import style from "./ManageReview.module.css";
 
@@ -35,6 +38,36 @@ const ManageReview = () => {
     }
   }, [page, size]);
 
+  const handleReviewDelete = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "You want to delete this review ",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        fetch(`http://localhost:5000/review-delete/${id}`, {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data?.deletedCount > 0) {
+              const remaining = reviews.filter((review) => review._id !== id);
+              setReviews(remaining);
+              swal("Poof! Your imaginary file has been deleted!", {
+                icon: "success",
+              });
+            }
+          });
+      } else {
+        return;
+      }
+    });
+  };
   return (
     <div>
       <div className={style.manageReview__container}>
@@ -51,18 +84,29 @@ const ManageReview = () => {
             {reviews.map((review, i) => (
               <tr>
                 <th>{index + i}</th>
-                <td style={{ width: "200px" }}>{review.name} </td>
+                <td>{review.name} </td>
                 <td style={{ height: "80px" }}>
                   {review.comment.slice(0, 200)}
                 </td>
-                <td> Delete </td>
+                <td
+                  style={{
+                    color: "red",
+                    padding: "1.7rem 0 0 1rem",
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => handleReviewDelete(review._id)}
+                >
+                  Delete
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
       </div>
       <div className={style.pagination}>
-        <h3>Total Reviews : {count} </h3>
+        {/* <h3>Total Reviews : {count} </h3> */}
         {[...Array(pageCount).keys()].map((number) => (
           <button
             className={page === number ? `${style.selected}` : ""}

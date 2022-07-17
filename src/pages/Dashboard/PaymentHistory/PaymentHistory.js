@@ -44,20 +44,20 @@ const PaymentHistory = () => {
         <thead>
           <tr>
             <th>#</th>
-
             <th>Email</th>
             <th>Transaction Id</th>
             <th>Payment Date</th>
+            <th style={{width:'70px'}}>Price</th>
           </tr>
         </thead>
         <tbody>
           {payments.map((payment, index) => (
             <tr>
-              <th>{index + 1} </th>
-
+              <td>{index + 1} </td>
               <td>{payment.email} </td>
               <td>{payment.transactionId} </td>
               <td>{payment.paymentTime} </td>
+              <td> $ {payment.currentPrice} </td>
             </tr>
           ))}
         </tbody>

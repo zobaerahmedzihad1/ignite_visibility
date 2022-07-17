@@ -1,11 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import style from "./Payment.module.css";
 import Loading from "../../../../Shared/Loading/Loading";
 import { useQuery } from "react-query";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
-import style from "./Payment.module.css";
 
 const stripePromise = loadStripe(
   "pk_test_51LLLVELWwKe3rGP6Mh8kuMkjjzLxBvPH0ZJpoZvUdRMubtqlxNytfR5MtOmNcaVGmJpovyulDOTdAJ9MhPAuesnX00ZaBoYAl1"
@@ -15,7 +15,6 @@ const Payment = () => {
   const { _id } = useParams();
 
   const url = `http://localhost:5000/dashboard/payment/${_id}`;
-  // console.log(url, 'payment');
   const { data: payment, isLoading } = useQuery(["booking", _id], () =>
     fetch(url, {
       method: "GET",
@@ -33,7 +32,7 @@ const Payment = () => {
   return (
     <>
       <div>
-        <h3> price : {payment?.currentPrice} </h3>
+        <h3> price : {payment.currentPrice} </h3>
       </div>
       <div>
         <Elements stripe={stripePromise}>
