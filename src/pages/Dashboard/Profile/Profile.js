@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button, Modal } from "react-bootstrap";
 import auth from "../../../firebase.init";
 import style from "./Profile.module.css";
 import profile from "../../../assets/profile.gif";
@@ -12,6 +12,12 @@ const Profile = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
   };
+
+  // logout modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className={style.profile__container}>
       <h3>My Profile</h3>
@@ -29,7 +35,8 @@ const Profile = () => {
               </div>
               <button
                 className="d-block button"
-                onClick={() => handleSignOut()}
+                // onClick={() => handleSignOut()}
+                onClick={handleShow}
               >
                 Log Out
               </button>
@@ -85,47 +92,33 @@ const Profile = () => {
                     />
                   </div>
                 </div>
-                {/* <div className={style.name__email__container}>
-                  <div className={style.input__box}>
-                    <h6>Old Price</h6>
-                    <del style={{ color: "red" }}>
-                      <input
-                        className={style.input}
-                        style={{ width: "92px" }}
-                        value=""
-                        readOnly
-                        disabled
-                      />
-                    </del>
-                  </div>
-                  <div className={style.input__box}>
-                    <h6>New Price</h6>
-                    <input
-                      className={style.input}
-                      style={{ width: "92px" }}
-                      value=""
-                      readOnly
-                      disabled
-                    />
-                  </div>
-                  <div className={style.input__box}>
-                    <h6>Your Phone Number</h6>
-                    <input
-                      className={style.input__number}
-                      style={{ width: "300px" }}
-                      type="Number"
-                      placeholder="Example : 012345***"
-                      autoComplete="off"
-                      required
-                      name="phone"
-                    />
-                  </div>
-                </div> */}
               </div>
             </div>
           </Col>
         </Row>
       </div>
+
+      {/* modal code */}
+      <>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <h3 style={{fontWeight:'700'}}>Log Out</h3>
+          </Modal.Header>
+          <h4 className="text-danger ps-3 py-2">
+            Are you sure you want to logout ?
+          </h4>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="danger" onClick={() => handleSignOut()}>
+              Log Out
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+
+      {/* modal code */}
     </div>
   );
 };

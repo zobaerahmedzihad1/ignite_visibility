@@ -1,6 +1,6 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { NavLink, Outlet } from "react-router-dom";
+import React, { useState } from "react";
+import { Container, Row, Col, Modal, Button } from "react-bootstrap";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import {
@@ -13,13 +13,24 @@ import logo from "../../../assets/logo1.png";
 import style from "./Dashboard.module.css";
 import { signOut } from "firebase/auth";
 import auth from "../../../firebase.init";
+import toast from "react-hot-toast";
 import { useAuthState } from "react-firebase-hooks/auth";
 import useAdmin from "../../../hooks/useAdmin";
 
 const Dashboard = () => {
+  // logout modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const navigate = useNavigate();
+
   const handleSignOut = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
+    toast.success("Successfully LogOut.");
+    setShow(false);
+    navigate("/login");
   };
 
   const user = useAuthState(auth);
@@ -91,18 +102,24 @@ const Dashboard = () => {
                     </NavLink>
                   </div>
                   <div className={style.dashboard__route}>
-                    <NavLink
+                    <span
+                      style={{
+                        marginLeft: "10px",
+                        cursor: "pointer",
+                        fontWeight: "400",
+                        color:'#1E266D'
+                      }}
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
                       }
-                      to="/login"
-                      onClick={handleSignOut}
+                      to="/dashboard"
+                      onClick={handleShow}
                     >
                       <span>
                         <FiLogOut />
                       </span>
                       Log Out
-                    </NavLink>
+                    </span>
                   </div>
                   <div className={style.dashboard__route}>
                     <NavLink
@@ -145,6 +162,25 @@ const Dashboard = () => {
           </Row>
         </div>
       </Container>
+      {/* logout modal */}
+      <>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <h3 style={{ fontWeight: "700" }}>Log Out</h3>
+          </Modal.Header>
+          <h4 className="text-danger ps-3 py-2">
+            Are you sure you want to logout ?
+          </h4>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="danger" onClick={() => handleSignOut()}>
+              Log Out
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
     </div>
   );
 };

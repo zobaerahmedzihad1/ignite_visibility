@@ -3,12 +3,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
-// import usePricing from "../../../hooks/usePricing";
-import { errorMessage } from "../../components/Tostify/Tostify";
-import style from "./Checkout.module.css";
-import { success } from "../../components/Tostify/Tostify";
 import ServiceDetail from "./ServiceDetail/ServiceDetail";
+import toast from "react-hot-toast";
 import axios from "axios";
+import swal from "sweetalert";
+import style from "./Checkout.module.css";
 
 const Checkout = () => {
   const user = useAuthState(auth);
@@ -24,13 +23,9 @@ const Checkout = () => {
       .then((data) => setAllPricing(data));
   }, [_id]);
 
-  // const standardService = serviceName?.slice(0, 2);
-  // const extendedService = serviceName?.slice(0, 3);
-  // console.log(standardService, "slice");
-
   const handlePlaceOrder = (event) => {
     event.preventDefault();
-    const date = new Date().toDateString()
+    const date = new Date().toDateString();
 
     const order = {
       name: user[0]?.displayName,
@@ -46,12 +41,16 @@ const Checkout = () => {
     axios.post("http://localhost:5000/order", order).then((response) => {
       const { data } = response;
       const exists = data?.success === false;
-      
-      if(exists){
-        errorMessage('You have already purchased this service.')
+
+      if (exists) {
+        toast.error("You have already purchased this service.");
       }
       if (data?.insertedId) {
-        success("Your order is successfully pleased.");
+        swal(
+          "Congratulations!",
+          `Well done ${user[0]?.displayName}. You have to pay ${newPrice} $`,
+          "success"
+        );
         event.target.reset();
         navigate("/dashboard/my-orders");
       }

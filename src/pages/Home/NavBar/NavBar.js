@@ -1,26 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "../../../assets/logo.png";
 import style from "./NavBar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import useAdmin from "../../../hooks/useAdmin";
 import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
+import { Button, Modal } from "react-bootstrap";
 
 const NavBar = () => {
   const user = useAuthState(auth);
   // console.log(user[0]?.photoURL);
   const [admin] = useAdmin(user);
+  const navigate = useNavigate();
+
+  // logout modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const handleSignOut = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
     toast.success("Successfully LogOut.");
+    setShow(false);
+    navigate("/login");
   };
+
   return (
     <>
       {["md"].map((expand) => (
@@ -74,9 +85,7 @@ const NavBar = () => {
                         Dashboard
                       </Nav.Link>
                       <Nav.Link
-                        onClick={handleSignOut}
-                        as={NavLink}
-                        to="/login"
+                        onClick={handleShow}                      
                       >
                         Sign Out
                       </Nav.Link>
@@ -92,6 +101,25 @@ const NavBar = () => {
           </Container>
         </Navbar>
       ))}
+      {/* logout modal */}
+      <>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <h3 style={{fontWeight:'700'}}>Log Out</h3>
+          </Modal.Header>
+          <h4 className="text-danger ps-3 py-2">
+            Are you sure you want to logout ?
+          </h4>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="danger" onClick={() => handleSignOut()}>
+              Log Out
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
     </>
   );
 };

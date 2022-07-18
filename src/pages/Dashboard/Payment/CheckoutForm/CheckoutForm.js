@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import style from "./CheckoutForm.module.css";
 import { errorMessage, success } from "../../../components/Tostify/Tostify";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Loading from "../../../../Shared/Loading/Loading";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import swal from "sweetalert";
+import style from "./CheckoutForm.module.css";
 
 const CheckoutForm = ({ payment }) => {
   const stripe = useStripe();
@@ -15,6 +16,7 @@ const CheckoutForm = ({ payment }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // const loading = toast.loading("Loading... please wait!");
     fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: {
@@ -27,13 +29,14 @@ const CheckoutForm = ({ payment }) => {
       .then((data) => {
         if (data?.clientSecret) {
           setClientSecret(data?.clientSecret);
+          // toast.dismiss(loading);
         }
       });
   }, [currentPrice]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    
     if (!stripe || !elements) {
       return;
     }
@@ -42,15 +45,11 @@ const CheckoutForm = ({ payment }) => {
     if (card === null) {
       return;
     }
+    const processing = toast.loading("Processing... please wait!");
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
-
-    // if (error) {
-    //   // errorMessage(error?.message);
-    //   swal("Oops!", `${error?.message}`, "error");
-    // }
     const { paymentIntent, error: intentError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -63,11 +62,12 @@ const CheckoutForm = ({ payment }) => {
       });
     if (intentError) {
       swal("Payment Failed ", `${error?.message}`, "error");
+      toast.dismiss(processing);
     } else {
       // success("Congrats! Your payment is completed.");
       if (paymentIntent?.id) {
-        swal("Awesome!", "Your payment is completed !", "success");
-        navigate('/dashboard/payment-history')
+        swal("Awesome!", "Your payment is successfully completed !", "success");
+        navigate("/dashboard/payment-history");
       }
       const date = new Date().toUTCString();
 
@@ -75,7 +75,7 @@ const CheckoutForm = ({ payment }) => {
         paymentId: _id,
         transactionId: paymentIntent.id,
         paymentTime: date,
-        currentPrice:currentPrice,
+        currentPrice: currentPrice,
         name: name,
         email: email,
       };
@@ -92,12 +92,9 @@ const CheckoutForm = ({ payment }) => {
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);
+          toast.dismiss(processing);
         });
     }
-
-    // if (processing) {
-    //   toast.loading("Loading...");
-    // }
   };
 
   return (

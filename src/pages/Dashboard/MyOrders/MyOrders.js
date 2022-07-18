@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { MdOutlineFileDownloadDone } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
-import { success } from "../../components/Tostify/Tostify";
-import style from "./MyOrders.module.css";
 import auth from "../../../firebase.init";
 import axios from "axios";
+import toast from "react-hot-toast";
+import swal from "sweetalert";
+import style from "./MyOrders.module.css";
 
 const MyOrders = () => {
   const [user] = useAuthState(auth);
@@ -21,21 +21,56 @@ const MyOrders = () => {
     });
   }, [user?.email]);
 
+  // const handleOrderDelete = (id) => {
+  // fetch(`http://localhost:5000/order/${id}`, {
+  //   method: "DELETE",
+  //   headers: {
+  //     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //   },
+  // })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //   if (data.deletedCount > 0) {
+  //     const remaining = orders.filter((order) => order._id !== id);
+  //     setOrders(remaining);
+  //     success("Successfully deleted.");
+  //   }
+  // });
+  // };
+
   const handleOrderDelete = (id) => {
-    fetch(`http://localhost:5000/order/${id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          const remaining = orders.filter((order) => order._id !== id);
-          setOrders(remaining);
-          success("Successfully deleted.");
-        }
-      });
+    swal({
+      title: "Are you sure?",
+      text: `You want to delete this order ?`,
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        const loading = toast.loading("Deleting...Please Wait!!!");
+        fetch(`http://localhost:5000/order/${id}`, {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              const remaining = orders.filter((order) => order._id !== id);
+              setOrders(remaining);
+              swal(
+                "Deleted !",
+                "Your order is successfully deleted.",
+                "success"
+              );
+              toast.dismiss(loading);
+            }
+          });
+      } else {
+        return;
+      }
+    });
   };
 
   return (
@@ -43,8 +78,8 @@ const MyOrders = () => {
       <h3 className={style.order__title}>My Orders</h3>
       <hr />
       <div className={style.myOrder__container}>
-        <Table striped bordered >
-          <thead >
+        <Table striped bordered>
+          <thead>
             <tr>
               <th>#</th>
               <th>Order Date</th>
