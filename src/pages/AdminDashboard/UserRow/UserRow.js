@@ -1,27 +1,70 @@
+import axios from "axios";
 import React from "react";
+import toast from "react-hot-toast";
+import swal from "sweetalert";
 import { errorMessage, success } from "../../components/Tostify/Tostify";
 
 const UserRow = ({ user, refetch, index }) => {
-  //  console.log(user);
+  // const makeAdmin = () => {
+  //   const loading = toast.loading("Loading...Please Wait!!!");
+  //   fetch(`http://localhost:5000/user/admin/${user.email}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //     },
+  //   })
+  //     .then((res) => {
+  //       if (res.status === 403) {
+  //         errorMessage("Failed to make an admin. ");
+  //       }
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       if (data?.modifiedCount > 0) {
+  //         refetch();
+  //         swal(
+  //           "Great!",
+  //           `${user.email} Now an admin !`,
+  //           "success"
+  //         );
+  //         toast.dismiss(loading);
+  //       }
+  //     });
+  // };
+
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${user.email}`, {
-      method: "PUT",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => {
-        if (res.status === 403) {
-          errorMessage("Failed to make an admin. ");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (data?.modifiedCount > 0) {
-          refetch();
-          success("Successfully made an admin.");
-        }
-      });
+    swal({
+      title: "Are you sure?",
+      text: `This ${user.displayName} person you want to make an admin ?`,
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        const loading = toast.loading("Loading...Please Wait!!!");
+        fetch(`http://localhost:5000/user/admin/${user.email}`, {
+          method: "PUT",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        })
+          .then((res) => {
+            if (res.status === 403) {
+              errorMessage("Failed to make an admin. ");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            if (data?.modifiedCount > 0) {
+              refetch();
+              swal("Great!", `${user.email} Now an admin !`, "success");
+              toast.dismiss(loading);
+            }
+          });
+      } else {
+        return
+      }
+    });
   };
 
   const removeAdmin = () => {

@@ -58,7 +58,7 @@ const ManageReview = () => {
             if (data?.deletedCount > 0) {
               const remaining = reviews.filter((review) => review._id !== id);
               setReviews(remaining);
-              swal("Poof! Your imaginary file has been deleted!", {
+              swal("Yes !  Your review has been deleted!", {
                 icon: "success",
               });
             }
@@ -75,7 +75,7 @@ const ManageReview = () => {
           <thead>
             <tr style={{ textAlign: "center" }}>
               <th>#</th>
-              <th>Name</th>
+              <th style={{width:'180px'}}>Name</th>
               <th>Feedback</th>
               <th>Manage</th>
             </tr>
@@ -84,7 +84,7 @@ const ManageReview = () => {
             {reviews.map((review, i) => (
               <tr>
                 <th>{index + i}</th>
-                <td>{review.name} </td>
+                <td  >{review.name} </td>
                 <td style={{ height: "80px" }}>
                   {review.comment.slice(0, 200)}
                 </td>

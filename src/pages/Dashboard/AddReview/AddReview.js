@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { success } from "../../components/Tostify/Tostify";
+import swal from "sweetalert";
 import auth from "../../../firebase.init";
 import style from "./AddReview.module.css";
 
@@ -13,19 +14,26 @@ const AddReview = () => {
     const profilePicture = user[0]?.photoURL;
     const comment = event.target.comment.value;
     event.preventDefault();
-    
-    axios.post('http://localhost:5000/reviews', {
-      email,
-      name,
-      comment,
-      profilePicture
-    }).then(response => {
-      console.log(response?.data, 'reviews');
-      if(response?.data?.insertedId){
-        success('Thanks for your feedback.')
-      }
-    })
-    event.target.reset()
+
+    axios
+      .post("http://localhost:5000/reviews", {
+        email,
+        name,
+        comment,
+        profilePicture,
+      })
+      .then((response) => {
+        console.log(response?.data, "reviews");
+        if (response?.data?.insertedId) {
+          // success('Thanks for your feedback.')
+          swal(
+            "Thank You!",
+            "Your valuable feedback is successfully updated!",
+            "success"
+          );
+        }
+      });
+    event.target.reset();
   };
 
   return (
