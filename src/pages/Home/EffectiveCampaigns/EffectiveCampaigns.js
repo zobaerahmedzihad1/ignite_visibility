@@ -1,9 +1,11 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import effectiveCampaignImg from "../../../assets/marketing4.png";
+import { useNavigate } from "react-router-dom";
 import style from "./EffectiveCampaigns.module.css";
 
 const EffectiveCampaigns = () => {
+  const navigate = useNavigate();
   return (
     <div id="effective__campaigns">
       <Row className={style.effective__campaign__container}>
@@ -18,7 +20,9 @@ const EffectiveCampaigns = () => {
               business has its own unique needs. That's why we offer
               personalized solutions for your business. Learn More
             </h6>
-            <button className="button">Learn More</button>
+            <button onClick={() => navigate("/blogs")} className="button">
+              Learn More
+            </button>
           </div>
         </Col>
         <Col xs={12} sm={12} md={6}>

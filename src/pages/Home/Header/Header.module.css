@@ -65,4 +65,10 @@
     width: 130%;
     cursor: pointer;
 }
-
+.start__projectBtn{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.start__projectBtn:hover{
+    color: #FFFFFF;
+}

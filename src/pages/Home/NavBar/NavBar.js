@@ -45,6 +45,9 @@ const NavBar = () => {
             <Navbar.Brand as={NavLink} to="/">
               <img style={{ width: "85%" }} src={logo} alt="logo" />
             </Navbar.Brand>
+            {/* <a as={NavLink} href="#home" className={style.marketing}>
+              <img style={{ width: "85%" }} src={logo} alt="logo" />
+            </a>{" "} */}
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -84,11 +87,7 @@ const NavBar = () => {
                       <Nav.Link as={NavLink} to="/dashboard">
                         Dashboard
                       </Nav.Link>
-                      <Nav.Link
-                        onClick={handleShow}                      
-                      >
-                        Sign Out
-                      </Nav.Link>
+                      <Nav.Link onClick={handleShow}>Sign Out</Nav.Link>
                     </>
                   ) : (
                     <Nav.Link as={NavLink} to="/login">
@@ -105,7 +104,7 @@ const NavBar = () => {
       <>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <h3 style={{fontWeight:'700'}}>Log Out</h3>
+            <h3 style={{ fontWeight: "700" }}>Log Out</h3>
           </Modal.Header>
           <h4 className="text-danger ps-3 py-2">
             Are you sure you want to logout ?

@@ -1,9 +1,11 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import marketingImg from "../../../assets/marketing2.png";
+import {useNavigate } from "react-router-dom";
 import style from "./MarketingPlanning.module.css";
 
 const MarketingPlanning = () => {
+  const navigate = useNavigate();
   return (
     <div id="marketing__planning">
       <Row className={style.marketing__container}>
@@ -18,7 +20,7 @@ const MarketingPlanning = () => {
               If you've never run a marketing campaign before, it can be tough
               to understand.
             </h6>
-            <button className="button">Learn More</button>
+            <button onClick={() => navigate("/blogs")} className="button">Learn More</button>
           </div>
         </Col>
         <Col xs={12} sm={12} md={6}>

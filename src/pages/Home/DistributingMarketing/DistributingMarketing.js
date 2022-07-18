@@ -2,9 +2,11 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import distributingImg from "../../../assets/marketing3.png";
 import {BsCheck2Circle} from 'react-icons/bs'
+import {useNavigate } from "react-router-dom";
 import style from "./DistributingMarketing.module.css";
 
 const DistributingMarketing = () => {
+  const navigate = useNavigate();
   return (
     <div id="distributing__marketing">
       <Row className={style.distributing__container}>
@@ -34,7 +36,7 @@ const DistributingMarketing = () => {
                 <h5> <BsCheck2Circle className={style.check__icon}/> Start an online business</h5>
                 <h5> <BsCheck2Circle className={style.check__icon}/> Marketing plan generator</h5>
             </div>
-            <button className="button">Learn More</button>
+            <button onClick={() => navigate("/blogs")} className="button">Learn More</button>
           </div>
         </Col>
       </Row>

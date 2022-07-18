@@ -28,7 +28,7 @@ const AddReview = () => {
           // success('Thanks for your feedback.')
           swal(
             "Thank You!",
-            "Your valuable feedback is successfully updated!",
+            "Your valuable feedback is successfully added!",
             "success"
           );
         }
