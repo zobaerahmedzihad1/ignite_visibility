@@ -16,10 +16,14 @@ const NavBar = () => {
   const user = useAuthState(auth);
   // console.log(user[0]?.photoURL);
   const [admin] = useAdmin(user);
+  console.log(admin);
+  if (admin === true) {
+    let isAdmin;
+  }
   const handleSignOut = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
-    userLogOut('Successfully logOut.')
+    userLogOut("Successfully logOut.");
   };
   return (
     <>
@@ -56,6 +60,13 @@ const NavBar = () => {
                   <Nav.Link as={NavLink} to="/contact-us">
                     Contact
                   </Nav.Link>
+                  {/* {isAdmin === true ? (
+                    <Nav.Link as={NavLink} to="/dashboard/admin">
+                      Admin-Activities
+                    </Nav.Link>
+                  ) : (
+                    ""
+                  )} */}
                   {admin && (
                     <Nav.Link as={NavLink} to="/dashboard/admin">
                       Admin-Activities

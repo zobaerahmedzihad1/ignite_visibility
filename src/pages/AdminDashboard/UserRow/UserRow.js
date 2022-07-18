@@ -5,6 +5,7 @@ import swal from "sweetalert";
 import { errorMessage, success } from "../../components/Tostify/Tostify";
 
 const UserRow = ({ user, refetch, index }) => {
+  console.log(user, "user row");
   // const makeAdmin = () => {
   //   const loading = toast.loading("Loading...Please Wait!!!");
   //   fetch(`http://localhost:5000/user/admin/${user.email}`, {
@@ -35,7 +36,7 @@ const UserRow = ({ user, refetch, index }) => {
   const makeAdmin = () => {
     swal({
       title: "Are you sure?",
-      text: `This ${user.displayName} person you want to make an admin ?`,
+      text: `You want to give admin access to  ${user.displayName} ?`,
       icon: "warning",
       buttons: true,
       dangerMode: true,
@@ -57,12 +58,12 @@ const UserRow = ({ user, refetch, index }) => {
           .then((data) => {
             if (data?.modifiedCount > 0) {
               refetch();
-              swal("Great!", `${user.email} Now an admin !`, "success");
+              swal("Great!", `Now ${user.displayName} is an admin !`, "success");
               toast.dismiss(loading);
             }
           });
       } else {
-        return
+        return;
       }
     });
   };
