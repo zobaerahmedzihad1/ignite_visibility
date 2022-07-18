@@ -6,24 +6,20 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "../../../assets/logo.png";
 import style from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { userLogOut } from "../../components/HotToast/HotToast";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import useAdmin from "../../../hooks/useAdmin";
 import { signOut } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const NavBar = () => {
   const user = useAuthState(auth);
   // console.log(user[0]?.photoURL);
   const [admin] = useAdmin(user);
-  console.log(admin);
-  if (admin === true) {
-    let isAdmin;
-  }
   const handleSignOut = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
-    userLogOut("Successfully logOut.");
+    toast.success("Successfully LogOut.");
   };
   return (
     <>

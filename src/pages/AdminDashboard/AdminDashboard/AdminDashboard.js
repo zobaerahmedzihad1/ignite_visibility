@@ -4,11 +4,12 @@ import { NavLink, Outlet } from "react-router-dom";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 import { BiCommentDetail } from "react-icons/bi";
+import { TbBlockquote } from "react-icons/tb";
 import { FaHome, FaUserFriends, FaUsers } from "react-icons/fa";
 import logo from "../../../assets/logo1.png";
-import style from "./AdminDashboard.module.css";
 import { signOut } from "firebase/auth";
 import auth from "../../../firebase.init";
+import style from "./AdminDashboard.module.css";
 
 const AdminDashboard = () => {
   const handleSignOut = () => {
@@ -67,8 +68,21 @@ const AdminDashboard = () => {
                       Manage Reviews
                     </NavLink>
                   </div>
-
                   <div className={style.dashboard__route}>
+                    <NavLink
+                      className={(navInfo) =>
+                        navInfo.isActive ? style.active : ""
+                      }
+                      to="/dashboard/admin/add__blog"
+                    >
+                      <span>
+                      <TbBlockquote/>
+                      </span>
+                      Add Blogs
+                    </NavLink>
+                  </div>
+
+                  {/* <div className={style.dashboard__route}>
                     <NavLink
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
@@ -81,7 +95,7 @@ const AdminDashboard = () => {
                       </span>
                       Log Out
                     </NavLink>
-                  </div>
+                  </div> */}
                   <div className={style.dashboard__route}>
                     <NavLink
                       className={(navInfo) =>

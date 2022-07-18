@@ -25,6 +25,7 @@ import AllUser from "./pages/AdminDashboard/AllUser/AllUser";
 import MakeAdmin from "./pages/AdminDashboard/MakeAdmin/MakeAdmin";
 import PaymentHistory from "./pages/Dashboard/PaymentHistory/PaymentHistory";
 import { Toaster } from "react-hot-toast";
+import AddBlog from "./pages/AdminDashboard/AddBlog/AddBlog";
 
 function App() {
   return (
@@ -85,11 +86,14 @@ function App() {
             element={<ManageReview />}
           />
           <Route path="/dashboard/admin/all__orders" element={<AllOrders />} />
-          <Route path="/dashboard/admin/my-orders" element={<MyOrders />} />
+          <Route path="/dashboard/admin/add__blog" element={<AddBlog />} />
           <Route path="/dashboard/admin/payment/:_id" element={<Payment />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+
+
       <Toaster position="top-center" reverseOrder={false} />
       <ToastContainer
         position="top-center"

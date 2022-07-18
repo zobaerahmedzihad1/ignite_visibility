@@ -58,7 +58,11 @@ const UserRow = ({ user, refetch, index }) => {
           .then((data) => {
             if (data?.modifiedCount > 0) {
               refetch();
-              swal("Great!", `Now ${user.displayName} is an admin !`, "success");
+              swal(
+                "Great!",
+                `Now ${user.displayName} is an admin !`,
+                "success"
+              );
               toast.dismiss(loading);
             }
           });
@@ -68,25 +72,64 @@ const UserRow = ({ user, refetch, index }) => {
     });
   };
 
+  // const removeAdmin1 = () => {
+  //   fetch(`http://localhost:5000/user/remove-admin/${user.email}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //     },
+  //   })
+  //     .then((res) => {
+  //       if (res.status === 403) {
+  //         errorMessage("Failed to remove admin. ");
+  //       }
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       if (data?.modifiedCount > 0) {
+  //         refetch();
+  //         success("Successfully removed from admin.");
+  //       }
+  //     });
+  // };
+
   const removeAdmin = () => {
-    fetch(`http://localhost:5000/user/remove-admin/${user.email}`, {
-      method: "PUT",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => {
-        if (res.status === 403) {
-          errorMessage("Failed to remove admin. ");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (data?.modifiedCount > 0) {
-          refetch();
-          success("Successfully removed from admin.");
-        }
-      });
+    swal({
+      title: "Are you sure?",
+      text: `You want to remove admin access from  ${user.displayName} ?`,
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        const loading = toast.loading("Loading...Please Wait!!!");
+        fetch(`http://localhost:5000/user/remove-admin/${user.email}`, {
+          method: "PUT",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        })
+          .then((res) => {
+            if (res.status === 403) {
+              errorMessage("Failed to make an admin. ");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            if (data?.modifiedCount > 0) {
+              refetch();
+              swal(
+                "Success !",
+                `Successfully removed admin access from ${user.displayName} `,
+                "success"
+              );
+              toast.dismiss(loading);
+            }
+          });
+      } else {
+        return;
+      }
+    });
   };
 
   return (
@@ -124,7 +167,7 @@ const UserRow = ({ user, refetch, index }) => {
           }}
           onClick={removeAdmin}
         >
-          Remove From Admin
+          Remove Admin Access
         </td>
       ) : (
         <td
