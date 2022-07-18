@@ -1,0 +1,32 @@
+.orders__container{
+    overflow: auto;
+    height: 60vh;
+}
+.orders__title{
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #777AF2;
+    padding: .5rem 0;
+}
+
+/* pagination */
+.pagination button {
+    margin: .3rem;
+    padding: .2rem .7rem;
+    border: 1px solid gray;
+    border-radius: .2rem;
+}
+select{
+    margin: .3rem;
+    padding: .2rem .7rem;
+    border: 1px solid gray;
+    border-radius: .2rem;
+}
+select option{
+    border: none;
+}
+.selected{
+    background-color: #777AF2;
+    color: #FFFFFF;
+}

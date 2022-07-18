@@ -21,7 +21,7 @@ const PricingSummery = ({ newPrice }) => {
           <h4>Current Price : </h4>
           <h4>{newPrice} $</h4>
         </div>
-        <form onSubmit={handlePromoCodeSubmit}>
+        <form className={style.form} onSubmit={handlePromoCodeSubmit}>
           <input
             className={style.input}
             type="text"

@@ -81,9 +81,9 @@ const ManageReview = () => {
             </tr>
           </thead>
           <tbody>
-            {reviews.map((review, i) => (
+            {reviews.map((review, idx) => (
               <tr>
-                <th>{index + i}</th>
+                <th>{index + idx}</th>
                 <td  >{review.name} </td>
                 <td style={{ height: "80px" }}>
                   {review.comment.slice(0, 200)}

@@ -72,27 +72,6 @@ const UserRow = ({ user, refetch, index }) => {
     });
   };
 
-  // const removeAdmin1 = () => {
-  //   fetch(`http://localhost:5000/user/remove-admin/${user.email}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //     },
-  //   })
-  //     .then((res) => {
-  //       if (res.status === 403) {
-  //         errorMessage("Failed to remove admin. ");
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       if (data?.modifiedCount > 0) {
-  //         refetch();
-  //         success("Successfully removed from admin.");
-  //       }
-  //     });
-  // };
-
   const removeAdmin = () => {
     swal({
       title: "Are you sure?",
@@ -136,6 +115,7 @@ const UserRow = ({ user, refetch, index }) => {
     <tr>
       <td style={{ textAlign: "center" }}>{index + 1}</td>
       <td>{user.email}</td>
+      <td>{user.displayName}</td>
       {user?.role === "admin" ? (
         <td
           style={{

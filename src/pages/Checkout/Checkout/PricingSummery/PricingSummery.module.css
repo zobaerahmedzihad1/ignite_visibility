@@ -17,7 +17,7 @@
 .input:focus{
     border: 1px solid #777AF2;
 }
-form button{
+.form button{
     padding: .4rem 1rem;
     margin-left: .7rem;
     border-radius: .3rem;
@@ -28,7 +28,7 @@ form button{
     font-size: 17px;
     transition: all ease 1s;
 }
-form button:hover{
+.form button:hover{
     color: #0B5ED7;
     background-color: #fff;
     border: 1px solid #0B5ED7;

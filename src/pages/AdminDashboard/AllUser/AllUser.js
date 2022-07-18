@@ -42,6 +42,7 @@ const AllUser = () => {
           <tr style={{ textAlign: "center" }}>
             <th>#</th>
             <th>Email</th>
+            <th>Name</th>
             <th>Role</th>
             <th>Access</th>
           </tr>
