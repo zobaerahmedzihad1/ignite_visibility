@@ -1,0 +1,40 @@
+.pricing__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid gray; */
+    height: 300px;
+}
+.input{
+    width: 380px;
+    padding: .5rem .7rem;
+    margin: .2rem auto;
+    outline: none;
+    border: none;
+    border: 1px solid rgb(197, 193, 193);
+    border-radius: 5px;
+}
+.input:focus{
+    border: 1px solid #777AF2;
+}
+form button{
+    padding: .4rem 1rem;
+    margin-left: .7rem;
+    border-radius: .3rem;
+    background-color: #0B5ED7;
+    border: 1px solid rgb(199, 198, 198);
+    color: #fff;
+    font-weight: 600;
+    font-size: 17px;
+    transition: all ease 1s;
+}
+form button:hover{
+    color: #0B5ED7;
+    background-color: #fff;
+    border: 1px solid #0B5ED7;
+    border-radius: .3rem;
+}
+.pricing__line{
+    display: flex;
+    justify-content: space-between;
+}

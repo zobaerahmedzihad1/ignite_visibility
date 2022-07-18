@@ -3,11 +3,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
-import ServiceDetail from "./ServiceDetail/ServiceDetail";
 import toast from "react-hot-toast";
 import axios from "axios";
 import swal from "sweetalert";
 import style from "./Checkout.module.css";
+import PricingSummery from "./PricingSummery/PricingSummery";
 
 const Checkout = () => {
   const user = useAuthState(auth);
@@ -15,7 +15,7 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   const [allPricing, setAllPricing] = useState([]);
-  const { service, duration, oldPrice, newPrice, serviceName } = allPricing;
+  const { service, duration, oldPrice, newPrice } = allPricing;
   useEffect(() => {
     const url = `http://localhost:5000/pricing/${_id}`;
     fetch(url)
@@ -63,6 +63,7 @@ const Checkout = () => {
         <h2>Ready To Checkout</h2>
       </div>
       <Container>
+        <h2 className={style.order__summery}>Order Summery</h2>
         <Row>
           <Col ex={12} sm={12} md={6} lg={6}>
             <form onSubmit={handlePlaceOrder}>
@@ -151,8 +152,7 @@ const Checkout = () => {
           </Col>
           <Col ex={12} sm={12} md={6} lg={6}>
             <div>
-              <h2>Order Summery</h2>
-              <ServiceDetail serviceName={serviceName} />
+              <PricingSummery newPrice={newPrice} />
             </div>
           </Col>
         </Row>

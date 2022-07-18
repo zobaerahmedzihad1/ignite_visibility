@@ -27,7 +27,7 @@ const useAdmin = (user) => {
         },
       })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if (res?.data?.admin) {
             setAdmin(res?.data?.admin);
           }

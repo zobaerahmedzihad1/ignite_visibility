@@ -1,12 +1,17 @@
 .checkout__title{
     width: 100%;
-    height: 200px;  
+    height: 180px;  
     background: url('../../../assets/dots-shape.png')no-repeat bottom;
     background-size: contain;
     background-color: #F5F6FE;
 }
+.order__summery{
+    text-align: center;
+    padding-top: .9rem;
+    color: #8A71D6;
+}
 .personal__details{
-    padding: 3rem 0;
+    padding: 1rem 0;
 }
 .input__box{
     padding: 0 .7rem 1rem 0;
@@ -47,6 +52,7 @@
 .input__number:focus{
     border: 1px solid #777AF2;
 }
+
 
 /* hide input increment decrement arrow */
 input::-webkit-outer-spin-button,
