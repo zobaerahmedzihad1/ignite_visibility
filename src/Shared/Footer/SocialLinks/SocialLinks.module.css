@@ -1,0 +1,84 @@
+.facebook{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #0B86EE;
+    color: #0B86EE;
+    padding: .4rem;
+    margin-right: 10px;
+    transition: all linear .3s
+}
+.facebook:hover{
+    color: #fff;
+    background-color: #0B86EE;
+}
+.twitter{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #1371BE;
+    padding: .5rem;
+    margin-right: 10px;
+    transition: all linear .3s;
+    color: #1371BE;
+}
+.twitter:hover{
+    color: #fff;
+    background-color: #1371BE;
+}
+.instagram{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #F02290;
+    padding: .5rem;
+    margin-right: 10px;
+    transition: all linear .3s;
+    color: #F02290;
+}
+.instagram:hover{
+    color: #fff;
+    background-color: #F02290;
+}
+.linkedin{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #1371BE;
+    padding: .5rem;
+    margin-right: 10px;
+    transition: all linear .3s;
+    color: #1371BE;
+}
+.linkedin:hover{
+    color: #fff;
+    background-color: #1371BE;
+}
+.whatsapp{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #10B981;
+    padding: .5rem;
+    margin-right: 10px;
+    transition: all linear .3s;
+    color: #10B981;
+}
+.whatsapp:hover{
+    color: #fff;
+    background-color: #10B981;
+}
+.github{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    padding: .5rem;
+    margin-right: 10px;
+    transition: all linear .3s;
+    color: #000000;
+}
+.github:hover{
+    color: #fff;
+    background-color: #000000;
+}

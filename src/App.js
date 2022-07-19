@@ -27,6 +27,7 @@ import PaymentHistory from "./pages/Dashboard/PaymentHistory/PaymentHistory";
 import { Toaster } from "react-hot-toast";
 import AddBlog from "./pages/AdminDashboard/AddBlog/AddBlog";
 import AboutUs from "./pages/AboutUs/AboutUs/AboutUs";
+import Footer from "./Shared/Footer/Footer/Footer";
 
 function App() {
   return (
@@ -93,7 +94,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-
+      <Footer />
       <Toaster position="top-center" reverseOrder={false} />
       <ToastContainer
         position="top-center"
