@@ -1,6 +1,6 @@
 .footer__container{
-    height: 100vh;
-    padding: 5rem 0;
+    /* height: 100vh; */
+    padding: 5rem 0 3rem 0;
 }
 .footer__ourself img{
     width: 35%;
@@ -12,5 +12,8 @@
 }
 .footer__ourself h6{
     font-size: 20px;
-
+}
+.copyright{
+    text-align: center;
+    padding-bottom: 1rem;
 }

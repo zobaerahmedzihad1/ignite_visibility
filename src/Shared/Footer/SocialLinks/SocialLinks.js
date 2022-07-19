@@ -23,7 +23,10 @@ const SocialLinks = () => {
         </a>
       </span>
       <span>
-        <a href="">
+        <a
+          href="https://www.instagram.com/zobaer_ahmed_zihad/"
+          target="_blank."
+        >
           <FaInstagram className={style.instagram} />
         </a>
       </span>
@@ -35,11 +38,15 @@ const SocialLinks = () => {
           <FaLinkedin className={style.linkedin} />
         </a>
       </span>
-      <span >
-        <a href="tel:01630704167"><FaWhatsapp className={style.whatsapp}/></a>
+      <span>
+        <a href="tel:01630704167">
+          <FaWhatsapp className={style.whatsapp} />
+        </a>
       </span>
-      <span >
-        <a href="https://github.com/zobaerahmedzihad1" target='_blank.'><FaGithub className={style.github}/></a>
+      <span>
+        <a href="https://github.com/zobaerahmedzihad1" target="_blank.">
+          <FaGithub className={style.github} />
+        </a>
       </span>
     </div>
   );

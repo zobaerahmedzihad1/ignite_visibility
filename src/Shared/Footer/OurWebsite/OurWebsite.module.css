@@ -1,6 +1,7 @@
 .company h4{
     font-weight: 700;
     padding-bottom: .5rem;
+    color: #0D8FBA;
 }
 .company a{
     display: block;
@@ -13,6 +14,7 @@
 .contract__container h4{
     font-weight: 700;
     padding-bottom: .5rem;
+    color: #0D8FBA;
 }
 .contract__container a{
     display: block;

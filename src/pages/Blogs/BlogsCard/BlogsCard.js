@@ -13,7 +13,6 @@ const BlogsCard = ({ blog }) => {
         <div className={style.blogCard__content}>
           <h6>{topic}</h6>
           <h4> {title} </h4>
-          {/* <p>{description}</p> */}
           <button className="button my-4">
             <a href={blogLink} target="_blank.">
               Read More

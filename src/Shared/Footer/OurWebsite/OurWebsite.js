@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { FaPhone } from "react-icons/fa";
+import { FaPhone,FaPassport } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { HiLocationMarker } from "react-icons/hi";
 import { Link } from "react-router-dom";
@@ -83,6 +83,21 @@ const OurWebsite = () => {
               </span>
               <a target="_blank." href="https://goo.gl/maps/C1p2dxtz8SfceQ3B9">
                 Mohammadpur,Dhaka
+              </a>
+            </div>
+            <div>
+              <span>
+                <FaPassport
+                  style={{
+                    fontSize: "25px",
+                    color: "#777AF2",
+                    marginRight: "10px",
+                  }}
+                />
+                Portfolio
+              </span>
+              <a style={{fontSize:'17px', fontWeight:'600'}} target="_blank." href="https://zobaerahmedzihad.netlify.app/">
+                Zobaer Ahmed Zihad
               </a>
             </div>
           </div>

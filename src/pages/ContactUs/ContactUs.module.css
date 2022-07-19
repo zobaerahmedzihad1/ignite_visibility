@@ -13,11 +13,9 @@
     font-size: 3.5rem;
     font-weight: 700;
     color: #777AF2;
-    /* color: #FFF; */
 }
 .contact__title p{
     color: #445781;
-    /* color: #FFF; */
     font-size: 1.1rem;
     font-weight: 500;
     padding: 1rem 0;
@@ -28,7 +26,6 @@
 .contract{
     text-align: center;
     color: #31397A;
-    /* padding: 1rem 0 0rem 0; */
     border: 1px solid rgb(211, 209, 209);
     border-radius: 10px;
 }
@@ -59,7 +56,6 @@
     border: 1px solid rgb(197, 193, 193);
     border-radius: 5px;
 }
-
 .input:focus{
     border: 1px solid #777AF2;
 }
