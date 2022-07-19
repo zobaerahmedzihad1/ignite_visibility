@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import BlogsCard from "../BlogsCard/BlogsCard";
+import OurNewsletter from "../OurNewsletter/OurNewsletter";
 import style from "./Blogs.module.css";
 
 const Blogs = () => {
@@ -36,6 +37,7 @@ const Blogs = () => {
           </Row>
         </Container>
       </div>
+      <OurNewsletter />
     </div>
   );
 };

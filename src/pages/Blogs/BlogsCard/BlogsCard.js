@@ -1,11 +1,9 @@
 import React from "react";
-import { Button, Card, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-// import image from "../../../assets/blogImg/businessImg.webp";
+import { Col } from "react-bootstrap";
 import style from "./BlogsCard.module.css";
 
 const BlogsCard = ({ blog }) => {
-  const { title, description, topic, blogLink,img } = blog;
+  const { title,  topic, blogLink,img } = blog;
   return (
     <Col xs={12} sm={12} md={6} lg={4}>
       <div className={style.blogCard__container}>
