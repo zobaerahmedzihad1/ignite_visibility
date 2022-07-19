@@ -26,6 +26,7 @@ import MakeAdmin from "./pages/AdminDashboard/MakeAdmin/MakeAdmin";
 import PaymentHistory from "./pages/Dashboard/PaymentHistory/PaymentHistory";
 import { Toaster } from "react-hot-toast";
 import AddBlog from "./pages/AdminDashboard/AddBlog/AddBlog";
+import AboutUs from "./pages/AboutUs/AboutUs/AboutUs";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/privacy__policy" element={<PrivacyPolicy />} />
         <Route
           path="/checkout/:_id"

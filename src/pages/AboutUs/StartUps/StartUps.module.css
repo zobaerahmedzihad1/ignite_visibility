@@ -1,0 +1,24 @@
+.startUp__img img{
+    width: 100%;
+    cursor: pointer;
+}
+
+.startUp__content{
+    height: 350px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.startUp__content h2{
+    letter-spacing: -.01em;
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 700;
+    font-size: 34px;
+    color: #3A374F;
+}
+.startUp__content h5{
+    color: #777AF2;
+    padding: 2rem 0;
+}

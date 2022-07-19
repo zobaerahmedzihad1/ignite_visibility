@@ -70,6 +70,9 @@ const NavBar = () => {
                   <Nav.Link as={NavLink} to="/contact-us">
                     Contact
                   </Nav.Link>
+                  <Nav.Link as={NavLink} to="/about-us">
+                    About-us
+                  </Nav.Link>
                   {/* {isAdmin === true ? (
                     <Nav.Link as={NavLink} to="/dashboard/admin">
                       Admin-Activities
