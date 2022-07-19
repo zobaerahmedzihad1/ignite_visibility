@@ -1,0 +1,36 @@
+.company h4{
+    font-weight: 700;
+    padding-bottom: .5rem;
+}
+.company a{
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    padding-top: .7rem;
+}
+.contract__container h4{
+    font-weight: 700;
+    padding-bottom: .5rem;
+}
+.contract__container a{
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+}
+.contract__container a:hover{
+    color: #0B86EE;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.contract__container span{
+    font-size: 22px;
+}
+/* .contract__container .icon{
+    color: #777AF2;
+    padding-right: .5rem;
+    font-size: 22px;
+} */
