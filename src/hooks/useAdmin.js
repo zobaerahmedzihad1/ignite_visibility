@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 const useAdmin = (user) => {
   // console.log(user[0]?.email);
   const [admin, setAdmin] = useState(false);
+  const [adminLoading, setAdminLoading] = useState(true);
   useEffect(() => {
     const email = user[0]?.email;
     if (email) {
@@ -25,17 +26,17 @@ const useAdmin = (user) => {
           "content-type": "application/json",
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
-      })
-        .then((res) => {
-          // console.log(res.data);
-          if (res?.data?.admin) {
-            setAdmin(res?.data?.admin);
-          }
-        })
-        // .catch((err) => toast.error(err?.message));
+      }).then((res) => {
+        // console.log(res.data);
+        if (res?.data?.admin) {
+          setAdmin(res?.data?.admin);
+          setAdminLoading(false);
+        }
+      });
+      // .catch((err) => toast.error(err?.message));
     }
   }, [user]);
-  return [admin];
+  return [admin, adminLoading];
 };
 
 export default useAdmin;

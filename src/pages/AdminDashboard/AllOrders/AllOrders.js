@@ -91,7 +91,6 @@ const AllOrders = () => {
         </div>
       </div>
       <div className={style.pagination}>
-        {/* <h3>Total Reviews : {count} </h3> */}
         {[...Array(pageCount).keys()].map((number) => (
           <button
             className={page === number ? `${style.selected}` : ""}
