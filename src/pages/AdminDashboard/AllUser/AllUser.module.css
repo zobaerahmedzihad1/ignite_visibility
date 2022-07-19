@@ -2,12 +2,18 @@
     background-color: #FFFFFF;
     margin: 1rem;
     overflow: auto;
-    height: 71vh;
+    height: 60vh;
 }
 .allUser__title{
     text-align: center;
     font-weight: 700;
     font-size: 2rem;
     color: #777AF2; 
+    padding-top: .5rem;
+}
+.admin__count{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: .5rem;
 }
 

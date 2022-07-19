@@ -5,7 +5,7 @@ import swal from "sweetalert";
 import { errorMessage, success } from "../../components/Tostify/Tostify";
 
 const UserRow = ({ user, refetch, index }) => {
-  console.log(user, "user row");
+  // console.log(user, "user row");
   // const makeAdmin = () => {
   //   const loading = toast.loading("Loading...Please Wait!!!");
   //   fetch(`http://localhost:5000/user/admin/${user.email}`, {

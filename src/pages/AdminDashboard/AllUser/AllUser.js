@@ -33,32 +33,40 @@ const AllUser = () => {
     );
   }
 
+  const admins = users.filter((user) => user?.role === "admin");
+
   return (
-    <div className={style.users__container}>
+    <>
       <h3 className={style.allUser__title}>All Users And Admin's</h3>
-      <hr />
-      <Table bordered>
-        <thead>
-          <tr style={{ textAlign: "center" }}>
-            <th>#</th>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Role</th>
-            <th>Access</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user, index) => (
-            <UserRow
-              key={user._id}
-              user={user}
-              refetch={refetch}
-              index={index}
-            ></UserRow>
-          ))}
-        </tbody>
-      </Table>
-    </div>
+      <div className={style.users__container}>
+        <hr />
+        <Table bordered>
+          <thead>
+            <tr style={{ textAlign: "center" }}>
+              <th>#</th>
+              <th>Email</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Access</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user, index) => (
+              <UserRow
+                key={user._id}
+                user={user}
+                refetch={refetch}
+                index={index}
+              ></UserRow>
+            ))}
+          </tbody>
+        </Table>
+      </div>
+      <div className={style.admin__count}>
+        <h3 style={{color: 'rgb(85, 88, 202)'}}>Total Admins : {admins.length} </h3>
+        <h3>Total Users : {users.length - admins.length} </h3>
+      </div>
+    </>
   );
 };
 

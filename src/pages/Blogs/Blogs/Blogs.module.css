@@ -1,0 +1,26 @@
+.blogs__banner{
+    width: 100%;
+    height: 400px;  
+    background: url('../../../assets/dots-shape.png')no-repeat bottom;
+    background-size: contain;
+    background-color: #F5F6FE;  
+}
+.blogs__title{
+    text-align: center;
+    padding: 7rem 0;
+}
+.blogs__title h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #777AF2;
+}
+.blogs__title p{
+    color: #445781;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1rem 0;
+
+}
+.blogs__card{
+    background-color: #E1E3F5;
+}

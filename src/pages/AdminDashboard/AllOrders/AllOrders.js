@@ -3,36 +3,20 @@ import { Table } from "react-bootstrap";
 import style from "./AllOrders.module.css";
 
 const AllOrders = () => {
-  const [count, setCount] = useState(0);
-  const [pageCount, setPageCount] = useState(0);
   const [orders, setOrders] = useState([]);
-  const [page, setPage] = useState(0);
-  const [size, setSize] = useState(7);
-  const [index, setIndex] = useState(1);
 
   useEffect(() => {
-    fetch("http://localhost:5000/order-count")
-      .then((res) => res.json())
-      .then((data) => {
-        const count = data?.count;
-        const pages = Math.ceil(count / 5);
-        setPageCount(pages);
-        setCount(count);
-      });
-  }, []);
-
-  useEffect(() => {
-    // console.log(page);
-    fetch(`http://localhost:5000/orders?page=${page}&size=${size}`)
+    fetch("http://localhost:5000/orders", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setOrders(data));
+  }, []);
 
-    if (page === 0) {
-      setIndex(1);
-    } else {
-      setIndex(index + parseInt(size));
-    }
-  }, [page, size]);
+  const paidOrders = orders.filter((order) => order.paid === true);
 
   return (
     <>
@@ -51,12 +35,10 @@ const AllOrders = () => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order, idx) => (
-                <tr>
-                  <td>{index + idx}</td>
-                  <td style={{ textAlign: "start" }}>
-                    {order.email}{" "}
-                  </td>
+              {orders.map((order, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td style={{ textAlign: "start" }}>{order.email} </td>
                   <td>{order.service} </td>
                   <td>{order.serviceDuration} </td>
                   <td>{order.currentPrice} $</td>
@@ -90,23 +72,10 @@ const AllOrders = () => {
           </Table>
         </div>
       </div>
-      <div className={style.pagination}>
-        {[...Array(pageCount).keys()].map((number) => (
-          <button
-            className={page === number ? `${style.selected}` : ""}
-            onClick={() => setPage(number)}
-          >
-            {number}
-          </button>
-        ))}
-        <select onChange={(e) => setSize(e.target.value)}>
-          <option value="7" selected>
-            7
-          </option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="15">20</option>
-        </select>
+      <div className={style.order__count}>
+        <h3>Total Orders : {orders?.length} </h3>
+        <h3 style={{color:'green'}}>Paid Orders : {paidOrders?.length} </h3>
+        <h3 style={{color:'red'}}>Unpaid Orders : {orders?.length - paidOrders?.length} </h3>
       </div>
     </>
   );

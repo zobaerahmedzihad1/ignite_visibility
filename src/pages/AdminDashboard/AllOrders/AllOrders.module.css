@@ -9,8 +9,13 @@
     color: #777AF2;
     padding: .5rem 0;
 }
+.order__count{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: .5rem;
+}
 
-/* pagination */
+/* pagination
 .pagination button {
     margin: .3rem;
     padding: .2rem .7rem;
@@ -29,4 +34,4 @@ select option{
 .selected{
     background-color: #777AF2;
     color: #FFFFFF;
-}
+} */

@@ -1,0 +1,50 @@
+[
+    {
+        "_id":1,
+        "img": "https://i.ibb.co/wrGcFH3/business-Img.webp",
+        "topic":"Business",
+        "title":"Problems everyone has when working remotely and how to solve them ",
+        "description":"some short description",
+        "blogLink":"https://zapier.com/blog/remote-work-challenges/"
+    },
+    {
+        "_id":2,
+        "img": "https://i.ibb.co/xHmBp5y/blog2.webp",
+        "topic":"Design",
+        "title":"The best remote UX and UI design conferences to attend in 2022",
+        "description":"some short description",
+        "blogLink":"https://www.uxpin.com/studio/blog/best-design-conferences/"
+    },
+    {
+        "_id":3,
+        "img": "https://i.ibb.co/SND99fN/blog-development.webp",
+        "topic":"Development",
+        "title":"How can you help your team transition to remote with this essential guide",
+        "description":"some short description",
+        "blogLink":"https://www.invisionapp.com/inside-design/remote-tout/"
+    },
+    {
+        "_id":4,
+        "img": "https://i.ibb.co/CHnxdGh/blog-software.jpg",
+        "topic":"Software",
+        "title":"Are enterprise teams the next big thing in the freelance revolution?",
+        "description":"some short description",
+        "blogLink":"https://medium.com/projects2bid/the-next-big-thing-in-freelance-e6e9f5e3c436"
+    },
+    {
+        "_id":5,
+        "img": "https://i.ibb.co/zbN0nXv/blog-technology.jpg",
+        "topic":"Technology",
+        "title":"How to make the most of a nontraditional startup community",
+        "description":"some short description",
+        "blogLink":"https://www.ajkune-professional.ch/classic-sidebar/"
+    },
+    {
+        "_id":6,
+        "img": "https://i.ibb.co/h8s5c79/blog-general.jpg",
+        "topic":"General",
+        "title":"The most important design jobs for the rest of 2022: product designer",
+        "description":"some short description",
+        "blogLink":"https://estanciasdellago.com/modern-sidebar/"
+    }
+]

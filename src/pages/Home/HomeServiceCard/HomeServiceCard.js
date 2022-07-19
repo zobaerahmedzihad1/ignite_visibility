@@ -6,7 +6,6 @@ import {useNavigate } from "react-router-dom";
 const HomeServiceCard = ({ service }) => {
   const { image, title, description } = service;
   const navigate = useNavigate();
-  //   console.log(service);
   return (
     <Col xs={12} sm={12} md={6} lg={4}>
       <div className={style.serviceCard__container}>
