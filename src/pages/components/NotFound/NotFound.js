@@ -8,7 +8,7 @@ import style from "./NotFound.module.css";
 
 const NotFound = () => {
   const location = useLocation()
-  if(location.key === 'default')
+  // if(location?.key === 'default')
   return (
     <div className={style.notFound__container}>
       <Container>

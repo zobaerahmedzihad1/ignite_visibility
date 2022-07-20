@@ -34,7 +34,8 @@ function App() {
   console.log(location);
   return (
     <div>
-      {location.key === "default" ? null : <NavBar />}
+      {/* {location?.key === "default" ? null : <NavBar />} */}
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="/home" element={<MonthlyBilled />} />
@@ -96,7 +97,8 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {location.key === "default" ? null : <Footer />}
+      {/* {location?.key === "default" ? null : <Footer />} */}
+      <Footer />
       <Toaster position="top-center" reverseOrder={false} />
       <ToastContainer
         position="top-center"

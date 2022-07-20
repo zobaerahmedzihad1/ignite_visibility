@@ -10,7 +10,6 @@ import { errorMessage, success } from "../../components/Tostify/Tostify";
 import auth from "../../../firebase.init";
 import Loading from "../../../Shared/Loading/Loading";
 import useToken from "../../../hooks/useToken";
-import { promise } from "../../components/HotToast/HotToast";
 import toast from "react-hot-toast";
 
 const Login = () => {
@@ -41,7 +40,6 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
 
     if (token) {
-      // success("Success Login.");
       event.target.reset();
     }
 

@@ -76,9 +76,6 @@ const NavBar = () => {
     navigate("/login");
   };
 
-
-  
-
   return (
     <>
       {["md"].map((expand) => (

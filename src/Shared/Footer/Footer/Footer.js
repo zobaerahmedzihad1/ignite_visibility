@@ -8,10 +8,10 @@ import style from "./Footer.module.css";
 
 const Footer = () => {
   const location = useLocation();
-  if (location.pathname === "/login" || "/sign-up") {
+  if (location?.pathname === "/login" || "/sign-up") {
     return (
       <>
-        {location.pathname === "/login" || "/sign-up" ? null : (
+        {/* {location?.pathname === "/login" || "/sign-up" ? null : ( */}
           <>
             <div className={style.footer__container}>
               <Container>
@@ -47,7 +47,7 @@ const Footer = () => {
               All rights reserved.
             </h6>
           </>
-        )}
+        {/* )} */}
       </>
     );
   }
