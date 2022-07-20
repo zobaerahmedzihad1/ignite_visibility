@@ -5,24 +5,68 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "../../../assets/logo.png";
 import style from "./NavBar.module.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import useAdmin from "../../../hooks/useAdmin";
+import { useQuery } from "react-query";
 import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
 import { Button, Modal } from "react-bootstrap";
+import Loading from "../../../Shared/Loading/Loading";
 
 const NavBar = () => {
   const user = useAuthState(auth);
   // console.log(user[0]?.photoURL);
-  const [admin] = useAdmin(user);
   const navigate = useNavigate();
-
   // logout modal
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [admin, adminLoading] = useAdmin(user);
+  // const location = useLocation();
+  // if (location?.pathname === `*`) {
+  //   return null;
+  // }
+  
+
+  // if(adminLoading){
+  //   toast.loading('Loading...please wait!')
+  // }
+  // else{
+  //   return
+  // }
+
+  // const {
+  //   data: users,
+  //   isLoading,
+  //   isError,
+  //   error,
+  // } = useQuery("users", () =>
+  //   fetch("http://localhost:5000/users", {
+  //     method: "GET",
+  //     headers: {
+  //       "content-type": "application/json",
+  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //     },
+  //   }).then((res) => res.json())
+  // );
+
+  // if (isLoading) {
+  //   return <Loading></Loading>;
+  // }
+  // if (isError) {
+  //   return (
+  //     <h2 style={{ color: "red", textAlign: "center", marginTop: "200px" }}>
+  //       {error?.message}
+  //     </h2>
+  //   );
+  // }
+  // const email = user[0]?.email;
+  // const admin = users?.find(
+  //   (user) => user?.role === "admin" && user.email === email
+  // );
+  // console.log(admin, 'admin');
 
   const handleSignOut = () => {
     signOut(auth);
@@ -31,6 +75,9 @@ const NavBar = () => {
     setShow(false);
     navigate("/login");
   };
+
+
+  
 
   return (
     <>
@@ -73,13 +120,7 @@ const NavBar = () => {
                   <Nav.Link as={NavLink} to="/about-us">
                     About-us
                   </Nav.Link>
-                  {/* {isAdmin === true ? (
-                    <Nav.Link as={NavLink} to="/dashboard/admin">
-                      Admin-Activities
-                    </Nav.Link>
-                  ) : (
-                    ""
-                  )} */}
+
                   {admin && (
                     <Nav.Link as={NavLink} to="/dashboard/admin">
                       Admin-Activities

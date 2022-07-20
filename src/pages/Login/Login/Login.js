@@ -31,7 +31,7 @@ const Login = () => {
   }, [token, from, navigate]);
 
   if (loading) {
-    return <Loading />
+    return <Loading />;
   }
 
   const handleLoginFormSubmit = (event) => {
@@ -54,6 +54,7 @@ const Login = () => {
   // if (token) {
   //   navigate(from, { replace: true });
   // }
+
   return (
     <div className={style.login__container}>
       <h2>Login To Your Account</h2>

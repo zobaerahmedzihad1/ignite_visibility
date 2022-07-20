@@ -3,9 +3,12 @@ import notFound from "../../../assets/notFound2.jpg";
 import notFound1 from "../../../assets/notFound1.gif";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import style from "./NotFound.module.css";
 
 const NotFound = () => {
+  const location = useLocation()
+  if(location.key === 'default')
   return (
     <div className={style.notFound__container}>
       <Container>

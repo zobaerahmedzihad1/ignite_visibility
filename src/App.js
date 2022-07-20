@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import Checkout from "./pages/Checkout/Checkout/Checkout";
 import NotFound from "./pages/components/NotFound/NotFound";
@@ -30,9 +30,11 @@ import AboutUs from "./pages/AboutUs/AboutUs/AboutUs";
 import Footer from "./Shared/Footer/Footer/Footer";
 
 function App() {
+  const location = useLocation();
+  console.log(location);
   return (
     <div>
-      <NavBar />
+      {location.key === "default" ? null : <NavBar />}
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="/home" element={<MonthlyBilled />} />
@@ -94,7 +96,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      {location.key === "default" ? null : <Footer />}
       <Toaster position="top-center" reverseOrder={false} />
       <ToastContainer
         position="top-center"

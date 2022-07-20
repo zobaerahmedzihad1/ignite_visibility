@@ -13,6 +13,7 @@ const Checkout = () => {
   const user = useAuthState(auth);
   const { _id } = useParams();
   const navigate = useNavigate();
+ 
 
   const [allPricing, setAllPricing] = useState([]);
   const { service, duration, oldPrice, newPrice } = allPricing;

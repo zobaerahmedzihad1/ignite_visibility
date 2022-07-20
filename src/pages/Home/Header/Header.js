@@ -8,7 +8,7 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <Row id='home' className={style.header__container}>
-      <Col xs={12} sm={12} md={6}>
+      <Col xs={12} sm={12} md={6} lg={6}>
         <div className={style.header__content}>
           <h5 className={style.header__miniTitle}>
             <span className={style.title1}>Welcome to ignite visibility </span>
@@ -30,7 +30,7 @@ const Header = () => {
           </button>
         </div>
       </Col>
-      <Col xs={12} sm={12} md={6}>
+      <Col xs={12} sm={12} md={6} lg={6}>
         <div>
           <img className={style.header__image} src={headerImage} alt="img" />
         </div>
