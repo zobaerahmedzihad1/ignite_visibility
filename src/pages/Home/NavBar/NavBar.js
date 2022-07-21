@@ -17,14 +17,21 @@ import Loading from "../../../Shared/Loading/Loading";
 
 const NavBar = () => {
   const user = useAuthState(auth);
-  // console.log(user[0]?.photoURL);
+  console.log(user[0]?.photoURL);
   const navigate = useNavigate();
+
   // logout modal
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [admin, adminLoading] = useAdmin(user);
+
   console.log(admin);
+
+ if(adminLoading){
+  <Loading></Loading>
+ }
+
   // const location = useLocation();
   // if (location?.pathname === `*`) {
   //   return null;
@@ -119,11 +126,15 @@ const NavBar = () => {
                     About-us
                   </Nav.Link>
 
+
                   {admin && (
                     <Nav.Link as={NavLink} to="/dashboard/admin">
                       Admin-Activities
                     </Nav.Link>
                   )}
+
+
+
                   {user[0]?.uid ? (
                     <>
                       <Nav.Link as={NavLink} to="/dashboard">
