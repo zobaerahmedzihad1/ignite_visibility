@@ -15,13 +15,16 @@ const PaymentHistory = () => {
     isError,
     error,
   } = useQuery("payments", () =>
-    fetch(`http://localhost:5000/payment-history/${email}`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => res.json())
+    fetch(
+      `https://secure-cliffs-23547.herokuapp.com/payment-history/${email}`,
+      {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    ).then((res) => res.json())
   );
 
   console.log(payments, "pay");
@@ -47,7 +50,7 @@ const PaymentHistory = () => {
             <th>Email</th>
             <th>Transaction Id</th>
             <th>Payment Date</th>
-            <th style={{width:'70px'}}>Price</th>
+            <th style={{ width: "70px" }}>Price</th>
           </tr>
         </thead>
         <tbody>

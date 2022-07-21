@@ -16,7 +16,7 @@ const AddReview = () => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5000/reviews", {
+      .post("https://secure-cliffs-23547.herokuapp.com/reviews", {
         email,
         name,
         comment,

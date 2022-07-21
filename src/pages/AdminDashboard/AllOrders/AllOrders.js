@@ -6,7 +6,7 @@ const AllOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders", {
+    fetch("https://secure-cliffs-23547.herokuapp.com/orders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -74,8 +74,10 @@ const AllOrders = () => {
       </div>
       <div className={style.order__count}>
         <h3>Total Orders : {orders?.length} </h3>
-        <h3 style={{color:'green'}}>Paid Orders : {paidOrders?.length} </h3>
-        <h3 style={{color:'red'}}>Unpaid Orders : {orders?.length - paidOrders?.length} </h3>
+        <h3 style={{ color: "green" }}>Paid Orders : {paidOrders?.length} </h3>
+        <h3 style={{ color: "red" }}>
+          Unpaid Orders : {orders?.length - paidOrders?.length}{" "}
+        </h3>
       </div>
     </>
   );

@@ -15,7 +15,7 @@ const useToken = (user) => {
     const name = authUser[0]?.displayName;
     const currentUser = { email: email, name: name };
     const config = { headers: { "Content-Type": "application/json" } };
-    const url = `http://localhost:5000/user/${email}`;
+    const url = `https://secure-cliffs-23547.herokuapp.com/user/${email}`;
     if (email) {
       axios.put(url, currentUser, config).then((response) => {
         const accessToken = response?.data?.token;

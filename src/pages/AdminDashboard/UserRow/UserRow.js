@@ -8,7 +8,7 @@ const UserRow = ({ user, refetch, index }) => {
   // console.log(user, "user row");
   // const makeAdmin = () => {
   //   const loading = toast.loading("Loading...Please Wait!!!");
-  //   fetch(`http://localhost:5000/user/admin/${user.email}`, {
+  //   fetch(`https://secure-cliffs-23547.herokuapp.com/user/admin/${user.email}`, {
   //     method: "PUT",
   //     headers: {
   //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -43,12 +43,15 @@ const UserRow = ({ user, refetch, index }) => {
     }).then((willDelete) => {
       if (willDelete) {
         const loading = toast.loading("Loading...Please Wait!!!");
-        fetch(`http://localhost:5000/user/admin/${user.email}`, {
-          method: "PUT",
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        })
+        fetch(
+          `https://secure-cliffs-23547.herokuapp.com/user/admin/${user.email}`,
+          {
+            method: "PUT",
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        )
           .then((res) => {
             if (res.status === 403) {
               errorMessage("Failed to make an admin. ");
@@ -82,12 +85,15 @@ const UserRow = ({ user, refetch, index }) => {
     }).then((willDelete) => {
       if (willDelete) {
         const loading = toast.loading("Loading...Please Wait!!!");
-        fetch(`http://localhost:5000/user/remove-admin/${user.email}`, {
-          method: "PUT",
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        })
+        fetch(
+          `https://secure-cliffs-23547.herokuapp.com/user/remove-admin/${user.email}`,
+          {
+            method: "PUT",
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        )
           .then((res) => {
             if (res.status === 403) {
               errorMessage("Failed to make an admin. ");

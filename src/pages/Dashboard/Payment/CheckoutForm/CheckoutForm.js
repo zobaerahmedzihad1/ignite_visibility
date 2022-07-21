@@ -13,14 +13,14 @@ const CheckoutForm = ({ payment }) => {
   const [clientSecret, setClientSecret] = useState("");
   const { _id, currentPrice, name, email } = payment;
   console.log(payment);
-  const location = useLocation()
+  const location = useLocation();
   console.log(location);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     // const loading = toast.loading("Loading... please wait!");
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://secure-cliffs-23547.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -84,7 +84,7 @@ const CheckoutForm = ({ payment }) => {
       };
 
       // console.log(payment, "data payment");
-      fetch(`http://localhost:5000/order/${_id}`, {
+      fetch(`https://secure-cliffs-23547.herokuapp.com/order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

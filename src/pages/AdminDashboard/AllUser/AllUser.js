@@ -13,7 +13,7 @@ const AllUser = () => {
     error,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5000/users", {
+    fetch("https://secure-cliffs-23547.herokuapp.com/users", {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -63,7 +63,9 @@ const AllUser = () => {
         </Table>
       </div>
       <div className={style.admin__count}>
-        <h3 style={{color: 'rgb(85, 88, 202)'}}>Total Admins : {admins.length} </h3>
+        <h3 style={{ color: "rgb(85, 88, 202)" }}>
+          Total Admins : {admins.length}{" "}
+        </h3>
         <h3>Total Users : {users.length - admins.length} </h3>
       </div>
     </>

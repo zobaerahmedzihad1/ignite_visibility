@@ -14,7 +14,7 @@ const MyOrders = () => {
 
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/order?email=${user?.email}`;
+    const url = `https://secure-cliffs-23547.herokuapp.com/order?email=${user?.email}`;
     axios.get(url).then((response) => {
       const { data } = response;
       setOrders(data);
@@ -22,7 +22,7 @@ const MyOrders = () => {
   }, [user?.email]);
 
   // const handleOrderDelete = (id) => {
-  // fetch(`http://localhost:5000/order/${id}`, {
+  // fetch(`https://secure-cliffs-23547.herokuapp.com/order/${id}`, {
   //   method: "DELETE",
   //   headers: {
   //     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -48,7 +48,7 @@ const MyOrders = () => {
     }).then((willDelete) => {
       if (willDelete) {
         const loading = toast.loading("Deleting...Please Wait!!!");
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://secure-cliffs-23547.herokuapp.com/order/${id}`, {
           method: "DELETE",
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -72,9 +72,9 @@ const MyOrders = () => {
       }
     });
   };
-  const handleServiceStart = () =>{
+  const handleServiceStart = () => {
     swal("Congratulations!", "Your Service is already started!", "success");
-  }
+  };
 
   return (
     <>

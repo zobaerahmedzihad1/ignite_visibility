@@ -10,7 +10,7 @@ const useAdmin = (user) => {
   useEffect(() => {
     const email = user[0]?.email;
     if (email) {
-      fetch(`http://localhost:5000/admin/${email}`, {
+      fetch(`https://secure-cliffs-23547.herokuapp.com/admin/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -22,7 +22,7 @@ const useAdmin = (user) => {
           setAdmin(data.admin);
           setAdminLoading(true);
         });
-      // axios(`http://localhost:5000/admin/${email}`, {
+      // axios(`https://secure-cliffs-23547.herokuapp.com/admin/${email}`, {
       //   method: "GET",
       //   headers: {
       //     "content-type": "application/json",

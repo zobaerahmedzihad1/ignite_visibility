@@ -15,7 +15,7 @@ const ManageReview = () => {
   const [index, setIndex] = useState(1);
 
   useEffect(() => {
-    fetch("http://localhost:5000/review-count")
+    fetch("https://secure-cliffs-23547.herokuapp.com/review-count")
       .then((res) => res.json())
       .then((data) => {
         const count = data?.count;
@@ -27,7 +27,9 @@ const ManageReview = () => {
 
   useEffect(() => {
     // console.log(page);
-    fetch(`http://localhost:5000/manage-reviews?page=${page}&size=${size}`)
+    fetch(
+      `https://secure-cliffs-23547.herokuapp.com/manage-reviews?page=${page}&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data));
 
@@ -47,7 +49,7 @@ const ManageReview = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/review-delete/${id}`, {
+        fetch(`https://secure-cliffs-23547.herokuapp.com/review-delete/${id}`, {
           method: "DELETE",
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -58,7 +60,11 @@ const ManageReview = () => {
             if (data?.deletedCount > 0) {
               const remaining = reviews.filter((review) => review._id !== id);
               setReviews(remaining);
-              swal("Deleted !", "Successfully review has been deleted!", "success");
+              swal(
+                "Deleted !",
+                "Successfully review has been deleted!",
+                "success"
+              );
             }
           });
       } else {
@@ -73,7 +79,7 @@ const ManageReview = () => {
           <thead>
             <tr style={{ textAlign: "center" }}>
               <th>#</th>
-              <th style={{width:'180px'}}>Name</th>
+              <th style={{ width: "180px" }}>Name</th>
               <th>Feedback</th>
               <th>Manage</th>
             </tr>
@@ -82,7 +88,7 @@ const ManageReview = () => {
             {reviews.map((review, idx) => (
               <tr>
                 <th>{index + idx}</th>
-                <td  >{review.name} </td>
+                <td>{review.name} </td>
                 <td style={{ height: "80px" }}>
                   {review.comment.slice(0, 200)}
                 </td>

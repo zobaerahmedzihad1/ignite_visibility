@@ -13,12 +13,11 @@ const Checkout = () => {
   const user = useAuthState(auth);
   const { _id } = useParams();
   const navigate = useNavigate();
- 
 
   const [allPricing, setAllPricing] = useState([]);
   const { service, duration, oldPrice, newPrice } = allPricing;
   useEffect(() => {
-    const url = `http://localhost:5000/pricing/${_id}`;
+    const url = `https://secure-cliffs-23547.herokuapp.com/pricing/${_id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setAllPricing(data));
@@ -39,23 +38,25 @@ const Checkout = () => {
       phone: event.target.phone.value,
     };
     // console.log(order, 'checkout');
-    axios.post("http://localhost:5000/order", order).then((response) => {
-      const { data } = response;
-      const exists = data?.success === false;
+    axios
+      .post("https://secure-cliffs-23547.herokuapp.com/order", order)
+      .then((response) => {
+        const { data } = response;
+        const exists = data?.success === false;
 
-      if (exists) {
-        toast.error("You have already purchased this service.");
-      }
-      if (data?.insertedId) {
-        swal(
-          "Congratulations!",
-          `Well done ${user[0]?.displayName}. You have to pay ${newPrice} $`,
-          "success"
-        );
-        event.target.reset();
-        navigate("/dashboard/my-orders");
-      }
-    });
+        if (exists) {
+          toast.error("You have already purchased this service.");
+        }
+        if (data?.insertedId) {
+          swal(
+            "Congratulations!",
+            `Well done ${user[0]?.displayName}. You have to pay ${newPrice} $`,
+            "success"
+          );
+          event.target.reset();
+          navigate("/dashboard/my-orders");
+        }
+      });
   };
 
   return (

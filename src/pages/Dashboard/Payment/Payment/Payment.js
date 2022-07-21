@@ -31,7 +31,7 @@ const Payment = () => {
       `
     );
   };
-  const url = `http://localhost:5000/dashboard/payment/${_id}`;
+  const url = `https://secure-cliffs-23547.herokuapp.com/dashboard/payment/${_id}`;
   const { data: payment, isLoading } = useQuery(["booking", _id], () =>
     fetch(url, {
       method: "GET",
@@ -49,7 +49,10 @@ const Payment = () => {
   return (
     <>
       <div className={style.need__help}>
-        <h5>Need Testing Card Number For Payment <span  onClick={needHelp}>Click Here</span></h5>
+        <h5>
+          Need Testing Card Number For Payment{" "}
+          <span onClick={needHelp}>Click Here</span>
+        </h5>
         {/* <button onClick={needHelp}></button> */}
       </div>
       <div className={style.payment__container}>

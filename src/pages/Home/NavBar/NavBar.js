@@ -28,15 +28,14 @@ const NavBar = () => {
 
   console.log(admin);
 
- if(adminLoading){
-  <Loading></Loading>
- }
+  if (adminLoading) {
+    <Loading></Loading>;
+  }
 
   // const location = useLocation();
   // if (location?.pathname === `*`) {
   //   return null;
   // }
-  
 
   // if(adminLoading){
   //   toast.loading('Loading...please wait!')
@@ -51,7 +50,7 @@ const NavBar = () => {
   //   isError,
   //   error,
   // } = useQuery("users", () =>
-  //   fetch("http://localhost:5000/users", {
+  //   fetch("https://secure-cliffs-23547.herokuapp.com/users", {
   //     method: "GET",
   //     headers: {
   //       "content-type": "application/json",
@@ -126,14 +125,11 @@ const NavBar = () => {
                     About-us
                   </Nav.Link>
 
-
                   {admin && (
                     <Nav.Link as={NavLink} to="/dashboard/admin">
                       Admin-Activities
                     </Nav.Link>
                   )}
-
-
 
                   {user[0]?.uid ? (
                     <>
