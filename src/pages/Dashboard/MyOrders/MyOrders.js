@@ -72,6 +72,9 @@ const MyOrders = () => {
       }
     });
   };
+  const handleServiceStart = () =>{
+    swal("Congratulations!", "Your Service is already started!", "success");
+  }
 
   return (
     <>
@@ -129,18 +132,34 @@ const MyOrders = () => {
                     </Link>
                   </td>
                 )}
-                <td
-                  style={{
-                    color: "#fff",
-                    fontWidth: "700",
-                    cursor: "pointer",
-                    backgroundColor: "red",
-                  }}
-                  className={style.delete__field}
-                  onClick={() => handleOrderDelete(order._id)}
-                >
-                  Delete <RiDeleteBinLine style={{ fontSize: "22px" }} />
-                </td>
+
+                {order?.paid === true ? (
+                  <td
+                    style={{
+                      color: "#fff",
+                      fontWidth: "700",
+                      cursor: "pointer",
+                      backgroundColor: "green",
+                    }}
+                    className={style.delete__field}
+                    onClick={() => handleServiceStart()}
+                  >
+                    Start
+                  </td>
+                ) : (
+                  <td
+                    style={{
+                      color: "#fff",
+                      fontWidth: "700",
+                      cursor: "pointer",
+                      backgroundColor: "red",
+                    }}
+                    className={style.delete__field}
+                    onClick={() => handleOrderDelete(order._id)}
+                  >
+                    Delete <RiDeleteBinLine style={{ fontSize: "22px" }} />
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>

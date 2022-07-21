@@ -24,6 +24,7 @@ const NavBar = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [admin, adminLoading] = useAdmin(user);
+  console.log(admin);
   // const location = useLocation();
   // if (location?.pathname === `*`) {
   //   return null;

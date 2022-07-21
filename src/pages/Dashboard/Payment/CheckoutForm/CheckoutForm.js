@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { errorMessage, success } from "../../../components/Tostify/Tostify";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Loading from "../../../../Shared/Loading/Loading";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import swal from "sweetalert";
 import style from "./CheckoutForm.module.css";
@@ -12,6 +12,9 @@ const CheckoutForm = ({ payment }) => {
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
   const { _id, currentPrice, name, email } = payment;
+  console.log(payment);
+  const location = useLocation()
+  console.log(location);
 
   const navigate = useNavigate();
 
@@ -36,7 +39,7 @@ const CheckoutForm = ({ payment }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+
     if (!stripe || !elements) {
       return;
     }
@@ -98,33 +101,43 @@ const CheckoutForm = ({ payment }) => {
   };
 
   return (
-    <div className={style.credit__card}>
-      <form onSubmit={handleSubmit}>
-        <CardElement
-          options={{
-            style: {
-              base: {
-                fontSize: "16px",
-                color: "#424770",
-                "::placeholder": {
-                  color: "#aab7c4",
+    <>
+      <div
+        className={style.credit__card}
+        style={{
+          border: "2px solid gray",
+          borderRadius: ".3rem",
+          padding: "2rem 3rem",
+          backgroundColor: "#fff",
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <CardElement
+            options={{
+              style: {
+                base: {
+                  fontSize: "16px",
+                  color: "#424770",
+                  "::placeholder": {
+                    color: "#aab7c4",
+                  },
+                },
+                invalid: {
+                  color: "#9e2146",
                 },
               },
-              invalid: {
-                color: "#9e2146",
-              },
-            },
-          }}
-        />
-        <button
-          className="btn btn-primary mt-4 px-4"
-          type="submit"
-          disabled={!stripe || !clientSecret}
-        >
-          Pay <span className="ps-2">$ {currentPrice}</span>
-        </button>
-      </form>
-    </div>
+            }}
+          />
+          <button
+            className="btn btn-primary mt-4 px-4"
+            type="submit"
+            disabled={!stripe || !clientSecret}
+          >
+            Pay <span className="ps-2">$ {currentPrice}</span>
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 

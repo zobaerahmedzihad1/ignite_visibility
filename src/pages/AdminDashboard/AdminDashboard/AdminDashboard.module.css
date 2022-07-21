@@ -1,5 +1,6 @@
 .dashboard__container{
     height: 80vh;
+    margin-bottom: 5rem;
 }
 .dashboard__container h2{
     text-align: center;

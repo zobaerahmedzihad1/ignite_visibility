@@ -98,7 +98,7 @@ const UserRow = ({ user, refetch, index }) => {
             if (data?.modifiedCount > 0) {
               refetch();
               swal(
-                "Deleted !",
+                "Removed Access",
                 `Successfully removed admin access from ${user.displayName} `,
                 "success"
               );

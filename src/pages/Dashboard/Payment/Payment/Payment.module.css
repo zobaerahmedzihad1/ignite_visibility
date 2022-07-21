@@ -1,0 +1,48 @@
+.payment__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 70vh; */
+}
+.user__information{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.information{
+    border: 1px solid gray;
+    padding: 2rem 4.6rem;
+    border-radius: .3rem;
+    margin: 2rem 0;
+}
+.name{
+    font-weight: 700;
+    color: #777AF2;
+}
+.price{
+    text-decoration: underline;
+    font-weight: 700;
+    color: #777AF2;
+}
+.need__help{
+    margin: 1rem 2rem;
+    display: flex;
+    justify-content: end;
+}
+.need__help button{
+    /* border: 2px solid #777AF2; */
+    /* border-radius: .2rem; */
+    /* padding: .2rem .7rem; */
+    padding: .2rem .7rem;
+    font-weight: 700;
+    border: none;
+}
+.need__help h5{
+    padding: .2rem .7rem;
+    font-weight: 700;
+}
+.need__help h5 span{
+    text-decoration: underline;
+    color: #777AF2;
+    cursor: pointer;
+}

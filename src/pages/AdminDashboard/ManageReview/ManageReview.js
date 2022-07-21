@@ -58,9 +58,7 @@ const ManageReview = () => {
             if (data?.deletedCount > 0) {
               const remaining = reviews.filter((review) => review._id !== id);
               setReviews(remaining);
-              swal("Yes !  Your review has been deleted!", {
-                icon: "success",
-              });
+              swal("Deleted !", "Successfully review has been deleted!", "success");
             }
           });
       } else {

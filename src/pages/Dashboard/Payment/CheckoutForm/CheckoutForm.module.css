@@ -1,5 +1,8 @@
 .credit__card{
     width: 500px;
-    margin: 200px auto;
-    
+    margin: 0 auto;
+}
+.user__information{
+    border: 2px solid gray;
+    /* margin: 0 auto; */
 }

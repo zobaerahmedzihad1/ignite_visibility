@@ -19,3 +19,25 @@ const RequireAuth = ({ children }) => {
 };
 
 export default RequireAuth;
+
+// with footer
+/* 
+return (
+  <>
+    <Outlet />
+    <Footer />
+  <>
+)
+*/
+
+// without footer
+/*
+return (
+  <>
+    <outlet />
+  </>
+)
+*/
+
+// <Route element={<WithFooter />}>
+// </Route>
