@@ -1,12 +1,12 @@
 Ignite visibility : 
 
 Live Link : https://ignite-visibility-c6918.web.app/ </br>
-API Link : https://secure-cliffs-23547.herokuapp.com/
+API Link : https://secure-cliffs-23547.herokuapp.com/ </br></br>
 
-  1. Implemented user authentication system. </br>
-	2.  Users can purchase their courses.</br>
-	3. Integrated stripe card payment system. </br>
-	4. Utilized different access on dashboard for customers and admin.</br>
+1. Implemented user authentication system. </br>
+2. 2.  Users can purchase their courses.</br>
+3. Integrated stripe card payment system. </br>
+4. Utilized different access on dashboard for customers and admin.</br></br>
 
 
 Technology Used :   HTML, CSS, React, React-Bootstrap, React-Query, Firebase, Axios, 
