@@ -3,8 +3,10 @@ Ignite visibility :
 Live Link : https://ignite-visibility-c6918.web.app/ </br>
 API Link : https://secure-cliffs-23547.herokuapp.com/ </br></br>
 
+Server Side Code : https://github.com/zobaerahmedzihad1/ignite-visibility-server
+
 1. Implemented user authentication system. </br>
-2. 2.  Users can purchase their courses.</br>
+2. Users can purchase their courses.</br>
 3. Integrated stripe card payment system. </br>
 4. Utilized different access on dashboard for customers and admin.</br></br>
 
