@@ -12,4 +12,4 @@ Server Side Code : https://github.com/zobaerahmedzihad1/ignite-visibility-server
 
 
 Technology Used :   HTML, CSS, React, React-Bootstrap, React-Query, Firebase, Axios, 
-                    React-router-dom, Stripe js, Node js, Express js, mongoDb, JWT.
+                    React-router-dom, Stripe js, Node js, Express js, mongoDb, JWT, google map.
