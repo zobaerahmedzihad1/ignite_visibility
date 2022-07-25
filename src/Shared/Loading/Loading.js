@@ -1,13 +1,12 @@
 import React from "react";
 import { Spinner } from "react-bootstrap";
+import loading from "../../assets/loading1.gif";
 
 const Loading = () => {
   return (
-    <div
-      style={{ height: "300px" }}
-      className="d-flex justify-content-center align-content-center"
-    >
-      <Spinner animation="border" variant="primary" />
+    <div className="">
+      {/* <Spinner animation="border" variant="primary" /> */}
+      <img src={loading} alt="Loading..." />
     </div>
   );
 };

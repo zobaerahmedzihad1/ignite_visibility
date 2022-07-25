@@ -31,7 +31,7 @@ import Footer from "./Shared/Footer/Footer/Footer";
 
 function App() {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   return (
     <div>
       {/* {location?.key === "default" ? null : <NavBar />} */}

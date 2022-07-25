@@ -42,7 +42,7 @@ const UserRow = ({ user, refetch, index }) => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        const loading = toast.loading("Loading...Please Wait!!!");
+        const loading = toast.loading("Make admin...Please Wait!!!");
         fetch(
           `https://secure-cliffs-23547.herokuapp.com/user/admin/${user.email}`,
           {
@@ -84,7 +84,7 @@ const UserRow = ({ user, refetch, index }) => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        const loading = toast.loading("Loading...Please Wait!!!");
+        const loading = toast.loading("Remove admin...Please Wait!!!");
         fetch(
           `https://secure-cliffs-23547.herokuapp.com/user/remove-admin/${user.email}`,
           {

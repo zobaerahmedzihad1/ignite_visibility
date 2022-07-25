@@ -17,7 +17,7 @@ import Loading from "../../../Shared/Loading/Loading";
 
 const NavBar = () => {
   const user = useAuthState(auth);
-  console.log(user[0]?.photoURL);
+  // console.log(user[0]?.photoURL);
   const navigate = useNavigate();
 
   // logout modal
@@ -125,11 +125,11 @@ const NavBar = () => {
                     About-us
                   </Nav.Link>
 
-                  {admin && (
+                  {/* {admin && (
                     <Nav.Link as={NavLink} to="/dashboard/admin">
                       Admin-Activities
                     </Nav.Link>
-                  )}
+                  )} */}
 
                   {user[0]?.uid ? (
                     <>

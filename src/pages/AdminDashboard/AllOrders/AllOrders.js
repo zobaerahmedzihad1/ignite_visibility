@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
+import toast from "react-hot-toast";
+import Loading from "../../../Shared/Loading/Loading";
 import style from "./AllOrders.module.css";
 
 const AllOrders = () => {
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://secure-cliffs-23547.herokuapp.com/orders", {
+    setLoading(true);
+    const hello = fetch("https://secure-cliffs-23547.herokuapp.com/orders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
       .then((res) => res.json())
-      .then((data) => setOrders(data));
+      .then((data) => {
+        setOrders(data);
+        setLoading(false);
+      });
+    console.log(hello, "jjj");
   }, []);
+
+  if (loading) {
+    return <Loading></Loading>
+  } 
 
   const paidOrders = orders.filter((order) => order.paid === true);
 

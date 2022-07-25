@@ -1,5 +1,6 @@
 import React from "react";
-import img from "../../../../assets/profile.gif";
+// import img from "../../../../assets/profile.gif";
+import img from "../../../../assets/user.webp";
 import { Col, Row } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import style from "./ReviewCard.module.css";

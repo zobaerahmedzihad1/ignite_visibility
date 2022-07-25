@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
@@ -8,6 +8,7 @@ import { Table } from "react-bootstrap";
 
 const PaymentHistory = () => {
   const user = useAuthState(auth);
+  // const [loading, setLoading] = useState(false);
   const email = user[0]?.email;
   const {
     data: payments,
@@ -27,11 +28,12 @@ const PaymentHistory = () => {
     ).then((res) => res.json())
   );
 
-  console.log(payments, "pay");
+  // console.log(payments, "pay");
 
   if (isLoading) {
     return <Loading></Loading>;
   }
+
   if (isError) {
     return (
       <h2 style={{ color: "red", textAlign: "center", marginTop: "200px" }}>

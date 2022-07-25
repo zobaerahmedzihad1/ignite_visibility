@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Row, Col, Button, Modal } from "react-bootstrap";
 import auth from "../../../firebase.init";
+// import profile from "../../../assets/profile.gif";
+import profile from "../../../assets/user.webp";
 import style from "./Profile.module.css";
-import profile from "../../../assets/profile.gif";
 
 const Profile = () => {
   const user = useAuthState(auth);
@@ -102,7 +103,7 @@ const Profile = () => {
       <>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <h3 style={{fontWeight:'700'}}>Log Out</h3>
+            <h3 style={{ fontWeight: "700" }}>Log Out</h3>
           </Modal.Header>
           <h4 className="text-danger ps-3 py-2">
             Are you sure you want to logout ?

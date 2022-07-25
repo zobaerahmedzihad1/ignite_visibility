@@ -68,7 +68,7 @@ const AdminDashboard = () => {
                       Manage Reviews
                     </NavLink>
                   </div>
-                  <div className={style.dashboard__route}>
+                  {/* <div className={style.dashboard__route}>
                     <NavLink
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
@@ -80,9 +80,9 @@ const AdminDashboard = () => {
                       </span>
                       Add Blogs
                     </NavLink>
-                  </div>
+                  </div> */}
 
-                  {/* <div className={style.dashboard__route}>
+                  <div className={style.dashboard__route}>
                     <NavLink
                       className={(navInfo) =>
                         navInfo.isActive ? style.active : ""
@@ -95,7 +95,7 @@ const AdminDashboard = () => {
                       </span>
                       Log Out
                     </NavLink>
-                  </div> */}
+                  </div>
                   <div className={style.dashboard__route}>
                     <NavLink
                       className={(navInfo) =>

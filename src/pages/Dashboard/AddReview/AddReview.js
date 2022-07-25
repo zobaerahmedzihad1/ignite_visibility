@@ -5,6 +5,7 @@ import { success } from "../../components/Tostify/Tostify";
 import swal from "sweetalert";
 import auth from "../../../firebase.init";
 import style from "./AddReview.module.css";
+import toast from "react-hot-toast";
 
 const AddReview = () => {
   const user = useAuthState(auth);
@@ -15,6 +16,7 @@ const AddReview = () => {
     const comment = event.target.comment.value;
     event.preventDefault();
 
+    const loading = toast.loading("Processing...Please wait!");
     axios
       .post("https://secure-cliffs-23547.herokuapp.com/reviews", {
         email,
@@ -25,7 +27,7 @@ const AddReview = () => {
       .then((response) => {
         console.log(response?.data, "reviews");
         if (response?.data?.insertedId) {
-          // success('Thanks for your feedback.')
+          toast.dismiss(loading);
           swal(
             "Thank You!",
             "Your valuable feedback is successfully added!",

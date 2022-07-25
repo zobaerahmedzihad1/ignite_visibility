@@ -1,6 +1,7 @@
 import { padding } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
+import toast from "react-hot-toast";
 import { RiDeleteBinLine } from "react-icons/ri";
 import swal from "sweetalert";
 import Loading from "../../../Shared/Loading/Loading";
@@ -13,6 +14,7 @@ const ManageReview = () => {
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(5);
   const [index, setIndex] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch("https://secure-cliffs-23547.herokuapp.com/review-count")
@@ -26,12 +28,15 @@ const ManageReview = () => {
   }, []);
 
   useEffect(() => {
-    // console.log(page);
+    setLoading(true);
     fetch(
       `https://secure-cliffs-23547.herokuapp.com/manage-reviews?page=${page}&size=${size}`
     )
       .then((res) => res.json())
-      .then((data) => setReviews(data));
+      .then((data) => {
+        setReviews(data);
+        setLoading(false);
+      });
 
     if (page === 0) {
       setIndex(1);
@@ -49,6 +54,7 @@ const ManageReview = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
+        const deleteLoading = toast.loading("Deleting...Please wait!");
         fetch(`https://secure-cliffs-23547.herokuapp.com/review-delete/${id}`, {
           method: "DELETE",
           headers: {
@@ -59,6 +65,7 @@ const ManageReview = () => {
           .then((data) => {
             if (data?.deletedCount > 0) {
               const remaining = reviews.filter((review) => review._id !== id);
+              toast.dismiss(deleteLoading);
               setReviews(remaining);
               swal(
                 "Deleted !",
@@ -72,6 +79,11 @@ const ManageReview = () => {
       }
     });
   };
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div>
       <div className={style.manageReview__container}>

@@ -8,35 +8,27 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import swal from "sweetalert";
 import style from "./MyOrders.module.css";
+import Loading from "../../../Shared/Loading/Loading";
 
 const MyOrders = () => {
   const [user] = useAuthState(auth);
+  const [loading, setLoading] = useState(false);
 
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     const url = `https://secure-cliffs-23547.herokuapp.com/order?email=${user?.email}`;
-    axios.get(url).then((response) => {
-      const { data } = response;
-      setOrders(data);
-    });
+    setLoading(true);
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setOrders(data);
+        setLoading(false);
+      });
   }, [user?.email]);
 
-  // const handleOrderDelete = (id) => {
-  // fetch(`https://secure-cliffs-23547.herokuapp.com/order/${id}`, {
-  //   method: "DELETE",
-  //   headers: {
-  //     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //   },
-  // })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //   if (data.deletedCount > 0) {
-  //     const remaining = orders.filter((order) => order._id !== id);
-  //     setOrders(remaining);
-  //     success("Successfully deleted.");
-  //   }
-  // });
-  // };
+  if (loading) {
+    return <Loading />;
+  }
 
   const handleOrderDelete = (id) => {
     swal({
@@ -47,7 +39,7 @@ const MyOrders = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        const loading = toast.loading("Deleting...Please Wait!!!");
+        const loading1 = toast.loading("Deleting...Please Wait!!!");
         fetch(`https://secure-cliffs-23547.herokuapp.com/order/${id}`, {
           method: "DELETE",
           headers: {
@@ -64,7 +56,7 @@ const MyOrders = () => {
                 "Your order is successfully deleted.",
                 "success"
               );
-              toast.dismiss(loading);
+              toast.dismiss(loading1);
             }
           });
       } else {
@@ -73,7 +65,7 @@ const MyOrders = () => {
     });
   };
   const handleServiceStart = () => {
-    swal("Congratulations!", "Your Service is already started!", "success");
+    swal("Congratulations!", "Your Service is  started!", "success");
   };
 
   return (

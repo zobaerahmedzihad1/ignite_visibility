@@ -38,6 +38,7 @@ const Checkout = () => {
       phone: event.target.phone.value,
     };
     // console.log(order, 'checkout');
+    const processing = toast.loading("Processing...Please wait!");
     axios
       .post("https://secure-cliffs-23547.herokuapp.com/order", order)
       .then((response) => {
@@ -46,8 +47,10 @@ const Checkout = () => {
 
         if (exists) {
           toast.error("You have already purchased this service.");
+          toast.dismiss(processing);
         }
         if (data?.insertedId) {
+          toast.dismiss(processing);
           swal(
             "Congratulations!",
             `Well done ${user[0]?.displayName}. You have to pay ${newPrice} $`,

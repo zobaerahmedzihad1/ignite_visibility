@@ -1,5 +1,5 @@
 .review__container{
-    height: 280px;
+    height: 300px;
     width: 470px;
     background-color: #FFFFFF;
     padding: 1.5rem;
@@ -27,7 +27,7 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: blueviolet;
+    background-color: lightblue;
     margin-right: .7rem;
     cursor: pointer;
 }

@@ -1,3 +1,6 @@
+.all__orders{
+    height: 65vh;
+}
 .orders__container{
     overflow: auto;
     height: 60vh;

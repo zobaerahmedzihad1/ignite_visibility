@@ -23,7 +23,7 @@ const AllUser = () => {
   );
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return <Loading/>
   }
   if (isError) {
     return (
