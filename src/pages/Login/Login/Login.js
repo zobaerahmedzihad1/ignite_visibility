@@ -1,16 +1,15 @@
 import { Col, Container, Row } from "react-bootstrap";
 import React, { useEffect } from "react";
-import login from "../../../assets/login__image.jpg";
-import style from "./Login.module.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { errorMessage, success } from "../../components/Tostify/Tostify";
+import toast from "react-hot-toast";
 import auth from "../../../firebase.init";
 import Loading from "../../../Shared/Loading/Loading";
 import useToken from "../../../hooks/useToken";
-import toast from "react-hot-toast";
+import login from "../../../assets/login__image.jpg";
+import "react-toastify/dist/ReactToastify.css";
+import style from "./Login.module.css";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -23,7 +22,7 @@ const Login = () => {
   useEffect(() => {
     if (token) {
       if (token) {
-        success("Successfully LogIn");
+        toast.success("Successfully Login.");
         navigate(from, { replace: true });
       }
     }
@@ -44,14 +43,10 @@ const Login = () => {
     }
 
     if (error) {
-      errorMessage(error?.message);
+      toast.error(error?.message)
     }
     event.preventDefault();
   };
-  // console.log(error?.message);
-  // if (token) {
-  //   navigate(from, { replace: true });
-  // }
 
   return (
     <div className={style.login__container}>
