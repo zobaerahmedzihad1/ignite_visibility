@@ -4,7 +4,6 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import auth from "../../../firebase.init";
-import axios from "axios";
 import toast from "react-hot-toast";
 import swal from "sweetalert";
 import style from "./MyOrders.module.css";
@@ -65,7 +64,7 @@ const MyOrders = () => {
     });
   };
   const handleServiceStart = () => {
-    swal("Congratulations!", "Your Service is  started!", "success");
+    swal("Congratulations!", "Your Service is already  started!", "success");
   };
 
   return (
@@ -82,8 +81,8 @@ const MyOrders = () => {
               <th>Duration</th>
               <th>Price ($)</th>
               <th>Status</th>
-              <th>Payment</th>
-              <th>Delete</th>
+              <th>Payment Status</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -111,16 +110,17 @@ const MyOrders = () => {
                     Paid{" "}
                   </td>
                 ) : (
-                  <td>
+                  <td style={{textAlign: "center",}}>
                     <Link
                       to={`/dashboard/payment/${order._id}`}
                       style={{
                         border: "none",
                         textDecoration: "none",
                         fontWeight: "700",
+                        
                       }}
                     >
-                      Payment
+                      Pay Now
                     </Link>
                   </td>
                 )}
@@ -136,7 +136,7 @@ const MyOrders = () => {
                     className={style.delete__field}
                     onClick={() => handleServiceStart()}
                   >
-                    Start
+                    Started
                   </td>
                 ) : (
                   <td
